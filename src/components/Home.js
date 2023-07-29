@@ -1,22 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Typical from "react-typical";
-
-import makiwa from "./makiwa-hd.png";
-import maasai from "./assets/maasai.jpg";
-import transport from "./assets/transport.jpg";
+import maasai from './assets/maasai.jpg'
 import beauty from "./assets/beauty.jpg";
-import g from './assets/g.jpeg'
-import guide from './assets/guides.jpeg'
+import guide from "./assets/guides.jpeg";
+import transport from "./assets/transport.jpg";
 
 function Home() {
   return (
     <div className="home-page">
-      <main
-        className="home-section relative flex items-center justify-center"
-        style={{ backgroundImage: `url(${beauty})`, minHeight: "calc(100vh - 64px)" }}
-      >
-        <div className="home-content text-center max-w-3xl text-white">
+      <main className="home-section relative flex items-center justify-center">
+        {/* Reduced size of the background image */}
+        <img
+          src={beauty}
+          alt="Kenya Beauty"
+          className="w-1/3 rounded-lg shadow-md absolute left-0"
+        />
+
+        <div className="home-content text-dark ml-2/3 max-w-lg"> {/* Update text color to dark */}
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,6 +57,13 @@ function Home() {
             adventure starts here!
           </motion.p>
         </div>
+
+        {/* Slot for the image on the right */}
+        <img
+          src={guide} // You can replace this with the path to your desired image
+          alt="Maasai Tribe"
+          className="w-1/3 rounded-lg shadow-md absolute right-0"
+        />
       </main>
       <section className="details-section py-10">
         <div className="details-container container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
