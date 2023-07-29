@@ -6,6 +6,8 @@ import makiwa from "./makiwa-hd.png";
 import maasai from "./assets/maasai.jpg";
 import transport from "./assets/transport.jpg";
 import beauty from "./assets/beauty.jpg";
+import g from './assets/g.jpeg'
+import guide from './assets/guides.jpeg'
 
 function Home() {
   return (
