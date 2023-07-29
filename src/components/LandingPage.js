@@ -13,12 +13,12 @@ import flam from './assets/flamingoes.jpg'
 
 function LandingPage() {
   return (
-    <div className="landing-page">
-      <div className="hero-image-container relative">
+    <div className="landing-page h-screen flex flex-col">
+      <div className="hero-image-container relative flex-1">
         <img
           src={flam}
           alt="Beautiful Destination"
-          className="w-full h-auto object-cover"
+          className="w-full h-full object-cover"
         />
 
         <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
