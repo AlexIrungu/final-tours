@@ -7,7 +7,7 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { Fade } from "react-reveal"; // Import the Fade animation from react-reveal
+import { LightSpeed } from "react-reveal"; // Import the Fade animation from react-reveal
 
 import flam from './assets/flamingoes.jpg'
 
@@ -25,7 +25,7 @@ function LandingPage() {
 
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
           {/* Use the Fade animation for the text */}
-          <Fade cascade>
+          <LightSpeed cascade>
             <h1 className="text-4xl font-bold mb-4">
               <span className="text-white">Welcome to Our Beautiful Destination</span>
             </h1>
@@ -33,7 +33,7 @@ function LandingPage() {
             <Link to="/home" className="btn btn-primary px-8 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white font-bold">
               Discover Now
             </Link>
-          </Fade>
+          </LightSpeed>
         </div>
       </div>
 
