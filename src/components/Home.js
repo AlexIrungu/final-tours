@@ -1,48 +1,60 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Typical from "react-typical";
+
+import video from './video.mp4';
 import maasai from './assets/maasai.jpg'
-import beauty from "./assets/beauty.jpg";
-import guide from "./assets/guides.jpeg";
-import transport from "./assets/transport.jpg";
+import transport from './assets/transport.jpg'
 
 function Home() {
   return (
     <div className="home-page">
-      <main className="home-section relative flex items-center justify-center">
-        {/* Reduced size of the background image */}
-        <img
-          src={beauty}
-          alt="Kenya Beauty"
-          className="w-1/3 rounded-lg shadow-md absolute left-0"
-        />
+      <main className="home-section relative flex items-center">
+        {/* Video Background */}
+        <div className="video-container flex-1">
+          <video
+            src={video} // Replace with the path to your video file
+            autoPlay
+            muted
+            loop
+            playsInline // Add playsInline attribute
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-        <div className="home-content text-dark ml-2/3 max-w-lg"> {/* Update text color to dark */}
+        <div className="home-content flex-1 text-dark p-8">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
-            <Typical
-              loop={Infinity}
-              wrapper="span"
-              steps={[
-                "Welcome to Danil Scenic Tours",
-                2000,
-                "Explore the Beauty of Kenya",
-                2000,
-                "Experience Thrilling Adventures",
-                2000,
-                "Immerse Yourself in Rich Culture",
-                2000,
-              ]}
-            />
+            {/* Text Animation */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+            >
+              <Typical
+                loop={Infinity}
+                wrapper="span"
+                steps={[
+                  "Welcome to Danil Scenic Tours",
+                  2000,
+                  "Explore the Beauty of Kenya",
+                  2000,
+                  "Experience Thrilling Adventures",
+                  2000,
+                  "Immerse Yourself in Rich Culture",
+                  2000,
+                ]}
+              />
+            </motion.div>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
             className="text-lg leading-relaxed"
           >
             Immerse yourself in the wonders of our diverse landscapes, rich
@@ -57,13 +69,6 @@ function Home() {
             adventure starts here!
           </motion.p>
         </div>
-
-        {/* Slot for the image on the right */}
-        <img
-          src={guide} // You can replace this with the path to your desired image
-          alt="Maasai Tribe"
-          className="w-1/3 rounded-lg shadow-md absolute right-0"
-        />
       </main>
       <section className="details-section py-10">
         <div className="details-container container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
