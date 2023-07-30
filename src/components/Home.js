@@ -2,27 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import Typical from "react-typical";
 
-import video from './video.mp4';
-import maasai from './assets/maasai.jpg'
-import transport from './assets/transport.jpg'
+import maasai from './assets/maasai.jpg';
+import transport from './assets/transport.jpg';
 
 function Home() {
   return (
     <div className="home-page">
-      <main className="home-section relative flex items-center">
-        {/* Video Background */}
-        <div className="video-container flex-1">
-          <video
-            src={video} // Replace with the path to your video file
-            autoPlay
-            muted
-            loop
-            playsInline // Add playsInline attribute
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="home-content flex-1 text-dark p-8">
+      <main className="home-section relative grid grid-cols-2 items-center">
+        {/* Animating Text */}
+        <div className="home-content text-dark p-8">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,16 +46,21 @@ function Home() {
             className="text-lg leading-relaxed"
           >
             Immerse yourself in the wonders of our diverse landscapes, rich
-            culture, and thrilling adventures. From the pristine beaches of our
-            coastal cities to the majestic mountains and lush forests of the
-            interior, there are endless treasures to be discovered. Join us in
+            culture, and thrilling adventures. Join us in
             exploring the hidden gems and iconic landmarks that make our
             country a dream destination for travelers from all corners of the
-            world. Unravel the mysteries of history, soak in the serenity of
-            nature, and create unforgettable memories that will last a
-            lifetime. Come, be enchanted by the wonders that await you. Your
+            world. Come, be enchanted by the wonders that await you. Your
             adventure starts here!
           </motion.p>
+        </div>
+
+        {/* Image on the Right */}
+        <div className="flex justify-center">
+          <img
+            src={maasai}
+            alt="Image"
+            className="w-96 rounded-lg"
+          />
         </div>
       </main>
       <section className="details-section py-10">

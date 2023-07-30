@@ -121,6 +121,152 @@ function Service() {
               </div>
             </div>
 
+            <h1 className="text-3xl font-bold text-blue-500 mt-10 mb-4">Places to Visit</h1>
+          <p className="text-gray-700 mb-6">Explore the top tourist destinations in Kenya that will captivate your heart and soul. Discover the best of the country's natural beauty, rich culture, and awe-inspiring landmarks.</p>
+
+          <div className="accordion">
+            {/* Places to Visit */}
+            <div className={`service-card bg-white rounded-lg shadow-lg mb-4 ${activeCard === 8 ? "active" : ""}`}>
+              <div className="service-card-header cursor-pointer flex items-center justify-between px-4 py-2" onClick={() => toggleCard(8)}>
+                <h2 className="text-xl font-bold text-gray-800">National Parks</h2>
+                <img src={park} alt="National Parks" className="h-12 w-12" />
+              </div>
+              <div className={`service-card-content px-4 pb-4 ${activeCard === 8 ? "block" : "hidden"}`}>
+                <p className="text-gray-700">
+                  Being one of the best travel destinations in Africa, Kenya has about 8% of the total land mass protected area for wildlife conservation. These areas are gazetted landscapes or seascapes. This means that they have been surveyed, demarcated, and gazetted in either of the four categories namely; Marine Parks and Reserves, National Parks, National Game Reserves, and National sanctuaries.
+                  <br /><br />
+                  At Danil Scenic Tours Limited we work round the clock to ensure our clients (both local and foreign tourists) have value for money by giving them the most breathtaking and memorable travel experience in Kenya.
+                  <br /><br />
+                  Though the list is not exhaustive, some of the best places to visit are as categorized below:
+                  <br /><br />
+                  <ul>
+                    <li>Nairobi National ParK</li>
+                    <li>Aberdare National Park</li>
+                    <li>Amboseli National ParK</li>
+                    <li>South Island National Park</li>
+                    <li>Hells Gate National Park</li>
+                    {/* Add more national parks here */}
+                  </ul>
+                </p>
+                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+              </div>
+            </div>
+
+            {/* National Reserves */}
+            <div className={`service-card bg-white rounded-lg shadow-lg mb-4 ${activeCard === 8 ? "active" : ""}`}>
+              <div className="service-card-header cursor-pointer flex items-center justify-between px-4 py-2" onClick={() => toggleCard(8)}>
+                <h2 className="text-xl font-bold text-gray-800">National Reserves</h2>
+                <img src={truck} alt="National Reserves" className="h-12 w-12" />
+              </div>
+              <div className={`service-card-content px-4 pb-4 ${activeCard === 8 ? "block" : "hidden"}`}>
+                <p className="text-gray-700">
+                  Some of the best National Reserves in Kenya include:
+                  <br /><br />
+                  <ul>
+                    <li>Masai Mara National Reserve</li>
+                    <li>Malka Mari National Park</li>
+                    <li>Mwingi Game Reserve</li>
+                    <li>Nasolot National Reserve</li>
+                    <li>Samburu National Reserve</li>
+                    {/* Add more National Reserves here */}
+                  </ul>
+                </p>
+                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+              </div>
+            </div>
+
+            {/* National Marine Parks and Reserves */}
+            <div className={`service-card bg-white rounded-lg shadow-lg mb-4 ${activeCard === 9 ? "active" : ""}`}>
+              <div className="service-card-header cursor-pointer flex items-center justify-between px-4 py-2" onClick={() => toggleCard(9)}>
+                <h2 className="text-xl font-bold text-gray-800">National Marine Parks and Reserves</h2>
+                <img src={truck} alt="National Marine Parks" className="h-12 w-12" />
+              </div>
+              <div className={`service-card-content px-4 pb-4 ${activeCard === 9 ? "block" : "hidden"}`}>
+                <p className="text-gray-700">
+                  Some of the best National Marine Parks and Reserves in Kenya include:
+                  <br /><br />
+                  <ul>
+                    <li>Mombasa Marine National Park & Reserve</li>
+                    <li>Kisite Mpunguti Marine Park</li>
+                    <li>Malindi Marine National Park & Reserve</li>
+                    <li>Watamu Marine National Park & Reserve</li>
+                    {/* Add more National Marine Parks and Reserves here */}
+                  </ul>
+                </p>
+                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+              </div>
+            </div>
+
+            {/* Animal Orphanages and Sanctuaries */}
+            <div className={`service-card bg-white rounded-lg shadow-lg mb-4 ${activeCard === 10 ? "active" : ""}`}>
+              <div className="service-card-header cursor-pointer flex items-center justify-between px-4 py-2" onClick={() => toggleCard(10)}>
+                <h2 className="text-xl font-bold text-gray-800">Animal Orphanages and Sanctuaries</h2>
+                <img src={truck} alt="Animal Orphanages and Sanctuaries" className="h-12 w-12" />
+              </div>
+              <div className={`service-card-content px-4 pb-4 ${activeCard === 10 ? "block" : "hidden"}`}>
+                <p className="text-gray-700">
+                  Some of the best Animal Orphanages and Sanctuaries in Kenya include:
+                  <br /><br />
+                  <ul>
+                    <li>Nairobi Animal Orphanage</li>
+                    <li>Nairobi Safari Walk</li>
+                    <li>Lake Simbi National Sanctuary</li>
+                    <li>Kisumu Impala Sanctuary</li>
+                    {/* Add more Animal Orphanages and Sanctuaries here */}
+                  </ul>
+                </p>
+                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+              </div>
+            </div>
+
+            {/* Sceneries */}
+            <div className={`service-card bg-white rounded-lg shadow-lg mb-4 ${activeCard === 11 ? "active" : ""}`}>
+              <div className="service-card-header cursor-pointer flex items-center justify-between px-4 py-2" onClick={() => toggleCard(11)}>
+                <h2 className="text-xl font-bold text-gray-800">Sceneries</h2>
+                <img src={truck} alt="Sceneries" className="h-12 w-12" />
+              </div>
+              <div className={`service-card-content px-4 pb-4 ${activeCard === 11 ? "block" : "hidden"}`}>
+                <p className="text-gray-700">
+                  Some of the best sceneries to visit in Kenya include:
+                  <br /><br />
+                  <ul>
+                    <li>God’s Footprint (Lwayo Lwa Mulungu)</li>
+                    <li>The Mbaraki Pillar</li>
+                    <li>Marafa’s Hell Kitchen</li>
+                    <li>Lake Kapedo</li>
+                    {/* Add more sceneries here */}
+                  </ul>
+                </p>
+                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+              </div>
+            </div>
+
+            {/* Museums */}
+            <div className={`service-card bg-white rounded-lg shadow-lg mb-4 ${activeCard === 12 ? "active" : ""}`}>
+              <div className="service-card-header cursor-pointer flex items-center justify-between px-4 py-2" onClick={() => toggleCard(12)}>
+                <h2 className="text-xl font-bold text-gray-800">Museums</h2>
+                <img src={truck} alt="Museums" className="h-12 w-12" />
+              </div>
+              <div className={`service-card-content px-4 pb-4 ${activeCard === 12 ? "block" : "hidden"}`}>
+                <p className="text-gray-700">
+                  Some of the best museums to visit in Kenya include:
+                  <br /><br />
+                  <ul>
+                    <li>Nairobi National Museum</li>
+                    <li>Nairobi Gallery</li>
+                    <li>Karen Blixen Museum</li>
+                    <li>Uhuru Gardens National Monument</li>
+                    {/* Add more museums here */}
+                  </ul>
+                </p>
+                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+              </div>
+            </div>
+            
+            </div>
+
+            
+
           </div>
         </div>
       </main>
