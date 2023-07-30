@@ -16,7 +16,7 @@ const ContactForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Replace 'your_company_email' with the actual email address where you want to receive the feedback
-    const emailTo = "aleaxmuiruri@gmail.com";
+    const emailTo = "danilscenic@gmail.com";
     const subject = "Feedback from Tourism Website";
     const emailBody = `
       Name: ${formData.name}
