@@ -6,12 +6,41 @@ import guide from './assets/guides.jpeg';
 import kulture from './assets/kulture.jpg';
 import adventure from './assets/adventure.jpg';
 import tailor from './assets/tailor-made.jpg';
+import Modal from "./Modal";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Calendar from './Calendar'
+import { CSSTransition } from "react-transition-group";
 
 function Service() {
   const [activeCard, setActiveCard] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [bookingSuccess, setBookingSuccess] = useState(false);
+  const history = useHistory(); // Use the useHistory hook
 
   const toggleCard = (index) => {
-    setActiveCard(activeCard === index ? null : index);
+    setActiveCard((prevActiveCard) => (prevActiveCard === index ? null : index));
+  };
+
+  const handleBookNow = () => {
+    // Simulating a booking process with a 1.5-second delay
+    // Replace this with your actual booking logic (e.g., API calls, database updates, etc.)
+    console.log("Booking process initiated...");
+    setTimeout(() => {
+      console.log("Booking successful!");
+      setBookingSuccess(true);
+      setShowModal(true);
+      history.push("/calendar"); // Replace "/calendar" with the URL of the page you want to redirect to
+    }, 1500);
+  };
+
+  const handleBookingSuccess = () => {
+    // Redirect the user to the calendar page after the booking is successful
+    history.push("/calendar");
+    setBookingSuccess(false);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
   };
 
   return (
@@ -33,7 +62,13 @@ function Service() {
                 <p className="text-gray-700">
                   Embark on thrilling safaris to some of the world's most renowned national parks and game reserves. Witness the awe-inspiring wildlife in their natural habitats, from the majestic elephants roaming freely to the graceful big cats prowling the savannah. Our experienced guides will ensure you have a safe and rewarding encounter with Kenya's incredible wildlife.
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Book Now</button>
+                {/* Book Now button */}
+                <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -47,7 +82,13 @@ function Service() {
                 <p className="text-gray-700">
                   Sit back, relax, and enjoy the journey as we provide you with seamless and comfortable transport services. From airport transfers to road trips and inter-city travel, our modern and well-maintained vehicles will take you to your destination with ease. Travel hassle-free and make the most of your time exploring the beauty of Kenya.
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Book Now</button>
+                 {/* Book Now button */}
+                 <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -61,7 +102,13 @@ function Service() {
                 <p className="text-gray-700">
                   Our knowledgeable and passionate tour guides will be your trusted companions on your Kenyan journey. They will share fascinating stories about the country's history, culture, and traditions, enriching your travel experience. With their expertise, you'll gain a deeper understanding of Kenya's heritage and the unique characteristics of each destination.
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Book Now</button>
+                 {/* Book Now button */}
+                 <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -75,7 +122,13 @@ function Service() {
                 <p className="text-gray-700">
                   Immerse yourself in the rich cultural diversity of Kenya through our cultural experiences. Engage with local communities, witness traditional ceremonies, and learn about age-old customs that have shaped the country's identity. These interactions will provide you with a genuine insight into the vibrant tapestry of Kenyan culture.
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Book Now</button>
+                {/* Book Now button */}
+                <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -89,7 +142,13 @@ function Service() {
                 <p className="text-gray-700">
                   For the thrill-seekers, we offer a range of exciting adventure activities. From hot air balloon safaris over the Maasai Mara to exhilarating hikes up Mount Kenya and thrilling water sports along the pristine coastline, there's something to get your adrenaline pumping while enjoying Kenya's stunning landscapes.
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Book Now</button>
+                 {/* Book Now button */}
+                 <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -103,7 +162,13 @@ function Service() {
                 <p className="text-gray-700">
                   We understand that every traveler has unique preferences and interests. That's why we offer tailor-made tours, allowing you to design your dream itinerary. Whether you're a wildlife enthusiast, a cultural explorer, or a leisure traveler, we'll curate a personalized experience to match your desires.
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Book Now</button>
+                {/* Book Now button */}
+                <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -117,7 +182,13 @@ function Service() {
                 <p className="text-gray-700">
                   Experience the utmost comfort and relaxation in our carefully selected accommodations. Whether you prefer luxury lodges with stunning views or cozy eco-friendly campsites close to nature, we have options to suit every traveler's preference. Our accommodations offer warm hospitality and modern amenities, ensuring you have a restful stay after exciting days of adventure.
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Book Now</button>
+                 {/* Book Now button */}
+                 <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -148,7 +219,13 @@ function Service() {
                     {/* Add more national parks here */}
                   </ul>
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+                 {/* Book Now button */}
+                 <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -171,7 +248,13 @@ function Service() {
                     {/* Add more National Reserves here */}
                   </ul>
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+                 {/* Book Now button */}
+                 <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -193,7 +276,13 @@ function Service() {
                     {/* Add more National Marine Parks and Reserves here */}
                   </ul>
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+                {/* Book Now button */}
+                <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -215,7 +304,13 @@ function Service() {
                     {/* Add more Animal Orphanages and Sanctuaries here */}
                   </ul>
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+                 {/* Book Now button */}
+                 <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -237,7 +332,13 @@ function Service() {
                     {/* Add more sceneries here */}
                   </ul>
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+                 {/* Book Now button */}
+                 <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
@@ -259,7 +360,13 @@ function Service() {
                     {/* Add more museums here */}
                   </ul>
                 </p>
-                <button className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Learn More</button>
+                {/* Book Now button */}
+                <button
+                  onClick={handleBookNow}
+                  className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
             
@@ -270,6 +377,13 @@ function Service() {
           </div>
         </div>
       </main>
+      {/* <Calendar handleBookingSuccess={handleBookingSuccess} />
+      <CSSTransition in={bookingSuccess} timeout={300} classNames="modal-animation" unmountOnExit>
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 bg-white rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold text-gray-800">Booking is Successful!</h2>
+        </div>
+      </CSSTransition> */}
+      <Modal showModal={showModal} handleClose={handleModalClose} />
     </div>
   );
 }
