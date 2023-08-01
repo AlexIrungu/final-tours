@@ -76,6 +76,14 @@ function Navbar() {
               >
                 Contact Us
               </Link>
+              </li>
+              <li className="menu-item">
+              <Link
+                to="/calendar"
+                className="menu-link hover:text-blue-300"
+              >
+                Calendar
+              </Link>
             </li>
           </ul>
         </div>

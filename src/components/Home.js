@@ -4,6 +4,7 @@ import Typical from "react-typical";
 
 import maasai from './assets/maasai.jpg';
 import transport from './assets/transport.jpg';
+import makiwa from './makiwa-hd.png'
 
 function Home() {
   return (
@@ -57,7 +58,7 @@ function Home() {
         {/* Image on the Right */}
         <div className="flex justify-center">
           <img
-            src={maasai}
+            src={makiwa}
             alt="Image"
             className="w-96 rounded-lg"
           />

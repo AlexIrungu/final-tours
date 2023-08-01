@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Fade } from "react-reveal";
+import { Zoom } from "react-reveal";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -78,11 +80,15 @@ const ContactForm = () => {
               rows="6"
             ></textarea>
           </div>
-          <button type="submit" className="w-full btn btn-primary py-2">
-            <Fade left cascade>
-              Send
-            </Fade>
-          </button>
+          <Zoom cascade>
+        <button
+          type="submit"
+          className="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-2 rounded-lg focus:outline-none shadow-md transition-all"
+        >
+          Send
+        </button>
+      </Zoom>
+
         </Fade>
       </form>
       {/* Additional contact details section */}
@@ -91,13 +97,22 @@ const ContactForm = () => {
           <Fade bottom>Contact Details</Fade>
         </h3>
         <Fade bottom>
-          <p className="text-center">
-            Address: DanilScenicTours, Nairobi, Kenya
-            <br />
-            Phone: +254 123 456 789
-            <br />
-            Email: danilscenictours@gmail.com
-          </p>
+          <div className="text-center">
+            <p>
+              <FaMapMarkerAlt className="inline-block mr-2 text-blue-500" />
+              <span>
+                Address: P.O Box 49377-00100, Nairobi
+              </span>
+            </p>
+            <p>
+              <FaPhone className="inline-block mr-2 text-blue-500" />
+              <span>Phone: 0723 453 576</span>
+            </p>
+            <p>
+              <FaEnvelope className="inline-block mr-2 text-blue-500" />
+              <span>Email: danilscenic@gmail.com</span>
+            </p>
+          </div>
         </Fade>
       </div>
     </div>

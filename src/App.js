@@ -10,6 +10,7 @@ import Faq from './components/FAQ';
 import Service from './components/Service';
 import Gallery from './components/Gallery.js';
 import LandingPage from './components/LandingPage'
+import CalendarComponent from './components/CalendarComponent';
 
 
 
@@ -22,6 +23,8 @@ function App() {
     {
       !isLandingPage && 
       <Navbar /> }  
+      
+      
     <Switch>
       <Route path="/" exact component={LandingPage} />
       {/* <Route component={Navbar} /> */}
@@ -32,6 +35,7 @@ function App() {
       <Route path="/gallery" exact component={Gallery} />
       <Route path="/faq" exact component={Faq} />
       <Route path="/contact" exact component={ContactUs} />
+      <Route path="/calendar" exact component={CalendarComponent} />
       
     </Switch>
     </div>
