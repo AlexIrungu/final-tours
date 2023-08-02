@@ -45,7 +45,7 @@ function Home() {
             "Experience Thrilling Adventures",
             2000, // Adjust the duration for smoother transition
             "Immerse Yourself in Rich Culture",
-            2000, // Adjust the duration for smoother transition
+            2000, 
           ]}
         />
       </motion.div>
