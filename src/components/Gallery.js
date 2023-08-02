@@ -7,11 +7,11 @@ function Gallery() {
   );
 
   return (
-    <div className="gallery-wrapper flex flex-wrap justify-center">
+    <div className="gallery-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {Object.values(images).map((value, index) => (
         <div
           key={index}
-          className="gallery-item relative overflow-hidden rounded-lg shadow-md cursor-pointer m-2"
+          className="gallery-item relative overflow-hidden rounded-lg shadow-md cursor-pointer"
         >
           <img
             src={value}

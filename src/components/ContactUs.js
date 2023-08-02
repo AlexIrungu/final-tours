@@ -12,7 +12,7 @@ const ContactUs = () => {
           </div>
         </div>
       </main>
-      <footer className="footer bg-gray-800 text-white py-4">
+      <footer className="footer bg-brown-600 text-white py-4">
         <div className="container mx-auto">
           <p className="text-center">&copy; {new Date().getFullYear()} Tourism Website. All rights reserved.</p>
         </div>

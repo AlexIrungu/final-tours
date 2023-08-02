@@ -30,14 +30,17 @@ function LandingPage() {
               <span className="text-white">Welcome to Our Beautiful Destination</span>
             </h1>
             <p className="text-xl mb-6">Experience the beauty of nature, culture, and adventure.</p>
-            <Link to="/home" className="btn btn-primary px-8 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white font-bold">
-              Discover Now
-            </Link>
+            <Link
+  to="/home"
+  className="px-8 py-3 rounded-full bg-green-600 hover:bg-green-600 text-white font-bold"
+>
+  Discover Now
+</Link>
           </LightSpeed>
         </div>
       </div>
 
-      <footer className="footer py-8 bg-gray-800 text-white">
+      <footer className="footer py-8 bg-brown-600 text-white">
         <div className="footer-container container mx-auto">
           <div className="follow-container text-center mb-6">
             <h2 className="text-2xl font-bold">Follow Us</h2>

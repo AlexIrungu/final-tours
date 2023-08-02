@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "./assets/logooooooooo.jpg";
+import logo from "./logo.png";
 
 function Navbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -10,10 +10,11 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-blue-600 text-white p-2">
+    <header>
+    <nav className="bg-brown-600 text-dark p-4">
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="logo-link">
-          <img src={logo} alt="Logo" className="w-16" />
+          <img src={logo} alt="Logo" className="w-25" />
         </Link>
         <button
           className={`menu-button ${isMenuOpen ? "open" : ""}`}
@@ -69,6 +70,14 @@ function Navbar() {
                 FAQ
               </Link>
             </li>
+            {/* <li className="menu-item">
+              <Link
+                to="/tours"
+                className="menu-link hover:text-blue-300"
+              >
+                Tours
+              </Link>
+            </li> */}
             <li className="menu-item">
               <Link
                 to="/contact"
@@ -82,13 +91,14 @@ function Navbar() {
                 to="/calendar"
                 className="menu-link hover:text-blue-300"
               >
-                Calendar
+                Book With Us
               </Link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+    </header>
   );
 }
 
