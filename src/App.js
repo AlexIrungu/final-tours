@@ -11,6 +11,7 @@ import Service from './components/Service';
 import Gallery from './components/Gallery.js';
 import LandingPage from './components/LandingPage'
 import CalendarComponent from './components/CalendarComponent';
+import ToursAndPackages from './components/ToursAndPackages';
 
 
 
@@ -36,6 +37,7 @@ function App() {
       <Route path="/faq" exact component={Faq} />
       <Route path="/contact" exact component={ContactUs} />
       <Route path="/calendar" exact component={CalendarComponent} />
+      {/* <Route path="/tours" exact component={ToursAndPackages} /> */}
       
     </Switch>
     </div>

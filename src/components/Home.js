@@ -4,76 +4,76 @@ import Typical from "react-typical";
 
 import maasai from './assets/maasai.jpg';
 import transport from './assets/transport.jpg';
-// import makiwa from './makiwa-hd.png'
 import kulture from './assets/kulture.jpg'
+import lake from './assets/lakee.jpg'
+import birds from './assets/birds.jpg'
 
 function Home() {
   return (
     <div
-      className="home-page bg-cover bg-center"
-    //  style={{
-    //     backgroundImage: `url(${kulture})`, // Add parentheses around the URL
-    //   }}
+      className="home-page"
+      // style={{
+      //   backgroundImage: `url(${kulture})`,
+      //   backgroundSize: "100% 50%",
+      // }}
     >
-      <main className="home-section relative grid grid-cols-2 items-center">
-        {/* Animating Text */}
-        <div className="home-content text-dark p-8">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
-          >
-            {/* Text Animation */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
-            >
-              <Typical
-                loop={Infinity}
-                wrapper="span"
-                steps={[
-                  "Welcome to Danil Scenic Tours",
-                  2000,
-                  "Explore Scenic Wonders With Us...",
-                  2000,
-                  "Experience Thrilling Adventures",
-                  2000,
-                  "Immerse Yourself in Rich Culture",
-                  2000,
-                ]}
-              />
-            </motion.div>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-lg leading-relaxed"
-          >
-            Immerse yourself in the wonders of our diverse landscapes, rich
-            culture, and thrilling adventures. Join us in
-            exploring the hidden gems and iconic landmarks that make our
-            country a dream destination for travelers from all corners of the
-            world. Come, be enchanted by the wonders that await you. Your
-            adventure starts here!
-          </motion.p>
-        </div>
+      <main className="home-section relative grid grid-cols-1 md:grid-cols-2 items-center p-8 md:px-20 bg-cover bg-center" 
+      style={{ backgroundImage: `url(${lake})` }}
+      >
+  {/* Animating Text */}
+  <div className="home-content text-dark">
+    <motion.h1
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className="text-4xl md:text-5xl font-bold mb-4"
+    >
+      {/* Text Animation */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+      >
+        <Typical
+          loop={3}
+          wrapper="span"
+          steps={[
+            "Welcome to Danil Scenic Tours",
+            2000, // Adjust the duration for smoother transition
+            "Explore Scenic Wonders With Us...",
+            2000, // Adjust the duration for smoother transition
+            "Experience Thrilling Adventures",
+            2000, // Adjust the duration for smoother transition
+            "Immerse Yourself in Rich Culture",
+            2000, // Adjust the duration for smoother transition
+          ]}
+        />
+      </motion.div>
+    </motion.h1>
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className="text-lg leading-relaxed"
+    >
+      Immerse yourself in the wonders of our diverse landscapes, rich culture, and thrilling adventures. Join us in exploring the hidden gems and iconic landmarks that make our country a dream destination for travelers from all corners of the world. Come, be enchanted by the wonders that await you. Your adventure starts here!
+    </motion.p>
+  </div>
 
-        {/* Image on the Right */}
-        <div className="flex justify-center">
-          <img
-            src=""
-            alt="Image"
-            className="w-96 rounded-lg"
-          />
-        </div>
-      </main>
+  {/* Image on the Right */}
+  {/* <div className="flex justify-center">
+    <img
+      src={birds}
+      alt="Image"
+      className="w-96 rounded-lg"
+    />
+  </div> */}
+</main>
+
       <section className="details-section py-10">
         <div className="details-container container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <motion.div
-            className="detail bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
+            className="detail bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -88,7 +88,7 @@ function Home() {
             </p>
           </motion.div>
           <motion.div
-            className="detail bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
+            className="detail bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -106,7 +106,7 @@ function Home() {
             </p>
           </motion.div>
           <motion.div
-            className="detail bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
+            className="detail bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

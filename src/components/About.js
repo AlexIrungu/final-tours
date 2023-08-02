@@ -1,84 +1,63 @@
 import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
-import people from './assets/people.jpg';
-import k from './assets/k.jpeg';
-import wild from './assets/wilderbeastsss.jpg';
+import { FaPlay } from 'react-icons/fa';
+import aboutImage from './aboutImage.jpeg';
 
 function About() {
   const [isOpen, setOpen] = useState(false);
-  const [isOpen2, setOpen2] = useState(false);
 
   return (
-    <div>
-      <main className="about-section">
-        <div className="about-align">
-          {/* About card */}
-          <div className="about-card-container flex justify-center">
-  <div className="about-card bg-white rounded-lg shadow-lg p-6 mb-6">
-    <h1 className="text-blue-500 text-3xl font-bold mb-4">About Us</h1>
-    <p className="text-gray-700">
-    DANIL SCENIC TOURS is a private limited company registered in Kenya, It is licensed by the Tourism Regulatory Authority as a Tour operator, it provides practical support to local and Foreign tourists in Kenya and deals with various organizational aspects of a trip ranging from creating touristic packages, determining the needs of various categories of clients, and making travel arrangements (accommodation, transport, meals, tours, insurance, and so on).
-The company has competent staff members with requisite knowledge and skills in tourism.
+    <div className="bg-gray-100 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lg:text-center">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h1 className="text-4xl font-bold mb-8 text-gray-800">About Danil Scenic Tours</h1>
+            <p className="text-lg text-gray-700">
+              DANIL SCENIC TOURS is a private limited company registered in Kenya, licensed by the Tourism Regulatory Authority as a Tour operator. It provides practical support to local and foreign tourists in Kenya and deals with various organizational aspects of a trip ranging from creating touristic packages, determining the needs of various categories of clients, and making travel arrangements (accommodation, transport, meals, tours, insurance, and so on).
+            </p>
+            <p className="text-lg text-gray-700">
+              The company has competent staff members with requisite knowledge and skills in tourism, including tour guide/drivers, tour consultants, and project managers.
+            </p>
+          </div>
+        </div>
 
-The staff members include; Tour guide/drivers, Tour consultants, and Project Managers.
-    </p>
-  </div>
-</div>
-
-
-          {/* Image container */}
-          <div className="pic-container mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="about-card relative">
-              <img
-                src={k}
-                alt="Image 1"
-                className="about-image rounded-lg w-full"
-              />
-              <div className="about-card-overlay absolute top-0 left-0 w-full h-full flex items-center justify-center">
-                <a
-                  href="#play-video"
-                  onClick={() => setOpen(true)}
-                  className="text-white font-bold underline"
-                >
-                  Click to Play Video
-                </a>
-              </div>
-            </div>
-
-            <div className="about-card relative">
-              <img
-                src={wild}
-                alt="Image 2"
-                className="about-image rounded-lg w-full"
-              />
-              <div className="about-card-overlay absolute top-0 left-0 w-full h-full flex items-center justify-center">
-                <a
-                  href="#play-video"
-                  onClick={() => setOpen(true)}
-                  className="text-white font-bold underline"
-                >
-                  Click to Play Video
-                </a>
-              </div>
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Image Card */}
+          <div className="relative">
+            <img src={aboutImage} className="rounded-lg w-full" alt="" />
+            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+              <button
+                onClick={() => setOpen(true)}
+                className="text-white font-bold underline bg-blue-400 rounded-full p-4 transition duration-300 ease-in-out hover:bg-blue-600"
+              >
+                <FaPlay className="text-white text-3xl" />
+              </button>
             </div>
           </div>
 
-          {/* Additional about card */}
-          <div className="about-card about-cta-card mt-6 bg-white rounded-lg shadow-lg p-6 text-center">
-            <p className="text-gray-700">
-              Come, experience the magic of Kenya, where adventure, culture, and natural beauty await.
-              Your journey of a lifetime begins here, with us. Let's make your travel dreams a reality.
-              Welcome To Kenya.
+          {/* Text Card */}
+          <div>
+            <div className="text-3xl font-bold mb-6">Join Us at Danil Tours</div>
+            <p className="text-lg text-gray-700 mb-4">
+              Join us on a Danil Scenic Tours adventure and allow us to unlock the wonders of Kenya for you.
             </p>
-            <button className="cta-button mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">
+            <p className="text-lg text-gray-700 mb-4">
+              Get ready to create cherished memories, forge new connections, and discover the true essence of this magnificent country.
+            </p>
+            <p className="text-lg text-gray-700 mb-4">
+              Get ready to create cherished memories, forge new connections, and discover the true essence of this magnificent country.
+            </p>
+            <button
+              onClick={() => setOpen(true)}
+              className="cta-button mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
+            >
               Book Your Adventure
             </button>
           </div>
         </div>
-      </main>
+      </div>
 
       <ModalVideo channel='youtube' isOpen={isOpen} videoId='irG_Kj21c1I' onClose={() => setOpen(false)} />
-      <ModalVideo channel='youtube' isOpen={isOpen2} videoId='uayhhleFczc' onClose={() => setOpen2(false)} />
     </div>
   );
 }
