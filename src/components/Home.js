@@ -4,11 +4,17 @@ import Typical from "react-typical";
 
 import maasai from './assets/maasai.jpg';
 import transport from './assets/transport.jpg';
-import makiwa from './makiwa-hd.png'
+// import makiwa from './makiwa-hd.png'
+import kulture from './assets/kulture.jpg'
 
 function Home() {
   return (
-    <div className="home-page">
+    <div
+      className="home-page bg-cover bg-center"
+    //  style={{
+    //     backgroundImage: `url(${kulture})`, // Add parentheses around the URL
+    //   }}
+    >
       <main className="home-section relative grid grid-cols-2 items-center">
         {/* Animating Text */}
         <div className="home-content text-dark p-8">
@@ -30,7 +36,7 @@ function Home() {
                 steps={[
                   "Welcome to Danil Scenic Tours",
                   2000,
-                  "Explore the Beauty of Kenya",
+                  "Explore Scenic Wonders With Us...",
                   2000,
                   "Experience Thrilling Adventures",
                   2000,
@@ -58,7 +64,7 @@ function Home() {
         {/* Image on the Right */}
         <div className="flex justify-center">
           <img
-            src={makiwa}
+            src=""
             alt="Image"
             className="w-96 rounded-lg"
           />
