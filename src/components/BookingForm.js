@@ -17,6 +17,8 @@ function BookingForm({ handleBookNow }) {
 
   const handleSendEmail = () => {
     // Use the mailto: URL scheme to open the user's default email client with the email pre-filled
+    const from = encodeURIComponent(`${email}`)
+    const to = encodeURIComponent(`${companyEmail}`)
     const subject = encodeURIComponent(`Booking Request for ${service}`);
     const body = encodeURIComponent(`I would like to book the ${service} service.\n\nMy email: ${email}`);
     const mailtoLink = `mailto:${companyEmail}?subject=${subject}&body=${body}`;

@@ -91,7 +91,7 @@ function Navbar() {
                 to="/calendar"
                 className="menu-link hover:text-blue-300"
               >
-                Book With Us
+                Booking
               </Link>
             </li>
           </ul>
