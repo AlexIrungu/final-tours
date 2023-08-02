@@ -43,7 +43,7 @@ function LandingPage() {
             <h2 className="text-2xl font-bold">Follow Us</h2>
             <div className="social-icons mt-4">
               <a
-                href="https://twitter.com/your_twitter_handle"
+                href="https://twitter.com/@DanilScenic"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mr-4"

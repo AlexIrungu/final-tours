@@ -17,8 +17,10 @@ function About() {
   <div className="about-card bg-white rounded-lg shadow-lg p-6 mb-6">
     <h1 className="text-blue-500 text-3xl font-bold mb-4">About Us</h1>
     <p className="text-gray-700">
-      DANIL SCENIC TOURS is a private limited company registered in Kenya founded by two shareholders/directors. It is located along Northern Bypass, Ebenezer Building. Being licensed by the Tourism Regulatory Authority as a Tour operator, it provides practical support to local and Foreign tourists in Kenya and deals with various organizational aspects of a trip ranging from creating touristic packages, determining the needs of various categories of clients, and making travel arrangements (accommodation, transport, meals, tours, insurance, and so on).
-      The company has competent staff members with requisite knowledge and skills in tourism.
+    DANIL SCENIC TOURS is a private limited company registered in Kenya, It is licensed by the Tourism Regulatory Authority as a Tour operator, it provides practical support to local and Foreign tourists in Kenya and deals with various organizational aspects of a trip ranging from creating touristic packages, determining the needs of various categories of clients, and making travel arrangements (accommodation, transport, meals, tours, insurance, and so on).
+The company has competent staff members with requisite knowledge and skills in tourism.
+
+The staff members include; Tour guide/drivers, Tour consultants, and Project Managers.
     </p>
   </div>
 </div>

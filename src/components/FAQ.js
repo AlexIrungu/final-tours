@@ -3,6 +3,21 @@ import React, { useState } from "react";
 function Faq() {
   const faqData = [
     {
+      question: "CAN I CUSTOMIZE MY ITINERARY?",
+      answer:
+        "Yes, absolutely! At Danil Scenic Tours, we specialize in creating customized itineraries tailored to your preferences. We work closely with you to understand your interests, travel goals, and budget, and then design a personalized itinerary that suits your needs. Your trip to Kenya will be crafted according to your preferences, ensuring an unforgettable experience.",
+    },
+    {
+      question: "WHAT DESTINATIONS IN KENYA DO YOU OFFER TOURS TO?",
+      answer:
+        "Our tour packages are designed to provide a comprehensive and hassle-free experience. Depending on the specific itinerary, our packages typically include accommodations, meals as specified, transportation within Kenya, park and entrance fees, experienced guides, and activities mentioned in the itinerary. Any additional inclusions or exclusions will be clearly outlined in the tour package details provided to you.",
+    },
+    {
+      question: "",
+      answer:
+        "Some popular tourist destinations in Kenya are Maasai Mara National Reserve, Amboseli National Park, Tsavo National Park, and the coastal cities of Mombasa and Malindi.",
+    },
+    {
       question: "What are the popular tourist destinations in Kenya?",
       answer:
         "Some popular tourist destinations in Kenya are Maasai Mara National Reserve, Amboseli National Park, Tsavo National Park, and the coastal cities of Mombasa and Malindi.",
