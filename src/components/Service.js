@@ -8,6 +8,7 @@ import adventure from './assets/adventure.jpg';
 import tailor from './assets/tailor-made.jpg';
 import Modal from "./Modal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// import Map from "./Map";
 import { CSSTransition } from "react-transition-group";
 
 function Service() {
@@ -17,6 +18,8 @@ function Service() {
   const [showModal, setShowModal] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
   const history = useHistory(); // Use the useHistory hook
+  const [searchLocation, setSearchLocation] = useState([-1.2921, 36.8219]);
+
 
   const toggleCard = (title, image) => {
     setActiveCard((prevActiveCard) => (prevActiveCard === title ? null : title));
@@ -50,7 +53,7 @@ function Service() {
     <div className={`service-card bg-white rounded-lg shadow-lg ${activeCard === title ? "active" : ""}`}>
       <div className="service-card-header cursor-pointer flex items-center justify-between px-4 py-2" onClick={() => toggleCard(title)}>
         <h2 className="text-xl font-bold text-gray-800">{title}</h2>
-        <img src={image} alt={title} className="h-12 w-12" />
+        <img src={image} alt={title} className="h-32 w-32" />
       </div>
       <div className={`service-card-content px-4 pb-4 ${activeCard === title ? "block" : "hidden"}`}>
         <p className="text-gray-700">{description}</p>
@@ -114,6 +117,7 @@ function Service() {
           <p className="text-gray-700 mb-6">Explore the top tourist destinations in Kenya that will captivate your heart and soul. Discover the best of the country's natural beauty, rich culture, and awe-inspiring landmarks.</p>
 
           <div className="grid grid-cols-2 gap-4">
+            {/* <Map searchLocation={searchLocation} /> */}
           <ServiceCard
               image={park}
               title="National Parks"
@@ -154,11 +158,11 @@ function Service() {
           </div>
 
            {/* Display the selected service image */}
-           {selectedServiceImage && (
+           {/* {selectedServiceImage && (
             <div className="selected-service-image fixed top-9 left-9 w-screen h-screen flex justify-center items-center bg-black bg-opacity-75">
               <img src={selectedServiceImage} alt="Selected Service" className="max-w-full max-h-full" />
             </div>
-          )}
+          )} */}
         </div>
       </main>
       {/* <Calendar handleBookingSuccess={handleBookingSuccess} />

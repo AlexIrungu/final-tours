@@ -7,6 +7,13 @@ import transport from './assets/transport.jpg';
 import kulture from './assets/kulture.jpg'
 import lake from './assets/lakee.jpg'
 import birds from './assets/birds.jpg'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 function Home() {
   return (
@@ -70,6 +77,8 @@ function Home() {
   </div> */}
 </main>
 
+
+
       <section className="details-section py-10">
         <div className="details-container container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <motion.div
@@ -125,6 +134,51 @@ function Home() {
           </motion.div>
         </div>
       </section>
+
+      <footer className="footer py-8 bg-brown-600 text-white">
+        <div className="footer-container container mx-auto">
+          <div className="follow-container text-center mb-6">
+            <h2 className="text-2xl font-bold">Follow Us</h2>
+            <div className="social-icons mt-4">
+              <a
+                href="https://twitter.com/@DanilScenic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-4"
+              >
+                <FontAwesomeIcon icon={faTwitter} className="text-white text-2xl" />
+              </a>
+              <a
+                href="https://www.facebook.com/your_facebook_page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-4"
+              >
+                <FontAwesomeIcon icon={faFacebook} className="text-white text-2xl" />
+              </a>
+              <a
+                href="https://www.instagram.com/your_instagram_handle"
+                target="_alexirungu"
+                rel="noopener noreferrer"
+                className="mr-4"
+              >
+                <FontAwesomeIcon icon={faInstagram} className="text-white text-2xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/your_linkedin_profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-4"
+              >
+                <FontAwesomeIcon icon={faLinkedin} className="text-white text-2xl" />
+              </a>
+            </div>
+          </div>
+          <div className="text-center">
+            <p>&copy; {new Date().getFullYear()} Tourism Website. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
