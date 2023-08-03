@@ -60,7 +60,7 @@ function About() {
             </p>
             <button
               onClick={toggleBookAdventureModal}
-              className="cta-button mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
+              className="cta-button mt-4 bg-brown-600 text-customWhite font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
             >
               Book Your Adventure
             </button>
