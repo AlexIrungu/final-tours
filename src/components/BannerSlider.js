@@ -8,7 +8,7 @@ import zeb from './zeb.jpg'
 const slides = [
   {
     background: `url(${adv})`,
-    title: "",
+    title: "Explore Scenic Wonders With Us",
     content:
       "",
     link: "/about",
@@ -16,7 +16,7 @@ const slides = [
   },
   {
     background: `url(${ele})`,
-    title: "",
+    title: "Life-long Memories Just a Click Away",
     content:
       "",
     link: "/gallery",
@@ -24,7 +24,7 @@ const slides = [
   },
   {
     background: `url(${zeb})`,
-    title: "",
+    title: "Discover the Colorful World",
     content:
       "",
     link: "/service",
@@ -65,9 +65,11 @@ const BannerSlider = () => {
           <div className="row h-full md:items-center">
             <div className="col-md-10 col-12 mx-auto">
               <div className="banner-content text-center py-20 md:py-0">
+                <div className="mb-4 absolute top-0 left-0 right-0 p-8 text-center ">
                 <h4 className="text-white text-lg md:text-xl lg:text-2xl mb-4 font-semibold uppercase tracking-wider">
                   {slide.title}
                 </h4>
+                </div>
                 <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                   {slide.heading}
                 </h1>
