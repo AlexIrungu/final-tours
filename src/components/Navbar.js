@@ -28,9 +28,9 @@ const Navbar = () => {
           </svg>
         </button>
         <div
-          className={`menu ${isMenuOpen ? "block" : "hidden"} sm:flex sm:items-center`}
+          className={`menu sm:flex ${isMenuOpen ? "block" : "hidden"}`}
         >
-          <ul className="menu-list flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+          <ul className="menu-list flex space-x-4">
             <li className="menu-item">
               <Link to="/home" className="menu-link hover:text-blue-300">
                 Home
