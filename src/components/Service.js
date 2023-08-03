@@ -52,7 +52,7 @@ function Service() {
   const ServiceCard = ({ image, title, description }) => (
     <div className={`service-card bg-white rounded-lg shadow-lg ${activeCard === title ? "active" : ""}`}>
       <div className="service-card-header cursor-pointer flex items-center justify-between px-4 py-2" onClick={() => toggleCard(title)}>
-        <h2 className="text-xl font-bold text-gray-800">{title}</h2>
+        <h2 className="text-l font-semibold text-brown-600">{title}</h2>
         <img src={image} alt={title} className="h-32 w-32" />
       </div>
       <div className={`service-card-content px-4 pb-4 ${activeCard === title ? "block" : "hidden"}`}>
