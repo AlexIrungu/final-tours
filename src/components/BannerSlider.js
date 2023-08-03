@@ -66,7 +66,7 @@ const BannerSlider = () => {
             <div className="col-md-10 col-12 mx-auto">
               <div className="banner-content text-center py-20 md:py-0">
                 <div className="mb-4 absolute top-0 left-0 right-0 p-8 text-center ">
-                <h4 className="text-white text-lg md:text-xl lg:text-2xl mb-4 font-semibold uppercase tracking-wider">
+                <h4 className="text-customWhite text-lg md:text-xl lg:text-2xl mb-4 font-semibold uppercase tracking-wider">
                   {slide.title}
                 </h4>
                 </div>
