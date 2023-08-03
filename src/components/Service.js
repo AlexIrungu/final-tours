@@ -60,7 +60,7 @@ function Service() {
         {/* Book Now button */}
         <button
           onClick={handleBookNow}
-          className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg"
+          className="mt-4 bg-orange-700 text-white font-bold py-2 px-4 rounded-lg"
         >
           Book Now
         </button>
@@ -72,7 +72,7 @@ function Service() {
     <div className="service-page">
       <main className="service-section">
         <div className="service-container">
-          <h1 className="text-3xl font-bold text-blue-500 mb-4">Our Services</h1>
+          <h1 className="text-3xl font-bold text-orange-700 mb-4">Our Services</h1>
           <p className="text-gray-700 mb-6">Our mission is to showcase the breathtaking beauty and rich cultural heritage of Kenya, allowing you to explore its diverse landscapes and immerse yourself in the wonders of this enchanting country.</p>
 
           <div className="grid grid-cols-2 gap-4">
@@ -113,7 +113,7 @@ function Service() {
             />
           </div>
 
-          <h1 className="text-3xl font-bold text-blue-500 mt-10 mb-4">Places to Visit</h1>
+          <h1 className="text-3xl font-bold text-orange-700 mt-10 mb-4">Places to Visit</h1>
           <p className="text-gray-700 mb-6">Explore the top tourist destinations in Kenya that will captivate your heart and soul. Discover the best of the country's natural beauty, rich culture, and awe-inspiring landmarks.</p>
 
           <div className="grid grid-cols-2 gap-4">
