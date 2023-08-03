@@ -79,7 +79,7 @@ const BannerSlider = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
                 <Link
                   to={slide.link}
-                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors duration-300 text-lg md:text-xl lg:text-2xl inline-flex items-center mt-6 font-semibold "
+                  className="px-8 py-3 rounded-full bg-green-600 hover:bg-green-600 text-white font-bold "
                 >
                   {slide.linkText}
                   <FontAwesomeIcon icon="arrow-right" className="ml-2" />

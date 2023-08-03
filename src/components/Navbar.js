@@ -30,7 +30,7 @@ const Navbar = () => {
         <div
           className={`menu lg:flex ${isMenuOpen ? "block" : "show"} transition-all duration-500`}
         >
-          <ul className="menu-list flex space-x-4 lg:space-x-8">
+          <ul className="menu-list flex space-x-4 lg:space-x-8 font-bold">
             <li className="menu-item">
               <Link to="/home" className="menu-link hover:text-green-600">
                 Home
