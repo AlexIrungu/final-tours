@@ -184,7 +184,7 @@ function Home() {
                 <FontAwesomeIcon icon={faTwitter} className="text-white text-2xl" />
               </a>
               <a
-                href="https://www.facebook.com/your_facebook_page"
+                href="https://www.facebook.com/profile.php?id=100095626382188"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mr-4"
