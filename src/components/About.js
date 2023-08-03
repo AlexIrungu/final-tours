@@ -67,7 +67,7 @@ function About() {
           </div>
         </div>
       </div>
-
+      <div className='py-10'>
       {/* Play Icon Modal */}
     <ModalVideo
       channel="youtube"
@@ -83,6 +83,7 @@ function About() {
       videoId="ZFSZb-P4noU"
       onClose={toggleBookAdventureModal}
     />
+    </div>
     </div>
   );
 }
