@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import Typical from "react-typical";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
-import maasai from './assets/maasai.jpg';
+import maasai from './maasai.jpg';
 import transport from './assets/transport.jpg';
-import kulture from './assets/kulture.jpg'
+import kulture from './kulture.jpg'
 import lake from './assets/lakee.jpg'
 // import birds from './assets/birds.jpg'
 import beauty from './assets/beauty.jpg'
@@ -110,7 +110,7 @@ function Home() {
 
           <Link to="/gallery">
           <motion.div
-            className="detail bg-green-500 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
+            className="detail bg-brown-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -128,7 +128,7 @@ function Home() {
 
           <Link to="/service">
           <motion.div
-            className="detail bg-green-500 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
+            className="detail bg-brown-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -149,7 +149,7 @@ function Home() {
 
           <Link to="/calendar">
           <motion.div
-            className="detail bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
+            className="detail bg-brown-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

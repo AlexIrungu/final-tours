@@ -4,7 +4,18 @@ import { FaPlay } from 'react-icons/fa';
 import aboutImage from './aboutImage.jpeg';
 
 function About() {
-  const [isOpen, setOpen] = useState(false);
+  const [isPlayIconOpen, setPlayIconOpen] = useState(false);
+  const [isBookAdventureOpen, setBookAdventureOpen] = useState(false);
+
+  // Function to handle opening and closing the Play Icon modal
+  const togglePlayIconModal = () => {
+    setPlayIconOpen((prevState) => !prevState);
+  };
+
+  // Function to handle opening and closing the Book Adventure modal
+  const toggleBookAdventureModal = () => {
+    setBookAdventureOpen((prevState) => !prevState);
+  };
 
   return (
     <div className="bg-green-100 py-12">
@@ -27,7 +38,7 @@ function About() {
             <img src={aboutImage} className="rounded-lg w-full" alt="" />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
               <button
-                onClick={() => setOpen(true)}
+                onClick={togglePlayIconModal}
                 className="text-white font-bold underline bg-blue-400 rounded-full p-4 transition duration-300 ease-in-out hover:bg-blue-600"
               >
                 <FaPlay className="text-white text-3xl" />
@@ -48,7 +59,7 @@ function About() {
               Get ready to create cherished memories, forge new connections, and discover the true essence of this magnificent country.
             </p>
             <button
-              onClick={() => setOpen(true)}
+              onClick={toggleBookAdventureModal}
               className="cta-button mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
             >
               Book Your Adventure
@@ -57,7 +68,21 @@ function About() {
         </div>
       </div>
 
-      <ModalVideo channel='youtube' isOpen={isOpen} videoId='irG_Kj21c1I' onClose={() => setOpen(false)} />
+      {/* Play Icon Modal */}
+    <ModalVideo
+      channel="youtube"
+      isOpen={isPlayIconOpen}
+      videoId="irG_Kj21c1I"
+      onClose={togglePlayIconModal}
+    />
+
+    {/* Book Adventure Modal */}
+    <ModalVideo
+      channel="youtube"
+      isOpen={isBookAdventureOpen}
+      videoId="ZFSZb-P4noU"
+      onClose={toggleBookAdventureModal}
+    />
     </div>
   );
 }
