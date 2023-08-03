@@ -31,55 +31,56 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-form border rounded-lg p-4">
+    <div className="contact-form  rounded-lg p-4">
       <h2 className="text-center text-2xl font-bold mb-4">
-        <Fade top>Contact Us</Fade>
+        <Fade top>Let's Chat</Fade>
       </h2>
       <form onSubmit={handleSubmit}>
         {/* Use the Fade animation for the form fields */}
         <Fade bottom>
-          <div className="form-group mb-4">
-            <label htmlFor="name" className="block mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 border rounded-md"
-            />
-          </div>
-          <div className="form-group mb-4">
-            <label htmlFor="email" className="block mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 border rounded-md"
-            />
-          </div>
-          <div className="form-group mb-4">
-            <label htmlFor="feedback" className="block mb-2">
-              Feedback
-            </label>
-            <textarea
-              id="feedback"
-              name="feedback"
-              value={formData.feedback}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 border rounded-md"
-              rows="6"
-            ></textarea>
-          </div>
+        <div className="form-group mb-4 ">
+  <label htmlFor="name" className="block mb-2">
+    Name
+  </label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    value={formData.name}
+    onChange={handleChange}
+    required
+    className="w-full px-3 py-2 border rounded-md border-solid border-brown-600 border-opacity-75"
+  />
+</div>
+<div className="form-group mb-4">
+  <label htmlFor="email" className="block mb-2">
+    Email
+  </label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    required
+    className="w-full px-3 py-2 border rounded-md border-solid border-brown-600 border-opacity-75"
+  />
+</div>
+<div className="form-group mb-4">
+  <label htmlFor="feedback" className="block mb-2">
+    Feedback
+  </label>
+  <textarea
+    id="feedback"
+    name="feedback"
+    value={formData.feedback}
+    onChange={handleChange}
+    required
+    className="w-full px-3 py-2 border rounded-md border-solid border-brown-600 border-opacity-75"
+    rows="6"
+  ></textarea>
+</div>
+
           <Zoom cascade>
         <button
           type="submit"
