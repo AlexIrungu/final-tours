@@ -5,6 +5,7 @@ module.exports = {
     extend: {},
     colors: {
       // Add the brown color to the colors object
+      customWhite: '#FFFFFF',
       brown: {
         600: '#8B4513', // Replace this hex code with the brown color you want
       },
