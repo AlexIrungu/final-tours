@@ -8,6 +8,10 @@ import adventure from './adventure.jpg';
 import tailor from './tailor-made.jpg';
 import Modal from "./Modal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import nick from './nick.jpg'
+import muze from './muze.jpg'
+import orphan from './orphan.jpg'
+import reserve from './reserve.jpg'
 // import Map from "./Map";
 import { CSSTransition } from "react-transition-group";
 
@@ -125,7 +129,7 @@ function Service() {
             />
 
             <ServiceCard
-              image={lake}
+              image={reserve}
               title="National Reserves"
               description="Discover the beauty of Kenya's national reserves, home to various wildlife and stunning landscapes. Visit the Masai Mara National Reserve, Malka Mari National Park, Mwingi Game Reserve, Nasolot National Reserve, Samburu National Reserve, Kakamega Forest National Reserve, Bisanadi National Reserve, Shimba Hills National Reserve, Mwea National Reserve, Rahole National Reserve, Arawale National Reserve, Boni National Reserve, Buffalo Springs National Reserve, Dodori National Reserve, Lake Bogoria National Reserve, and Rimoi National Reserve."
             />
@@ -137,19 +141,19 @@ function Service() {
             />
 
             <ServiceCard
-              image={kulture}
+              image={orphan}
               title="Animal Orphanages and Sanctuaries"
               description="Get up close with Kenya's wildlife conservation efforts by visiting animal orphanages and sanctuaries. Visit the Nairobi Animal Orphanage, Nairobi Safari Walk, Lake Simbi National Sanctuary, Kisumu Impala Sanctuary, and Mwaluganje Elephant Sanctuary."
             />
 
             <ServiceCard
-              image={adventure}
+              image={nick}
               title="Scenic Spots"
               description="Immerse yourself in the breathtaking beauty of Kenya's scenic spots. Witness God’s Footprint (Lwayo Lwa Mulungu), The Mbaraki Pillar, Marafa’s Hell's Kitchen, Lake Kapedo, Eliye Beach, Kyamwilu Hill, Takawiri Island, and Mzima Springs, and experience the magic of nature."
             />
 
             <ServiceCard
-              image={tailor}
+              image={muze}
               title="Museums"
               description="Delve into Kenya's rich history and cultural heritage by visiting its museums. Discover the Nairobi National Museum, Nairobi Gallery, Karen Blixen Museum, Uhuru Gardens National Monument, Hyrax Hill Museum, Kariandusi Archaeological Site, Nyeri Museum, Olorgesailie Pre-historic Site, Thimlich Ohinga Archaeological Site, Fort Jesus, Gede Ruins, Kapenguria Museum, Bomas of Kenya, Lamu Museum, National Archives, Nairobi Railway Museum, and Oloolua Nature Trail."
             />
