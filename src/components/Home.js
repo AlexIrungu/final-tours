@@ -62,7 +62,7 @@ function Home() {
       className="text-4xl md:text-5xl font-bold mb-4"
     >
       {/* Text Animation */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.8 }}
@@ -81,7 +81,7 @@ function Home() {
             2000, 
           ]}
         />
-      </motion.div>
+      </motion.div> */}
     </motion.h1>
     {/* <motion.p
       initial={{ opacity: 0, y: 20 }}
