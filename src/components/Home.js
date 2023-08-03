@@ -209,7 +209,7 @@ function Home() {
               </a>
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-center font-bold">
             <p>&copy; {new Date().getFullYear()} Danil Scenic Tours. All rights reserved.</p>
           </div>
         </div>
