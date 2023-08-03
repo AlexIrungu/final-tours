@@ -13,6 +13,7 @@ import buffalo from './assets/buffalo.jpeg'
 import cheetah from './assets/cheetah.jpg'
 import d from './assets/d.jpeg'
 import elephant from './assets/elephant.jpeg'
+import BannerSlider from "./BannerSlider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -47,19 +48,16 @@ function Home() {
       //   backgroundSize: "100% 50%",
       // }}
     >
-      <main className="home-section relative grid grid-cols-1 md:grid-cols-2 items-center p-8 md:px-20 bg-cover bg-center" 
-      style={{ backgroundImage: `url(${slideshowImages[currentSlide]})`,
-     width: "100%", // Set the width of the background image
-     height: "500px", // Set the height of the background image 
-    }}
-      >
+      <BannerSlider />
+      <div className="page py-10">
+      <main className="home-section relative grid grid-cols-1 md:grid-cols-2 items-center p-8 md:px-20 bg-cover bg-center">
   {/* Animating Text */}
-  <div className="home-content text-dark">
+  <div className="home-content text-dark md:order-2">
     <motion.h1
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="text-4xl md:text-5xl font-bold mb-4"
+      className="text-5xl md:text-6xl font-bold mb-4 leading-tight"
     >
       {/* Text Animation */}
       {/* <motion.div
@@ -83,25 +81,27 @@ function Home() {
         />
       </motion.div> */}
     </motion.h1>
-    {/* <motion.p
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+    <motion.p
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1 }}
-      className="text-lg leading-relaxed text-dark"
+      className="text-xl md:text-2xl leading-relaxed text-dark"
     >
       Immerse yourself in the wonders of our diverse landscapes, rich culture, and thrilling adventures. Join us in exploring the hidden gems and iconic landmarks that make our country a dream destination for travelers from all corners of the world. Come, be enchanted by the wonders that await you. Your adventure starts here!
-    </motion.p> */}
+    </motion.p>
   </div>
 
   {/* Image on the Right */}
-  {/* <div className="flex justify-center">
+  <div className="flex justify-center md:order-1">
     <img
-      src={birds}
+      src={slideshowImages[currentSlide]}
       alt="Image"
       className="w-96 rounded-lg"
     />
-  </div> */}
+  </div>
 </main>
+
+</div>
 
 
 
