@@ -69,7 +69,7 @@ const Navbar = () => {
             </li>
             <li className="menu-item">
               <Link to="/calendar" className="menu-link hover:text-blue-300">
-                Booking
+                Book Now
               </Link>
             </li>
           </ul>
