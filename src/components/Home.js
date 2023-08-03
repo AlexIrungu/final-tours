@@ -50,7 +50,7 @@ function Home() {
       <main className="home-section relative grid grid-cols-1 md:grid-cols-2 items-center p-8 md:px-20 bg-cover bg-center" 
       style={{ backgroundImage: `url(${slideshowImages[currentSlide]})`,
      width: "100%", // Set the width of the background image
-     height: "400px", // Set the height of the background image 
+     height: "500px", // Set the height of the background image 
     }}
       >
   {/* Animating Text */}
@@ -62,7 +62,7 @@ function Home() {
       className="text-4xl md:text-5xl font-bold mb-4"
     >
       {/* Text Animation */}
-      {/* <motion.div
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.8 }}
@@ -81,16 +81,16 @@ function Home() {
             2000, 
           ]}
         />
-      </motion.div> */}
+      </motion.div>
     </motion.h1>
-    <motion.p
+    {/* <motion.p
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
       className="text-lg leading-relaxed text-dark"
     >
       Immerse yourself in the wonders of our diverse landscapes, rich culture, and thrilling adventures. Join us in exploring the hidden gems and iconic landmarks that make our country a dream destination for travelers from all corners of the world. Come, be enchanted by the wonders that await you. Your adventure starts here!
-    </motion.p>
+    </motion.p> */}
   </div>
 
   {/* Image on the Right */}
