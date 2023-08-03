@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
-import './Navbar.css'
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -17,11 +16,11 @@ const Navbar = () => {
           <img src={logo} alt="Logo" className="w-25" />
         </Link>
         <button
-          className={`menu-button ${isMenuOpen ? "open" : ""}`}
+          className={`menu-button show-menu-button lg:hidden`}
           onClick={toggleMenu}
         >
           <svg
-            className="menu-icon w-6 h-6 fill-current"
+            className={`w-6 h-6 fill-current ${isMenuOpen ? "text-white" : "text-black"}`}
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -29,50 +28,50 @@ const Navbar = () => {
           </svg>
         </button>
         <div
-          className={`menu sm:flex ${isMenuOpen ? "block" : "hidden"}`}
+          className={`menu lg:flex ${isMenuOpen ? "block" : "show"} transition-all duration-500`}
         >
-          <ul className="menu-list flex space-x-4">
+          <ul className="menu-list flex space-x-4 lg:space-x-8">
             <li className="menu-item">
-              <Link to="/home" className="menu-link hover:text-blue-300">
+              <Link to="/home" className="menu-link hover:text-green-600">
                 Home
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/about" className="menu-link hover:text-blue-300">
+              <Link to="/about" className="menu-link hover:text-green-600">
                 About
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/service" className="menu-link hover:text-blue-300">
+              <Link to="/service" className="menu-link hover:text-green-600">
                 Service
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/gallery" className="menu-link hover:text-blue-300">
+              <Link to="/gallery" className="menu-link hover:text-green-600">
                 Gallery
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/faq" className="menu-link hover:text-blue-300">
+              <Link to="/faq" className="menu-link hover:text-green-600">
                 FAQ
               </Link>
             </li>
             {/* Uncomment this section when you have the "Tours" page */}
             {/* <li className="menu-item">
-              <Link to="/tours" className="menu-link hover:text-blue-300">
+              <Link to="/tours" className="menu-link hover:text-green-600">
                 Tours
               </Link>
             </li> */}
             <li className="menu-item">
-              <Link to="/contact" className="menu-link hover:text-blue-300">
+              <Link to="/contact" className="menu-link hover:text-green-600">
                 Contact Us
               </Link>
             </li>
-            <li className="menu-item">
-              <Link to="/calendar" className="menu-link hover:text-blue-300">
+            {/* <li className="menu-item">
+              <Link to="/calendar" className="menu-link hover:text-green-600">
                 Book Now
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
