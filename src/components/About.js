@@ -72,7 +72,7 @@ function About() {
     <ModalVideo
       channel="youtube"
       isOpen={isPlayIconOpen}
-      videoId="irG_Kj21c1I"
+      videoId="OUNCrtxLMLM"
       onClose={togglePlayIconModal}
     />
 
