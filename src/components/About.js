@@ -55,9 +55,9 @@ function About() {
             <p className="text-lg text-gray-700 mb-4">
               Get ready to create cherished memories, forge new connections, and discover the true essence of this magnificent country.
             </p>
-            <p className="text-lg text-gray-700 mb-4">
+            {/* <p className="text-lg text-gray-700 mb-4">
               Get ready to create cherished memories, forge new connections, and discover the true essence of this magnificent country.
-            </p>
+            </p> */}
             <button
               onClick={toggleBookAdventureModal}
               className="cta-button mt-4 bg-brown-600 text-customWhite font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"

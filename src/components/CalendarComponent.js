@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { Transition } from '@headlessui/react';
 import BookingForm from './BookingForm';
-import memory from './memory.jpeg'
+import booking from './booking.jpg'
 
 function CalendarComponent() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -47,7 +47,7 @@ function CalendarComponent() {
           {/* Images */}
           <div className="w-full md:w-1/2 p-4">
             <img
-              src={memory}
+              src={booking}
               alt="Booking Service"
               className="w-full rounded-lg shadow-lg"
             />

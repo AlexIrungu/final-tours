@@ -12,6 +12,7 @@ import Gallery from './components/Gallery.js';
 import LandingPage from './components/LandingPage'
 import CalendarComponent from './components/CalendarComponent';
 import ToursAndPackages from './components/ToursAndPackages';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 
 
@@ -37,7 +38,7 @@ function App() {
       <Route path="/faq" exact component={Faq} />
       <Route path="/contact" exact component={ContactUs} />
       <Route path="/calendar" exact component={CalendarComponent} />
-      {/* <Route path="/tours" exact component={ToursAndPackages} /> */}
+      <Route path="/privacy" exact component={PrivacyPolicy} /> 
       
     </Switch>
     </div>

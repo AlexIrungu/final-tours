@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Fade } from "react-reveal";
 import { Zoom } from "react-reveal";
-import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaLock } from "react-icons/fa";
+import { Link } from 'react-router-dom'
+import PrivacyPolicy from "./PrivacyPolicy";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -110,9 +112,23 @@ const ContactForm = () => {
               <span>Phone: 0723 453 576</span>
             </p>
             <p>
+          <FaWhatsapp className="inline-block mr-2 text-green-500" />
+          <span>WhatsApp: +254 723 453 576</span>
+        </p>
+            <p>
               <FaEnvelope className="inline-block mr-2 text-blue-500" />
               <span>Email: danilscenic@gmail.com</span>
             </p>
+            <p className="mt-4">
+          <FaLock className="inline-block mr-2 text-blue-500" />
+          <span>
+            By using this form you agree with the storage and handling of your data by this website in accordance with our{" "}
+            <Link to="/privacy" className="text-blue-500 underline">
+              Privacy Policy
+            </Link>
+          </span>
+        </p>
+
           </div>
         </Fade>
       </div>
