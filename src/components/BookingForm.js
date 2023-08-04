@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
 
-
-
-function BookingForm({ handleBookNow }) {
+const BookingForm = ({ handleBookNow }) => {
   const [email, setEmail] = useState('');
   const [service, setService] = useState('');
-  const companyEmail = 'danilscenic@gmail.com'; // Remove the companyEmail state
+  const companyEmail = 'danilscenic@gmail.com';
+
+  const serviceOptions = [
+    'Airport Transfers ',
+    'Excursions',
+    'Car Hire',
+    'Air Tickets',
+    'National Marine Parks',
+    'Animal Orphanages and Sanctuaries',
+    'Museum',
+    'Tours & Safari',
+    'Scenic Spots',
+    'Accomodation Bookings',
+    'National Parks',
+    'National Reserves',
+    // Add more service options as needed
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // Here, you can perform validation on the form fields before proceeding with booking.
     // Once validated, you can call the handleBookNow function with the email and service values.
     handleBookNow(email, service);
@@ -17,7 +30,6 @@ function BookingForm({ handleBookNow }) {
 
   const handleSendEmail = () => {
     // Use the mailto: URL scheme to open the user's default email client with the email pre-filled
-    
     const subject = encodeURIComponent(`Booking Request for ${service}`);
     const body = encodeURIComponent(`I would like to book the ${service} service. Company Email: danilscenic@gmail.com .\n\nMy email: ${email}`);
     const mailtoLink = `mailto:${companyEmail}?subject=${subject}&body=${body}`;
@@ -43,14 +55,20 @@ function BookingForm({ handleBookNow }) {
         <label htmlFor="service" className="block text-gray-800 font-semibold mb-1">
           Service:
         </label>
-        <input
-          type="text"
+        <select
           id="service"
           value={service}
           onChange={(e) => setService(e.target.value)}
           required
           className="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-        />
+        >
+          <option value="">Select a service...</option>
+          {serviceOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="flex justify-center">
         <button
@@ -60,16 +78,9 @@ function BookingForm({ handleBookNow }) {
         >
           Book Now
         </button>
-        {/* <button
-          type="button"
-          onClick={handleSendEmail}
-          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded ml-4 focus:outline-none"
-        >
-          Book Now
-        </button> */}
       </div>
     </form>
   );
-}
+};
 
 export default BookingForm;

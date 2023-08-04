@@ -110,7 +110,7 @@ function Home() {
 
           <Link to="/gallery">
           <motion.div
-            className="detail bg-brown-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
+            className="detail bg-green-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -128,7 +128,7 @@ function Home() {
 
           <Link to="/service">
           <motion.div
-            className="detail bg-brown-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
+            className="detail bg-green-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -149,7 +149,7 @@ function Home() {
 
           <Link to="/calendar">
           <motion.div
-            className="detail bg-brown-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
+            className="detail bg-green-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -211,6 +211,7 @@ function Home() {
           </div>
           <div className="text-center font-bold">
             <p>&copy; {new Date().getFullYear()} Danil Scenic Tours. All rights reserved.</p>
+            <p>&copy;  Developed and Maintained by Alex Irungu and Ian Maloi .</p>
           </div>
         </div>
       </footer>
