@@ -21,9 +21,10 @@ function LandingPage() {
           {/* Use the Fade animation for the text */}
           <LightSpeed cascade>
             <h1 className="text-4xl font-bold mb-4">
-              <span className="text-white">Welcome to Our Beautiful Destination</span>
+              <span className="text-white font-bold">Welcome to Danil Scenic Tours</span>
             </h1>
-            <p className="text-xl mb-6">Experience the beauty of nature, culture, and adventure.</p>
+            <p className="text-xl mb-6 font-bold">Explore the scenic beauty, vibrant culture, and abundant wildlife of the region.</p>
+            <p className="text-xl mb-6 font-bold">Click Here to Discover.</p>
             <Link
   to="/home"
   className="px-8 py-3 rounded-full bg-green-600 hover:bg-green-600 text-white font-bold"

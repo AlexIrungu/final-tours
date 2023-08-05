@@ -126,7 +126,7 @@ function Home() {
           </motion.div>
           </Link>
 
-          <Link to="/service">
+          <Link to="/places">
           <motion.div
             className="detail bg-green-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
@@ -200,7 +200,7 @@ function Home() {
                 <FontAwesomeIcon icon={faInstagram} className="text-white text-2xl" />
               </a>
               <a
-                href="https://www.linkedin.com/your_linkedin_profile"
+                href="https://www.linkedin.com/in/danil-scenic-743945286/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mr-4"
