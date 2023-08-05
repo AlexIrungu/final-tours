@@ -13,6 +13,7 @@ import LandingPage from './components/LandingPage'
 import CalendarComponent from './components/CalendarComponent';
 import ToursAndPackages from './components/ToursAndPackages';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Places from './components/Places';
 
 
 
@@ -39,6 +40,7 @@ function App() {
       <Route path="/contact" exact component={ContactUs} />
       <Route path="/calendar" exact component={CalendarComponent} />
       <Route path="/privacy" exact component={PrivacyPolicy} /> 
+      <Route path="/places" exact component={Places} /> 
       
     </Switch>
     </div>

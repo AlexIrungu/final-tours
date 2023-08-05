@@ -112,7 +112,7 @@ const ContactForm = () => {
               <span>Phone: 0723 453 576</span>
             </p>
             <p>
-          <FaWhatsapp className="inline-block mr-2 text-green-500" />
+          <FaWhatsapp className="inline-block mr-2 text-green-600" />
           <span>WhatsApp: +254 723 453 576</span>
         </p>
             <p>

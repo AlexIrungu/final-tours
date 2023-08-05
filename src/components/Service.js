@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import park from './assets/park.jpeg';
 import truck from './assets/danil scenic tours.jpg';
 import lake from './assets/lake bogoria.jpg';
@@ -13,15 +13,17 @@ import muze from './muze.jpg'
 import orphan from './orphan.jpg'
 import reserve from './reserve.jpg'
 import safari from './saf-car.jpeg'
-import car from './car-hire.jpeg'
+import car from './hireee.jpg'
 import booking from './acc-book.jpeg'
 import tick from './tick.jpeg'
 import sun from './sun-airport.jpg'
-import excursion from './excursion.png'
+import excursion from './lifeee.jpg'
 import watamu from './watamu.jpeg'
-
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import jioni from './linktoplaces.jpg'
 // import Map from "./Map";
 import { CSSTransition } from "react-transition-group";
+import Places from "./Places";
 
 function Service() {
   const [activeCard, setActiveCard] = useState(null);
@@ -80,6 +82,32 @@ function Service() {
     </div>
   );
 
+  const backgroundStyle = {
+    backgroundImage: `url(${jioni})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    transition: 'background-image 0.5s ease-in-out',
+    width: '400px',
+    height: '300px',
+  };
+  
+  const cardStyle = {
+    width: '400px', // Adjust the width of the card as per your preference
+    height: '300px', // Adjust the height of the card as per your preference
+  };
+
+  // Simulate the fade-in effect by updating the opacity in the useEffect hook
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setTextStyle((prevStyle) => ({
+  //       ...prevStyle,
+  //       opacity: 1,
+  //     }));
+  //   }, 100);
+  // }, []);
+
+
+
   return (
     <div className="service-page">
       <main className="service-section">
@@ -127,11 +155,11 @@ function Service() {
             />
           </div>
 
-          <h1 className="text-3xl font-bold text-orange-700 mt-10 mb-4">Places to Visit</h1>
+          {/* <h1 className="text-3xl font-bold text-orange-700 mt-10 mb-4">Places to Visit</h1>
           <p className="text-gray-700 mb-6">Explore the top tourist destinations in Kenya that will captivate your heart and soul. Discover the best of the country's natural beauty, rich culture, and awe-inspiring landmarks.</p>
 
           <div className="grid grid-cols-1 gap-4">
-            {/* <Map searchLocation={searchLocation} /> */}
+            
           <ServiceCard
               image={park}
               title="National Parks"
@@ -168,9 +196,25 @@ function Service() {
               description="Delve into Kenya's rich history and cultural heritage by visiting its museums. Discover the Nairobi National Museum, Nairobi Gallery, Karen Blixen Museum, Uhuru Gardens National Monument, Hyrax Hill Museum, Kariandusi Archaeological Site, Nyeri Museum, Olorgesailie Pre-historic Site, Thimlich Ohinga Archaeological Site, Fort Jesus, Gede Ruins, Kapenguria Museum, Bomas of Kenya, Lamu Museum, National Archives, Nairobi Railway Museum, and Oloolua Nature Trail."
             />
 
-            {/* Add more ServiceCard components for other places to visit */}
-          </div>
-
+            
+          </div> */}
+          <div className="py-10 flex justify-center items-center" >
+         <div className="flex justify-center items-center h-screen" style={backgroundStyle}>
+  <div className="bg-opacity-75 bg-gray-800 p-6 rounded-lg max-w-md w-full" style={cardStyle}>
+    <div className="text-center">
+      <h1 className="text-4xl font-bold mb-4 text-blue-600 cursor-pointer hover:text-blue-800">
+        Click Here to View Places to Visit
+      </h1>
+      <Link to="/places">
+        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300">
+          Places to Visit
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+</div>
+          
            {/* Display the selected service image */}
            {/* {selectedServiceImage && (
             <div className="selected-service-image fixed top-9 left-9 w-screen h-screen flex justify-center items-center bg-black bg-opacity-75">
