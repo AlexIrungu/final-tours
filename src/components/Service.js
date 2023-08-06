@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import park from './assets/park.jpeg';
-import truck from './assets/danil scenic tours.jpg';
-import lake from './assets/lake bogoria.jpg';
-import guide from './assets/guides.jpeg';
+// import park from './park.jpeg';
+// import truck from './assets/danil scenic tours.jpg';
+// import lake from './assets/lake bogoria.jpg';
+import guide from './guides.jpeg';
 import kulture from './kulture.jpg';
 import adventure from './adventure.jpg';
 import tailor from './tailor-made.jpg';
@@ -18,7 +18,7 @@ import booking from './acc-book.jpeg'
 import tick from './tick.jpeg'
 import sun from './sun-airport.jpg'
 import excursion from './lifeee.jpg'
-import people from './assets/people.jpg'
+import people from './people.jpg'
 import watamu from './watamu.jpeg'
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import jioni from './linktoplaces.jpg'
@@ -199,7 +199,7 @@ function Service() {
 
             
           </div> */}
-          <div className="py-10 flex justify-center items-center" >
+          {/* <div className="py-10 flex justify-center items-center" >
          <div className="flex justify-center items-center h-screen" style={backgroundStyle}>
   <div className="bg-opacity-75 bg-gray-800 p-6 rounded-lg max-w-md w-full" style={cardStyle}>
     <div className="text-center">
@@ -214,7 +214,7 @@ function Service() {
     </div>
   </div>
 </div>
-</div>
+</div> */}
           
            {/* Display the selected service image */}
            {/* {selectedServiceImage && (

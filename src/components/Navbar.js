@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import logo from "./logo.png";
+import logo from "./logooo2.png";
+import './Navbar.css'
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -23,15 +24,17 @@ const Navbar = () => {
   return (
     <nav className="bg-brown-600 text-dark p-4">
       <div className="container mx-auto flex items-center justify-between">
+        
         <Link to="/" className="logo-link">
-          <img src={logo} alt="Logo" className="w-25" />
+          <img src={logo} alt="Logo" className="object-cover w-30 h-20" />
         </Link>
+      
         <button
           className={`menu-button show-menu-button lg:hidden`}
           onClick={toggleMenu}
         >
           <svg
-            className={`w-6 h-6 fill-current ${isMenuOpen ? "text-white" : "text-black"}`}
+            className={`w-6 h-6 fill-current ${isMenuOpen ? "text-customWhite" : "text-black"}`}
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -73,14 +76,14 @@ const Navbar = () => {
                       Service
                     </button>
                   </li>
-                  {/* <li className="dropdown-item">
+                  <li className="dropdown-item">
                     <button
                       className="dropdown-link hover:text-green-600"
-                      onClick={() => handleDropdownItemClick("/places/national-reserves")}
+                      onClick={() => handleDropdownItemClick("/reviews")}
                     >
-                      National Reserves
+                      Reviews
                     </button>
-                  </li> */}
+                  </li>
                   {/* Add more dropdown items for other places */}
                 </ul>
               )}

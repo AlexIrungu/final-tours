@@ -4,15 +4,15 @@ import Typical from "react-typical";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import maasai from './maasai.jpg';
-import transport from './assets/transport.jpg';
+import transport from './transport.jpg';
 import kulture from './kulture.jpg'
-import lake from './assets/lakee.jpg'
+// import lake from './assets/lakee.jpg'
 // import birds from './assets/birds.jpg'
-import beauty from './assets/beauty.jpg'
-import buffalo from './assets/buffalo.jpeg'
-import cheetah from './assets/cheetah.jpg'
-import d from './assets/d.jpeg'
-import elephant from './assets/elephant.jpeg'
+import beauty from './beauty.jpg'
+import buffalo from './buffalo.jpeg'
+import cheetah from './cheetah.jpg'
+import d from './d.jpeg'
+import elephant from './elephant.jpeg'
 import BannerSlider from "./BannerSlider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +21,7 @@ import {
   faFacebook,
   faInstagram,
   faLinkedin,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
 const slideshowImages = [beauty, buffalo, cheetah, d, elephant];
@@ -207,6 +208,14 @@ function Home() {
               >
                 <FontAwesomeIcon icon={faLinkedin} className="text-white text-2xl" />
               </a>
+              <a
+        href="https://www.youtube.com/channel/your-channel-url"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mr-4"
+      >
+        <FontAwesomeIcon icon={faYoutube} className="text-white text-2xl" />
+      </a>
             </div>
           </div>
           <div className="text-center font-bold">

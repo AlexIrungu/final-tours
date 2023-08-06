@@ -27,11 +27,11 @@ function Faq() {
       answer:
         "Yes, sustainability and responsible travel are core values at Danil Scenic Tours. We are committed to minimizing our impact on the environment and supporting local communities. We follow sustainable tourism practices, work with accommodations and partners that share our values, and prioritize responsible wildlife viewing and cultural interactions. By choosing Danil Scenic Tours, you can be assured of an ethical and environmentally conscious travel experience in Kenya.",
     },
-    // {
-    //   question: "WHEN IS THE BEST TIME TO VISIT KENYA?",
-    //   answer:
-    //     "The best time to visit Kenya is during the dry season, which is from June to October and January to February. This period offers the best wildlife viewing and pleasant weather.",
-    // },
+    {
+      question: "CAN I MODIFY OR CANCEL MY BOOKING?",
+      answer:
+        "Yes, you can modify or cancel your booking, but it is subject to our cancellation policy. To modify your booking, please contact our customer support team at least 48 hours before the scheduled tour date. Cancellation policies may vary depending on the tour package, so kindly refer to the terms and conditions or contact our support team for more information.",
+    },
     // Add more questions and answers as needed
   ];
 
@@ -42,7 +42,7 @@ function Faq() {
   };
 
   return (
-    <div>
+    <div className="py-10 px-20">
       <main className="faq-section">
         <div className="faq-container">
           <h1 className="text-3xl font-bold mb-6">Frequently Asked Questions</h1>

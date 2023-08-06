@@ -4,9 +4,11 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import nick from './nick.jpg'
 import muze from './muze.jpg'
 import watamu from './watamu.jpeg'
-import park from './assets/park.jpeg';
+import park from './park.jpeg';
 import orphan from './orphan.jpg'
 import reserve from './reserve.jpg'
+import ModalVideo from 'react-modal-video';
+
 
 function Places(){
     const [activeCard, setActiveCard] = useState(null);
@@ -45,6 +47,12 @@ function Places(){
     const handleModalClose = () => {
       setShowModal(false);
     };
+
+    const toggleBookAdventureModal = () => {
+      setBookAdventureOpen((prevState) => !prevState);
+    };
+
+    const [isBookAdventureOpen, setBookAdventureOpen] = useState(false);
   
     const ServiceCard = ({ image, title, description }) => (
       <div className={`service-card bg-white rounded-lg shadow-lg ${activeCard === title ? "active" : ""}`}>
@@ -67,7 +75,14 @@ function Places(){
     return(
         <div>
             <h1 className="text-3xl font-bold text-orange-700 mt-10 mb-4">Places to Visit</h1>
-          <p className="text-gray-700 mb-6">Explore the top tourist destinations in Kenya that will captivate your heart and soul. Discover the best of the country's natural beauty, rich culture, and awe-inspiring landmarks.</p>
+          <p className="text-gray-700 mb-6">Explore the 
+          <button
+              onClick={toggleBookAdventureModal}
+              className="cta-button mt-4 bg-customWhite text-brown-600 underline font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
+            >
+              top tourist destination
+            </button>
+          in Kenya that will captivate your heart and soul. Discover the best of the country's natural beauty, rich culture, and awe-inspiring landmarks.</p>
 
           <div className="grid grid-cols-1 gap-4">
             {/* <Map searchLocation={searchLocation} /> */}
@@ -109,6 +124,14 @@ function Places(){
 
             {/* Add more ServiceCard components for other places to visit */}
           </div>
+          <div className='py-10'>
+          <ModalVideo
+      channel="youtube"
+      isOpen={isBookAdventureOpen}
+      videoId="ZFSZb-P4noU"
+      onClose={toggleBookAdventureModal}
+    />
+    </div>
         </div>
     )
 }

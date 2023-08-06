@@ -1,4 +1,4 @@
-.menu-button {
+/* .menu-button {
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -9,15 +9,18 @@
     background: transparent;
     border: none;
   }
-  
-  .menu-icon {
+   */
+  /* .menu-icon {
     fill: white;
-  }
+  } */
   
   /* Custom styles for the open state */
-  .menu-button.open .menu-icon {
-    fill: #333; /* Change to the desired color when menu is open */
-  }
+  /* .menu-button.open .menu-icon {
+    fill: #333; 
+  } */
   
   /* Add more styles as needed for the open state, e.g., animation, etc. */
-  
+  .logo-image {
+    width: 100px; /* You can adjust this value as needed to increase or decrease the logo size */
+    height: 100px; /* Make sure to maintain the aspect ratio if you are changing the logo dimensions */
+  }
