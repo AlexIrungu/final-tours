@@ -1,5 +1,5 @@
 import React from 'react';
-import zebras from './assets/zebra1.jpg'
+// import zebras from './assets/zebra1.jpg'
 
 const ToursAndPackages = () => {
   return (
@@ -16,7 +16,7 @@ const ToursAndPackages = () => {
         <div className="row justify-content-center d-flex">
           <div className="active-works-carousel mt-40 col-lg-8">
             <div className="item">
-              <img className="img-fluid" src={zebras} alt="" />
+              <img className="img-fluid" src="" alt="" />
               <div className="caption text-center mt-20">
                 <h6 className="text-uppercase">Wildlife Safaris</h6>
                 <p>Embark on an unforgettable wildlife safari adventure in Kenya's iconic national parks and reserves. Witness the incredible wildebeest migration in the Maasai Mara, spot majestic elephants in Amboseli National Park, and encounter rare species in Tsavo National Park.</p>

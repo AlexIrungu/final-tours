@@ -16,7 +16,11 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Places from './components/Places';
 import Nature from './components/Nature';
 import Culture from './components/Culture';
+import Reviews from './components/Reviews';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
+library.add(faArrowLeft, faArrowRight);
 
 
 function App() {
@@ -45,6 +49,7 @@ function App() {
       <Route path="/places" exact component={Places} /> 
       <Route path="/nature" exact component={Nature} /> 
       <Route path="/culture" exact component={Culture} /> 
+      <Route path="/reviews" exact component={Reviews} />
       
     </Switch>
     </div>

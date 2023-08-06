@@ -37,12 +37,12 @@ function About() {
           <div className="relative">
             <img src={aboutImage} className="rounded-lg w-full" alt="" />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-              <button
+              {/* <button
                 onClick={togglePlayIconModal}
                 className="text-white font-bold underline bg-blue-400 rounded-full p-4 transition duration-300 ease-in-out hover:bg-blue-600"
               >
                 <FaPlay className="text-white text-3xl" />
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -58,23 +58,23 @@ function About() {
             {/* <p className="text-lg text-gray-700 mb-4">
               Get ready to create cherished memories, forge new connections, and discover the true essence of this magnificent country.
             </p> */}
-            <button
+            {/* <button
               onClick={toggleBookAdventureModal}
               className="cta-button mt-4 bg-brown-600 text-customWhite font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
             >
               Top Places To Visit
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
       <div className='py-10'>
       {/* Play Icon Modal */}
-    <ModalVideo
+    {/* <ModalVideo
       channel="youtube"
       isOpen={isPlayIconOpen}
       videoId="OUNCrtxLMLM"
       onClose={togglePlayIconModal}
-    />
+    /> */}
 
     {/* Book Adventure Modal */}
     <ModalVideo
