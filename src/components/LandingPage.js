@@ -16,15 +16,16 @@ function LandingPage() {
         />
 
         <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+        
 
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-customWhite text-center ">
           {/* Use the Fade animation for the text */}
           <LightSpeed cascade>
-            <h1 className="text-4xl font-bold mb-4">
-              <span className="text-white font-bold">Welcome to Danil Scenic Tours</span>
+            <h1 className="text-4xl font-bold mb-4 ">
+              <span className="text-customWhite font-bold">Welcome to Danil Scenic Tours</span>
             </h1>
             {/* <p className="text-l mb-6 font-bold">Explore the scenic beauty vibrant culture, &                  abundant wildlife of the    region.</p> */}
-            <p className="text-l mb-6 font-bold">Click Here to Discover.</p>
+            <p className="text-l mb-6 font-bold">Click Here.</p>
             <Link
   to="/home"
   className="px-8 py-3 rounded-full bg-green-600 hover:bg-green-600 text-white font-bold"
@@ -33,6 +34,7 @@ function LandingPage() {
 </Link>
           </LightSpeed>
         </div>
+        
       </div>
 
      

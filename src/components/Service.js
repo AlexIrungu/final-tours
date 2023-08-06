@@ -18,6 +18,7 @@ import booking from './acc-book.jpeg'
 import tick from './tick.jpeg'
 import sun from './sun-airport.jpg'
 import excursion from './lifeee.jpg'
+import people from './assets/people.jpg'
 import watamu from './watamu.jpeg'
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import jioni from './linktoplaces.jpg'
@@ -130,7 +131,7 @@ function Service() {
             />
 
             <ServiceCard
-              image={safari}
+              image={people}
               title="Tours & Safaris"
               description="For the adventurous souls, we offer a range of tailor-made safari packages that cater to everyone's preferences. Whether you're an individual traveler, a family, a couple, or a group, we have safari experiences to suit all. Our experienced tour drivers and guides will take you on unforgettable journeys through the wilderness, offering you thrilling encounters with wildlife and the opportunity to witness nature's marvels up close."
             />
@@ -138,7 +139,7 @@ function Service() {
             <ServiceCard
               image={car}
               title="Car Hire"
-              description="To give you the freedom to explore at your own pace, we provide top-notch 8-seater safari land cruisers with pop-up roofs for game viewing. These vehicles are available for hire individually or as part of a package for your group or safari adventure. Our competent tour drivers and guides will ensure that you have a safe and informative journey, making your experience even more enjoyable."
+              description="To give you the freedom to explore at your own pace, we provide top-notch 4*4 jeep safari land cruisers with pop-up roofs for game viewing. These vehicles are available for hire individually or as part of a package for your group or safari adventure. Our competent tour drivers and guides will ensure that you have a safe and informative journey, making your experience even more enjoyable."
             />
 
             <ServiceCard
