@@ -76,14 +76,14 @@ const Navbar = () => {
                       Service
                     </button>
                   </li>
-                  <li className="dropdown-item">
+                  {/* <li className="dropdown-item">
                     <button
                       className="dropdown-link hover:text-green-600"
                       onClick={() => handleDropdownItemClick("/reviews")}
                     >
                       Reviews
                     </button>
-                  </li>
+                  </li> */}
                   {/* Add more dropdown items for other places */}
                 </ul>
               )}
