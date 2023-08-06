@@ -15,14 +15,6 @@ const slides = [
     linkText: "Discover Now",
   },
   {
-    background: `url(${ele})`,
-    title: "Life-long Memories Just a Click Away",
-    content:
-      "",
-    link: "/gallery",
-    linkText: "Discover Now",
-  },
-  {
     background: `url(${zeb})`,
     title: "Discover the Colorful World",
     content:
@@ -30,6 +22,15 @@ const slides = [
     link: "/service",
     linkText: "Discover Now",
   },
+  {
+    background: `url(${ele})`,
+    title: "Life-long Memories Just a Click Away",
+    content:
+      "",
+    link: "/gallery",
+    linkText: "Discover Now",
+  },
+ 
 ];
 
 const BannerSlider = () => {

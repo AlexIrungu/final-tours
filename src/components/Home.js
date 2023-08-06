@@ -108,7 +108,7 @@ function Home() {
       <section className="details-section py-10">
         <div className="details-container container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 
-          <Link to="/gallery">
+          <Link to="/nature">
           <motion.div
             className="detail bg-green-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}
@@ -126,7 +126,7 @@ function Home() {
           </motion.div>
           </Link>
 
-          <Link to="/places">
+          <Link to="/culture">
           <motion.div
             className="detail bg-green-600 rounded-lg shadow-md p-4 flex flex-col items-center transition-transform transform hover:scale-105"
             whileHover={{ scale: 1.05 }}

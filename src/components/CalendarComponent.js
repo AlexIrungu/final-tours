@@ -37,7 +37,7 @@ function CalendarComponent() {
       <div className="container mx-auto mt-8 p-4">
         <h1 className="text-3xl font-bold mb-4">Welcome to Our Booking Service</h1>
         <p className="text-xl text-gray-800 mb-6">
-          Choose your preferred date for the service and fill out the booking form below.
+          Choose your preferred service and fill out the booking form below.
         </p>
         <div className="flex flex-wrap-reverse">
           {/* Booking Form */}

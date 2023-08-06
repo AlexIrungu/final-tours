@@ -14,6 +14,8 @@ import CalendarComponent from './components/CalendarComponent';
 import ToursAndPackages from './components/ToursAndPackages';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Places from './components/Places';
+import Nature from './components/Nature';
+import Culture from './components/Culture';
 
 
 
@@ -41,6 +43,8 @@ function App() {
       <Route path="/calendar" exact component={CalendarComponent} />
       <Route path="/privacy" exact component={PrivacyPolicy} /> 
       <Route path="/places" exact component={Places} /> 
+      <Route path="/nature" exact component={Nature} /> 
+      <Route path="/culture" exact component={Culture} /> 
       
     </Switch>
     </div>

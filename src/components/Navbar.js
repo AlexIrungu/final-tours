@@ -1,12 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logo from "./logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isPlacesDropdownOpen, setPlacesDropdownOpen] = useState(false);
+  const history = useHistory();
 
   const toggleMenu = () => {
     setMenuOpen((prevMenuState) => !prevMenuState);
+  };
+
+  const togglePlacesDropdown = () => {
+    setPlacesDropdownOpen((prevDropdownState) => !prevDropdownState);
+  };
+
+  const handleDropdownItemClick = (route) => {
+    setPlacesDropdownOpen(false);
+    history.push(route);
   };
 
   return (
@@ -41,10 +52,38 @@ const Navbar = () => {
                 About
               </Link>
             </li>
-            <li className="menu-item">
+            {/* <li className="menu-item">
               <Link to="/service" className="menu-link hover:text-green-600">
                 Service
               </Link>
+            </li> */}
+            <li className="menu-item">
+              <Link to="/places">
+              <button className="menu-link hover:text-green-600" onClick={togglePlacesDropdown}>
+                Places
+              </button>
+              </Link>
+              {isPlacesDropdownOpen && (
+                <ul className="places-dropdown">
+                  <li className="dropdown-item">
+                    <button
+                      className="dropdown-link hover:text-green-600"
+                      onClick={() => handleDropdownItemClick("/service")}
+                    >
+                      Service
+                    </button>
+                  </li>
+                  {/* <li className="dropdown-item">
+                    <button
+                      className="dropdown-link hover:text-green-600"
+                      onClick={() => handleDropdownItemClick("/places/national-reserves")}
+                    >
+                      National Reserves
+                    </button>
+                  </li> */}
+                  {/* Add more dropdown items for other places */}
+                </ul>
+              )}
             </li>
             <li className="menu-item">
               <Link to="/gallery" className="menu-link hover:text-green-600">
@@ -56,22 +95,11 @@ const Navbar = () => {
                 FAQ
               </Link>
             </li>
-            {/* Uncomment this section when you have the "Tours" page */}
-            {/* <li className="menu-item">
-              <Link to="/tours" className="menu-link hover:text-green-600">
-                Tours
-              </Link>
-            </li> */}
             <li className="menu-item">
               <Link to="/contact" className="menu-link hover:text-green-600">
                 Contact Us
               </Link>
             </li>
-            {/* <li className="menu-item">
-              <Link to="/calendar" className="menu-link hover:text-green-600">
-                Book Now
-              </Link>
-            </li> */}
           </ul>
         </div>
       </div>
