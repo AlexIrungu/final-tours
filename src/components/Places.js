@@ -128,7 +128,7 @@ function Places(){
           <ModalVideo
       channel="youtube"
       isOpen={isBookAdventureOpen}
-      videoId="ZFSZb-P4noU"
+      videoId="ZJq26SI2IUc"
       onClose={toggleBookAdventureModal}
     />
     </div>

@@ -182,7 +182,7 @@ function Home() {
                 rel="noopener noreferrer"
                 className="mr-4"
               >
-                <FontAwesomeIcon icon={faTwitter} className="text-white text-2xl" />
+                <FontAwesomeIcon icon={faTwitter} className="text-customWhite text-2xl" />
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=100095626382188"
@@ -190,7 +190,7 @@ function Home() {
                 rel="noopener noreferrer"
                 className="mr-4"
               >
-                <FontAwesomeIcon icon={faFacebook} className="text-white text-2xl" />
+                <FontAwesomeIcon icon={faFacebook} className="text-customWhite text-2xl" />
               </a>
               <a
                 href="https://www.instagram.com/your_instagram_handle"
@@ -198,7 +198,7 @@ function Home() {
                 rel="noopener noreferrer"
                 className="mr-4"
               >
-                <FontAwesomeIcon icon={faInstagram} className="text-white text-2xl" />
+                <FontAwesomeIcon icon={faInstagram} className="text-customWhite text-2xl" />
               </a>
               <a
                 href="https://www.linkedin.com/in/danil-scenic-743945286/"
@@ -206,15 +206,15 @@ function Home() {
                 rel="noopener noreferrer"
                 className="mr-4"
               >
-                <FontAwesomeIcon icon={faLinkedin} className="text-white text-2xl" />
+                <FontAwesomeIcon icon={faLinkedin} className="text-customWhite text-2xl" />
               </a>
               <a
-        href="https://www.youtube.com/channel/your-channel-url"
+        href="https://www.youtube.com/channel/UCutpUrWcoi58yHOJb0bTXQg"
         target="_blank"
         rel="noopener noreferrer"
         className="mr-4"
       >
-        <FontAwesomeIcon icon={faYoutube} className="text-white text-2xl" />
+        <FontAwesomeIcon icon={faYoutube} className="text-customWhite text-2xl" />
       </a>
             </div>
           </div>
