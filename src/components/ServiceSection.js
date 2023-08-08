@@ -14,7 +14,7 @@ import tickImage from "./tick.jpeg";
 import sunImage from "./sun-airport.jpg";
 import excursionImage from "./lifeee.jpg";
 import peopleImage from "./people.jpg";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 
 const ServiceSection = () => {
   const services = [
@@ -76,7 +76,6 @@ const ServiceSection = () => {
   };
 
   const handleBookNow = () => {
-    // Implement your booking logic here
     console.log("Book Now clicked!");
   };
 
@@ -88,7 +87,7 @@ const ServiceSection = () => {
             Services we offer
           </h1>
           <p className="text-gray-600 text-lg md:text-xl lg:text-2xl mb-12">
-          At our company, we pride ourselves on providing a comprehensive range of services to cater to all your travel needs. Whether you're arriving at an airport, looking for exciting excursions, seeking thrilling safaris, requiring car hire, accommodation bookings, or assistance with air tickets, we've got you covered!
+            At our company, we pride ourselves on providing a comprehensive range of services to cater to all your travel needs. Whether you're arriving at an airport, looking for exciting excursions, seeking thrilling safaris, requiring car hire, accommodation bookings, or assistance with air tickets, we've got you covered!
           </p>
         </div>
         <div className="flex justify-center mt-8">
@@ -100,22 +99,8 @@ const ServiceSection = () => {
             ></span>
           ))}
         </div>
-        <div className="relative mx-auto w-4/5 md:w-3/5 mt-12">
-          {/* <div className="absolute bottom-0 left-0 flex py-4 space-x-4">
-            <button
-              className="bg-gray-800 text-white px-3 py-2 rounded"
-              onClick={goToPreviousSlide}
-            >
-              <FontAwesomeIcon icon="arrow-left" />
-            </button>
-            <button
-              className="bg-gray-800 text-white px-3 py-2 rounded"
-              onClick={goToNextSlide}
-            >
-              <FontAwesomeIcon icon="arrow-right" />
-            </button>
-          </div> */}
-          <div className="flex justify-between items-center">
+        <div className="relative mx-auto w-5/6 md:w-4/6 lg:w-3/6 mt-12">
+          {/* <div className="flex justify-between items-center">
             <div className="w-1/6">
               <button
                 className="bg-gray-800 text-white px-3 py-2 rounded"
@@ -135,7 +120,28 @@ const ServiceSection = () => {
                 <FontAwesomeIcon icon="arrow-right" />
               </button>
             </div>
+          </div> */}
+          
+          <div className="mt-8">
+            <ServiceCard {...services[currentSlide]} />
           </div>
+          {/* <div className="w-1/6">
+              <button
+                className="bg-gray-800 text-white px-3 py-2 rounded"
+                onClick={goToPreviousSlide}
+              >
+                <FontAwesomeIcon icon="arrow-left" />
+              </button>
+            </div> */}
+          <div className="w-1/6">
+              <button
+                className="bg-orange-600 text-white px-3 py-2 rounded"
+                onClick={goToNextSlide}
+              >
+                <FontAwesomeIcon icon="arrow-right" />
+              </button>
+            </div>
+            
         </div>
         <div className="text-center mt-12">
           <Link to="/calendar">
@@ -155,13 +161,17 @@ const ServiceSection = () => {
 const ServiceCard = ({ icon, title, description, image }) => (
   <div className="bg-white rounded-lg p-8 shadow-md">
     <div className="mt-6">
-      <img src={image} alt={title} className="rounded-md shadow-md" />
+      <img
+        src={image}
+        alt={title}
+        className="rounded-md shadow-md w-full h-80 object-cover"
+      />
     </div>
     <div className="mb-6 mt-4">
       <FontAwesomeIcon icon={icon} className="text-4xl text-green-600" />
     </div>
     <h3 className="text-xl md:text-2xl font-semibold mb-4">{title}</h3>
-    <p className="text-gray-600">{description}</p>
+    <p className="text-l text-gray-600">{description}</p>
   </div>
 );
 

@@ -17,7 +17,7 @@ const slides = [
     background: `url(${bal})`,
     title: "Discover the Colorful World",
     content: "",
-    link: "/service",
+    link: "/section",
     linkText: "Discover Now",
   },
   {
@@ -89,7 +89,7 @@ const BannerSlider = () => {
         </div>
       </div>
 
-      <div
+      {/* <div
           className="navigation-buttons absolute left-0 bottom-0 flex py-10"
           style={{ transform: "translateY(50%)" }}
         >
@@ -99,7 +99,7 @@ const BannerSlider = () => {
           <button className="bg-gray-800 text-white px-3 py-2 rounded" onClick={goToNextSlide}>
             <FontAwesomeIcon icon="arrow-right" />
           </button>
-        </div>
+        </div> */}
     </section>
   );
 };
