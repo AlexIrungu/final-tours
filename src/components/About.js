@@ -7,27 +7,25 @@ function About() {
   const [isPlayIconOpen, setPlayIconOpen] = useState(false);
   const [isBookAdventureOpen, setBookAdventureOpen] = useState(false);
 
-  // Function to handle opening and closing the Play Icon modal
   const togglePlayIconModal = () => {
     setPlayIconOpen((prevState) => !prevState);
   };
 
-  // Function to handle opening and closing the Book Adventure modal
   const toggleBookAdventureModal = () => {
     setBookAdventureOpen((prevState) => !prevState);
   };
 
   return (
-    <div className="bg-green-100 py-12">
+    <div className="bg-gray-100 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h1 className="text-4xl font-bold mb-8 text-gray-800">About Danil Scenic Tours</h1>
+            <h1 className="text-4xl font-bold mb-8 text-gray-800">Discover Danil Scenic Tours</h1>
             <p className="text-lg text-gray-700">
-              DANIL SCENIC TOURS is a private limited company registered in Kenya, licensed by the Tourism Regulatory Authority as a Tour operator. It provides practical support to local and foreign tourists in Kenya and deals with various organizational aspects of a trip ranging from creating touristic packages, determining the needs of various categories of clients, and making travel arrangements (accommodation, transport, meals, tours, insurance, and so on).
+              Welcome to Danil Scenic Tours, your gateway to a world of extraordinary travel experiences. We are a registered and licensed tour operator in Kenya, dedicated to crafting memorable and immersive journeys that showcase the vibrant culture, rich history, and breathtaking landscapes of this remarkable country.
             </p>
-            <p className="text-lg text-gray-700">
-              The company has competent staff members with requisite knowledge and skills in tourism, including tour guide/drivers, tour consultants, and project managers.
+            <p className="text-lg text-gray-700 mt-4">
+              Our team of passionate experts is committed to curating tailor-made itineraries, providing exceptional service, and ensuring responsible and sustainable travel. Whether you're seeking thrilling wildlife encounters, serene beach retreats, or cultural explorations, Danil Scenic Tours is here to make your dream adventure a reality.
             </p>
           </div>
         </div>
@@ -35,7 +33,7 @@ function About() {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Image Card */}
           <div className="relative">
-            <img src={aboutImage} className="rounded-lg w-full" alt="" />
+            <img src={aboutImage} className="rounded-lg w-full" alt="Exploring Kenya" />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
               {/* <button
                 onClick={togglePlayIconModal}
@@ -48,42 +46,31 @@ function About() {
 
           {/* Text Card */}
           <div>
-            <div className="text-3xl font-bold mb-6">Join Us at Danil Tours</div>
+            <div className="text-3xl font-bold mb-6">Join Us on a Journey</div>
             <p className="text-lg text-gray-700 mb-4">
-              Join us on a Danil Scenic Tours adventure and allow us to unlock the wonders of Kenya for you.
+              Embark on a transformative adventure with Danil Scenic Tours and immerse yourself in the heart of Kenya's natural wonders and cultural treasures.
             </p>
             <p className="text-lg text-gray-700 mb-4">
-              Get ready to create cherished memories, forge new connections, and discover the true essence of this magnificent country.
+              Our meticulously designed experiences are a gateway to authentic encounters, unforgettable memories, and a deeper connection with the remarkable landscapes and communities of Kenya.
             </p>
-            {/* <p className="text-lg text-gray-700 mb-4">
-              Get ready to create cherished memories, forge new connections, and discover the true essence of this magnificent country.
-            </p> */}
             {/* <button
               onClick={toggleBookAdventureModal}
-              className="cta-button mt-4 bg-brown-600 text-customWhite font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
+              className="cta-button mt-6 bg-orange-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out hover:bg-orange-800"
             >
-              Top Places To Visit
+              Discover Top Places To Visit
             </button> */}
           </div>
         </div>
       </div>
-      <div className='py-10'>
-      {/* Play Icon Modal */}
-    {/* <ModalVideo
-      channel="youtube"
-      isOpen={isPlayIconOpen}
-      videoId="OUNCrtxLMLM"
-      onClose={togglePlayIconModal}
-    /> */}
-
-    {/* Book Adventure Modal */}
-    <ModalVideo
-      channel="youtube"
-      isOpen={isBookAdventureOpen}
-      videoId="ZFSZb-P4noU"
-      onClose={toggleBookAdventureModal}
-    />
-    </div>
+      <div className="py-10">
+        {/* Play Icon Modal */}
+        {/* <ModalVideo
+          channel="youtube"
+          isOpen={isPlayIconOpen}
+          videoId="OUNCrtxLMLM"
+          onClose={togglePlayIconModal}
+        /> */}
+      </div>
     </div>
   );
 }

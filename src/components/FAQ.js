@@ -42,32 +42,35 @@ function Faq() {
   };
 
   return (
-    <div className="py-10 px-20">
-      <main className="faq-section">
-        <div className="faq-container">
-          <h1 className="text-3xl font-bold mb-6">Frequently Asked Questions</h1>
-          <div className="faq-list">
+    <div className="bg-gray-100 min-h-screen">
+      <div className="py-10 px-6">
+        <main className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <h1 className="text-3xl font-bold text-orange-700 mb-4">Frequently Asked Questions</h1>
+            <p className="text-gray-600">Got questions? We've got answers.</p>
+          </div>
+          <div className="space-y-4">
             {faqData.map((item, index) => (
-              <div key={index} className="faq-item">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
                 <div
-                  className="faq-item-header flex justify-between items-center cursor-pointer border-b py-4"
+                  className="flex justify-between items-center cursor-pointer border-b py-2"
                   onClick={() => handleToggle(index)}
                 >
-                  <h3 className="text-xl font-semibold">{item.question}</h3>
+                  <h3 className="text-lg font-semibold">{item.question}</h3>
                   <span className={`transition-transform transform ${activeIndex === index ? "rotate-45" : "rotate-0"
-                    } text-xl font-bold`}>
+                    } text-lg font-bold`}>
                     +
                   </span>
                 </div>
                 {activeIndex === index && (
-                  <p className="py-4 text-gray-700">{item.answer}</p>
+                  <p className="py-2 text-gray-700 mt-2">{item.answer}</p>
                 )}
               </div>
             ))}
           </div>
-        </div>
-      </main>
-      <footer className="footer bg-brown-600 text-white py-4">
+        </main>
+      </div>
+      <footer className="bg-brown-600 text-white py-4">
         <div className="container mx-auto">
           <p className="text-center font-bold">&copy; {new Date().getFullYear()} Danil Scenic Tours. All rights reserved.</p>
         </div>
