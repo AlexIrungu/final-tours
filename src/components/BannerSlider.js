@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import adv from './adv.jpg';
 import ele from './ele.jpg';
-import zeb from './zeb.jpg';
+import bal from './newbaloon.jpg';
 
 const slides = [
   {
@@ -14,7 +14,7 @@ const slides = [
     linkText: "Discover Now",
   },
   {
-    background: `url(${zeb})`,
+    background: `url(${bal})`,
     title: "Discover the Colorful World",
     content: "",
     link: "/service",
@@ -39,6 +39,11 @@ const BannerSlider = () => {
   const goToNextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
+
+  useEffect(() => {
+    const interval = setInterval(goToNextSlide, 5000); // Auto transition every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   const slide = slides[currentSlide];
 
