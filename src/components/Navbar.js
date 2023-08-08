@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import logo from "./logooo2.png";
+import logo from "./tourssss.jpg";
 import './Navbar.css'
 
 const Navbar = () => {
@@ -68,22 +68,22 @@ const Navbar = () => {
               </Link>
               {isPlacesDropdownOpen && (
                 <ul className="places-dropdown">
-                  <li className="dropdown-item">
+                  {/* <li className="dropdown-item">
                     <button
                       className="dropdown-link hover:text-green-600"
                       onClick={() => handleDropdownItemClick("/service")}
                     >
                       Service
                     </button>
-                  </li>
-                  {/* <li className="dropdown-item">
+                  </li> */}
+                  <li className="dropdown-item">
                     <button
                       className="dropdown-link hover:text-green-600"
-                      onClick={() => handleDropdownItemClick("/reviews")}
+                      onClick={() => handleDropdownItemClick("/section")}
                     >
-                      Reviews
+                      Service
                     </button>
-                  </li> */}
+                  </li>
                   {/* Add more dropdown items for other places */}
                 </ul>
               )}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { LightSpeed } from "react-reveal"; // Import the Fade animation from react-reveal
 
-import flam from './flamingoes.jpg'
+import flam from './assets/flammm.jpg'
 
 function LandingPage() {
   return (

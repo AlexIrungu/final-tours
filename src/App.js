@@ -19,6 +19,7 @@ import Culture from './components/Culture';
 import Reviews from './components/Reviews';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ServiceSection from './components/ServiceSection';
 
 library.add(faArrowLeft, faArrowRight);
 
@@ -49,7 +50,7 @@ function App() {
       <Route path="/places" exact component={Places} /> 
       <Route path="/nature" exact component={Nature} /> 
       <Route path="/culture" exact component={Culture} /> 
-      <Route path="/reviews" exact component={Reviews} />
+      <Route path="/section" exact component={ServiceSection} />
       
     </Switch>
     </div>

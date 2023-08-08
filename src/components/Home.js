@@ -193,7 +193,7 @@ function Home() {
                 <FontAwesomeIcon icon={faFacebook} className="text-customWhite text-2xl" />
               </a>
               <a
-                href="https://www.instagram.com/your_instagram_handle"
+                href="https://www.instagram.com/danil.scenic/"
                 target="_alexirungu"
                 rel="noopener noreferrer"
                 className="mr-4"
