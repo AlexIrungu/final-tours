@@ -36,7 +36,7 @@ const ServiceSection = () => {
       icon: faCar,
       title: "Car Hire",
       description:
-        "To give you the freedom to explore at your own pace, we provide top-notch 8-seater safari land cruisers with pop-up roofs for game viewing. These vehicles are available for hire individually or as part of a package for your group or safari adventure. Our competent tour drivers and guides will ensure that you have a safe and informative journey, making your experience even more enjoyable.",
+        "To give you the freedom to explore at your own pace, we provide top-notch 4x4 jeep safari land cruisers with pop-up roofs for game viewing. These vehicles are available for hire individually or as part of a package for your group or safari adventure. Our competent tour drivers and guides will ensure that you have a safe and informative journey, making your experience even more enjoyable.",
       image: carImage,
     },
     {
@@ -50,7 +50,7 @@ const ServiceSection = () => {
       icon: faPlane,
       title: "Air Tickets",
       description:
-        "Booking flights can be a daunting task, but our team of travel experts is here to make it hassle-free for you. We assist in booking flights with the best airlines, taking into account your travel dates, preferences, and budget. Our aim is to secure the most affordable and convenient air tickets, allowing you to focus on the excitement of your upcoming journey. At our travel agency, customer satisfaction is our top priority. We strive to make your travel experiences smooth, enjoyable, and unforgettable. So, whether you're embarking on a safari adventure, exploring new destinations, or simply need help with your travel arrangements, we are here to turn your travel dreams into reality.",
+        "Booking flights can be a daunting task, but our team of travel experts is here to make it hassle-free for you. We assist in booking flights with the best airlines, taking into account your travel dates, preferences, and budget. Our aim is to secure the most affordable and convenient air tickets, allowing you to focus on the excitement of your upcoming journey.",
       image: tickImage,
     },
     {
@@ -87,7 +87,7 @@ const ServiceSection = () => {
             Services we offer
           </h1>
           <p className="text-gray-600 text-lg md:text-xl lg:text-2xl mb-12">
-            At our company, we pride ourselves on providing a comprehensive range of services to cater to all your travel needs. Whether you're arriving at an airport, looking for exciting excursions, seeking thrilling safaris, requiring car hire, accommodation bookings, or assistance with air tickets, we've got you covered!
+            At our company, we pride ourselves in providing a comprehensive range of services to cater to all your travel needs. Whether you're arriving at an airport, looking for exciting excursions, seeking thrilling safaris, requiring car hire, accommodation bookings, or assistance with air tickets, we've got you covered!
           </p>
         </div>
         <div className="flex justify-center mt-8">
