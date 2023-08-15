@@ -46,7 +46,7 @@ const Navbar = () => {
         >
           <ul className="menu-list flex space-x-4 lg:space-x-8 font-bold">
             <li className="menu-item">
-              <Link to="/home" className="menu-link hover:text-green-600">
+              <Link to="/" className="menu-link hover:text-green-600">
                 Home
               </Link>
             </li>

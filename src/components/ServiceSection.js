@@ -11,7 +11,7 @@ import {
 import carImage from "./hireee.jpg";
 import bookingImage from "./acc-book.jpeg";
 import tickImage from "./tick.jpeg";
-import sunImage from "./sun-airport.jpg";
+import sunImage from "./cropped.jpeg";
 import excursionImage from "./lifeee.jpg";
 import peopleImage from "./people.jpg";
 import { Link } from "react-router-dom";
