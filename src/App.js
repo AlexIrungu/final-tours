@@ -9,7 +9,7 @@ import Home from './components/Home';
 import Faq from './components/FAQ';
 import Service from './components/Service';
 import Gallery from './components/Gallery.js';
-import LandingPage from './components/LandingPage'
+// import LandingPage from './components/LandingPage'
 import CalendarComponent from './components/CalendarComponent';
 import ToursAndPackages from './components/ToursAndPackages';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -30,16 +30,16 @@ function App() {
 
   return (
     <div className='App' >
-    {
+    {/* {
       !isLandingPage && 
-      <Navbar /> }  
+      <Navbar /> }   */}
       
-      
+     <Navbar /> 
     <Switch>
-      <Route path="/" exact component={LandingPage} />
+      {/* <Route path="/" exact component={LandingPage} /> */}
       {/* <Route component={Navbar} /> */}
       
-      <Route path="/home" exact component={Home} />
+      <Route path="/" exact component={Home} />
       <Route path="/about" exact component={About} />
       <Route path="/service" exact component={Service} />
       <Route path="/gallery" exact component={Gallery} />

@@ -19,6 +19,7 @@ import cheetah from './assets/cheetah.jpg'
 import d from './assets/hippos.jpg'
 import elephant from './assets/elephants.jpg'
 import BannerSlider from "./BannerSlider";
+import { LightSpeed } from "react-reveal"; // Import the LightSpeed animation from react-reveal
 
 const slideshowImages = [beauty, buffalo, cheetah, d, elephant];
 const slideshowInterval = 3000;
@@ -35,8 +36,37 @@ function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <div className="home-page bg-gray-100 ">
+     <div className="flex justify-center items-center ">
+      <h1
+        className={`text-4xl font-bold ${
+          isLoaded ? 'transition-opacity duration-1000 opacity-100' : 'opacity-0'
+        }`}
+      >
+        WELCOME TO DANIL SCENIC TOURS
+      </h1>
+    </div>
+      {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-dark text-center ">
+          <LightSpeed cascade>
+            <h1 className="text-4xl font-bold mb-4 ">
+              <span className="text-dark font-bold ">Welcome to Danil Scenic Tours</span>
+            </h1> */}
+            {/* <p className="text-l mb-6 font-bold">Click Here <FontAwesomeIcon icon={faArrowDown} /></p>
+            <Link
+              to="/home"
+              className="px-8 py-3 rounded-full bg-green-600 hover:bg-green-600 text-white font-bold"
+            >
+              Discover Now
+            </Link> */}
+          {/* </LightSpeed>
+        </div> */}
       <BannerSlider />
       <div className="page py-10">
         <main className="home-section relative grid grid-cols-1 md:grid-cols-2 items-center p-8 md:px-20 bg-cover bg-center">

@@ -30,7 +30,7 @@ function Faq() {
     {
       question: "CAN I MODIFY OR CANCEL MY BOOKING?",
       answer:
-        "Yes, you can modify or cancel your booking, but it is subject to our cancellation policy. To modify your booking, please contact our customer support team at least 48 hours before the scheduled tour date. Cancellation policies may vary depending on the tour package, so kindly refer to the terms and conditions or contact our support team for more information.",
+        "Yes, you can modify or cancel your booking, but it is subject to our cancellation policy. To modify your booking, please contact our customer support team at least 48 hours before the scheduled tour date. Cancellation policies may vary depending on the tour package, so kindly refer to our contact support team for more information.",
     },
     // Add more questions and answers as needed
   ];
