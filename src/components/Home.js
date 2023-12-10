@@ -129,14 +129,14 @@ function Home() {
     </div>
 
           {/* booking process */}
-     <div className="flex justify-center my-8">
+     {/* <div className="flex justify-center my-8">
   <div className="max-w-sm mx-4">
     <div className="bg-white rounded-lg shadow-md p-4">
-      {/* <BookingComponent /> */}
-      {/* <Flow /> */}
+      <BookingComponent />
+      <Flow />
     </div>
   </div>
-</div>
+</div> */}
 
       <section className="details-section py-10">
         <div className="details-container container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
