@@ -24,14 +24,12 @@ const ContactForm = () => {
     // Replace 'your_company_email' with the actual email address where you want to receive the feedback
     const emailTo = "danilscenic@gmail.com";
     const subject = "Feedback from Tourism Website";
-    const emailBody = `
-      Name: ${formData.name}
-      Email: ${formData.email}
-      Feedback: ${formData.feedback}
-    `;
-    window.location.href = `mailto:danilscenic@gmail.com${emailTo}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(emailBody)}`;
+    // const emailBody = `
+    //   Name: ${formData.name}
+    //   Email: ${formData.email}
+    //   Feedback: ${formData.feedback}
+    // `;
+    window.location.href = "mailto:danilscenic@gmail.com";
   };
 
   return (
