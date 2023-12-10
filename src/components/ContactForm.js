@@ -30,6 +30,7 @@ const ContactForm = () => {
     //   Feedback: ${formData.feedback}
     // `;
     window.location.href = "mailto:danilscenic@gmail.com";
+
   };
 
   return (
