@@ -43,5 +43,8 @@ module.exports = {
     },
   },
   plugins: [],
-}
+  fontFamily: {
+    miandra: ['Miandra GD', 'sans']
+  }
+};
 

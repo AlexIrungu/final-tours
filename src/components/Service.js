@@ -1,28 +1,19 @@
 import React, { useState, useEffect } from "react";
-// import park from './park.jpeg';
-// import truck from './assets/danil scenic tours.jpg';
-// import lake from './assets/lake bogoria.jpg';
-import guide from './guides.jpeg';
-import kulture from './kulture.jpg';
-import adventure from './adventure.jpg';
-import tailor from './tailor-made.jpg';
+
+
 import Modal from "./Modal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import nick from './nick.jpg'
-import muze from './muze.jpg'
-import orphan from './orphan.jpg'
-import reserve from './reserve.jpg'
-import safari from './saf-car.jpeg'
+
 import car from './hireee.jpg'
 import booking from './acc-book.jpeg'
 import tick from './tick.jpeg'
 import sun from './sun-airport.jpg'
 import excursion from './lifeee.jpg'
 import people from './people.jpg'
-import watamu from './watamu.jpeg'
+
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import jioni from './linktoplaces.jpg'
-// import Map from "./Map";
+
 import { CSSTransition } from "react-transition-group";
 import Places from "./Places";
 
@@ -120,39 +111,49 @@ function Service() {
           <div className="grid grid-cols-1 gap-4">
             <ServiceCard
               image={sun}
-              title="Airport Transfers"
-              description="When you step off your flight, our friendly and reliable team will be there to welcome you at the airport. We offer seamless airport transfers, ensuring that you and your luggage are taken care of as we transport you comfortably to your chosen destination. Whether it's a hotel, resort, or any other location, our professional drivers will ensure you have a smooth and safe journey."
+              title="Safari Tours"
+              description="Explore Kenya's world-renowned national parks, including Maasai Mara, Amboseli, Tsavo and Samburu, on our guided safari tours. Witness the Big Five and countless other species in their natural habitats."
             />
 
             <ServiceCard
               image={excursion}
-              title="Excursions"
-              description="For those looking to explore the wonders of our destinations, we provide exciting excursions to places of interest. These short trips are designed for your pleasure and convenience, allowing you to immerse yourself in the local culture, history, and beauty of the region. After an enjoyable time at the excursion, we will return you to your original pick-up location."
+              title="Cultural Expeditions"
+              description="Immerse yourself in the vibrant traditions and daily life of Kenya's diverse cultures. Meet local communities, learn about their customs, and savor traditional cuisine."
             />
 
             <ServiceCard
               image={people}
-              title="Tours & Safaris"
-              description="For the adventurous souls, we offer a range of tailor-made safari packages that cater to everyone's preferences. Whether you're an individual traveler, a family, a couple, or a group, we have safari experiences to suit all. Our experienced tour drivers and guides will take you on unforgettable journeys through the wilderness, offering you thrilling encounters with wildlife and the opportunity to witness nature's marvels up close."
+              title="Adventure Safaris"
+              description="For the thrill-seekers, we offer adventure safaris that include activities like hiking, biking, and hot air ballooning."
             />
 
             <ServiceCard
               image={car}
               title="Car Hire"
-              description="To give you the freedom to explore at your own pace, we provide top-notch 4*4 jeep safari land cruisers with pop-up roofs for game viewing. These vehicles are available for hire individually or as part of a package for your group or safari adventure. Our competent tour drivers and guides will ensure that you have a safe and informative journey, making your experience even more enjoyable."
+              description="The company has a diverse fleet of well-maintained vehicles. We provide both residents and tourists the freedom to explore Kenya's scenic landscapes, cities and attractionsat their own pace. Our fleet comprises of; Economy Cars, SUVs, Luxury Cars, Vans and 4x4 Off-Road Vehicles"
             />
 
-            <ServiceCard
+            {/* <ServiceCard
               image={booking}
               title="Accomodation Bookings"
               description="We understand that finding the right accommodation is essential for a comfortable and enjoyable trip. That's why we assist you in booking accommodations tailored to your specific needs. Whether you prefer hotels, campsites, short-term furnished accommodations, holiday homes, or resorts, we will ensure that your stay is well-suited to your preferences and budget. "
-            />
+            /> */}
 
-            <ServiceCard
+            {/* <ServiceCard
               image={tick}
               title="Air Tickets"
               description="Booking flights can be a daunting task, but our team of travel experts is here to make it hassle-free for you. We assist in booking flights with the best airlines, taking into account your travel dates, preferences, and budget. Our aim is to secure the most affordable and convenient air tickets, allowing you to focus on the excitement of your upcoming journey.
               At our travel agency, customer satisfaction is our top priority. We strive to make your travel experiences smooth, enjoyable, and unforgettable. So, whether you're embarking on a safari adventure, exploring new destinations, or simply need help with your travel arrangements, we are here to turn your travel dreams into reality. "
+            /> */}
+            <ServiceCard
+            image={sun}
+            title="Customized Safaris"
+            description="We tailor itineraries to match your preferences, whether you're travelling with family, friends, or as a solo-adventurer."
+            />
+            <ServiceCard
+            image={excursion}
+            title="Beach Escapes"
+            description="Unwind on the pristine shores of the Kenyan Coast in Diani, Watamu, or Malindi. Relax in luxury beach resorts and explore marine life through snorkeling and diving."
             />
           </div>
 

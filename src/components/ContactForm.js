@@ -4,6 +4,8 @@ import { Zoom } from "react-reveal";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaLock } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import PrivacyPolicy from "./PrivacyPolicy";
+import './fonts/miandra-gd.ttf'
+import './font.css'
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +29,7 @@ const ContactForm = () => {
       Email: ${formData.email}
       Feedback: ${formData.feedback}
     `;
-    window.location.href = `mailto:${emailTo}?subject=${encodeURIComponent(
+    window.location.href = `mailto:danilscenic@gmail.com${emailTo}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(emailBody)}`;
   };

@@ -1,4 +1,5 @@
 import React from 'react';
+import './fonts/miandra-gd.ttf'
 
 function PrivacyPolicy() {
   return (

@@ -2,63 +2,65 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlane,
-  faHiking,
-  faGlobeAfrica,
+  
+ 
   faCar,
   faHotel,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { faBinoculars, faGlobeAfrica, faLandmark, faUsers, faMap, faHiking, faUmbrellaBeach, faSun, faCogs, faWrench } from '@fortawesome/free-solid-svg-icons';
+
 import carImage from "./hireee.jpg";
-import bookingImage from "./acc-book.jpeg";
-import tickImage from "./tick.jpeg";
-import sunImage from "./ransfer.svg";
-import excursionImage from "./lifeee.jpg";
-import peopleImage from "./people.jpg";
 import { Link } from "react-router-dom";
+import safaritours from './safaritours.jpg'
+import cultural from './culturalexpeditions.jpg'
+import adventuresafari from './adventuresafari1.jpg'
+import beaches from './beachescapes.avif'
+import custom from './customizedsafari.jpg'
 
 const ServiceSection = () => {
   const services = [
     {
-      icon: faPlane,
-      title: "Airport Transfers",
+      icon: faBinoculars,
+      title: "Safari Tours",
       description:
-        "When you step off your flight, our friendly and reliable team will be there to welcome you at the airport. We offer seamless airport transfers, ensuring that you and your luggage are taken care of as we transport you comfortably to your chosen destination. Whether it's a hotel, resort, or any other location, our professional drivers will ensure you have a smooth and safe journey.",
-      image: sunImage,
+        "Explore Kenya's world-renowned national parks, including Maasai Mara, Amboseli, Tsavo and Samburu, on our guided safari tours. Witness the Big Five and countless other species in their natural habitats.",
+      image: safaritours,
     },
     {
-      icon: faHiking,
-      title: "Excursions",
+      icon: faLandmark,
+      title: "Cultural Expeditions",
       description:
-        "For those looking to explore the wonders of our destinations, we provide exciting excursions to places of interest. These short trips are designed for your pleasure and convenience, allowing you to immerse yourself in the local culture, history, and beauty of the region. After an enjoyable time at the excursion, we will return you to your original pick-up location.",
-      image: excursionImage,
+        "Immerse yourself in the vibrant traditions and daily life of Kenya's diverse cultures. Meet local communities, learn about their customs, and savor traditional cuisine.",
+      image: cultural,
     },
     {
       icon: faCar,
       title: "Car Hire",
       description:
-        "To give you the freedom to explore at your own pace, we provide top-notch 4x4 jeep safari land cruisers with pop-up roofs for game viewing. These vehicles are available for hire individually or as part of a package for your group or safari adventure. Our competent tour drivers and guides will ensure that you have a safe and informative journey, making your experience even more enjoyable.",
-      image: carImage,
+        "The company has a diverse fleet of well-maintained vehicles. We provide both residents and tourists the freedom to explore Kenya's scenic landscapes, cities and attractionsat their own pace. Our fleet comprises of; Economy Cars, SUVs, Luxury Cars, Vans and 4x4 Off-Road Vehicles",
+      image: carImage ,
     },
     {
-      icon: faHotel,
-      title: "Accommodation Bookings",
+      icon: faMap,
+      title: "Adventure Safaris",
       description:
-        "We understand that finding the right accommodation is essential for a comfortable and enjoyable trip. That's why we assist you in booking accommodations tailored to your specific needs. Whether you prefer hotels, campsites, short-term furnished accommodations, holiday homes, or resorts, we will ensure that your stay is well-suited to your preferences and budget.",
-      image: bookingImage,
+        "For the thrill-seekers, we offer adventure safaris that include activities like hiking, biking, and hot air ballooning.",
+      image: adventuresafari,
     },
     {
-      icon: faPlane,
-      title: "Air Tickets",
+      icon: faCogs,
+      title: "Customized Safaris",
       description:
-        "Booking flights can be a daunting task, but our team of travel experts is here to make it hassle-free for you. We assist in booking flights with the best airlines, taking into account your travel dates, preferences, and budget. Our aim is to secure the most affordable and convenient air tickets, allowing you to focus on the excitement of your upcoming journey.",
-      image: tickImage,
+        "We tailor itineraries to match your preferences, whether you're travelling with family, friends, or as a solo-adventurer.",
+      image: custom ,
     },
     {
-      icon: faGlobeAfrica,
-      title: "Tours & Safaris",
+      icon: faUmbrellaBeach,
+      title: "Beach Escapes",
       description:
-        "For the adventurous souls, we offer a range of tailor-made safari packages that cater to everyone's preferences. Whether you're an individual traveler, a family, a couple, or a group, we have safari experiences to suit all. Our experienced tour drivers and guides will take you on unforgettable journeys through the wilderness, offering you thrilling encounters with wildlife and the opportunity to witness nature's marvels up close.",
-      image: peopleImage,
+        "Unwind on the pristine shores of the Kenyan Coast in Diani, Watamu, or Malindi. Relax in luxury beach resorts and explore marine life through snorkeling and diving.",
+      image: beaches,
     },
     // ... add other services
   ];
@@ -80,8 +82,8 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-100" id="service">
-      <div className="container mx-auto">
+    <section className="py-20 bg-gray-100 " id="service" >
+      <div className="container mx-auto  ">
         <div className="text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
             Services we offer

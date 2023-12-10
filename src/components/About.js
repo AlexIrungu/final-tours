@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
 import { FaPlay } from 'react-icons/fa';
 import aboutImage from './aboutImage.jpeg';
+import Service from './ServiceSection'
+import './fonts/miandra-gd.ttf'
+import Partners from './Partners';
 
 function About() {
   const [isPlayIconOpen, setPlayIconOpen] = useState(false);
@@ -16,7 +19,7 @@ function About() {
   };
 
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gray-100 py-12 font-miandra-gd">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
           <div className="bg-white rounded-lg shadow-lg p-8">
@@ -62,9 +65,25 @@ The staff members include; Tour guide/drivers, Tour consultants, and Project Man
               className="cta-button mt-6 bg-orange-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out hover:bg-orange-800"
             >
               Discover Top Places To Visit
-            </button> */}
+            g</button> */}
           </div>
         </div>
+
+
+<div className='py-10'>
+        {/* <div className='text-4xl font-bold mb-8 text-gray-800 mission-container'> */}
+  <h2 className="text-3xl font-bold mb-4 ">Our Mission</h2>
+  <div>
+    <p className="text-lg text-gray-700 mb-4">
+      To create unforgettable experiences that connect our clientele to the stunning landscapes, magnificent wildlife, and rich cultures across Kenya.
+    </p>
+  </div>
+{/* </div> */}
+</div>
+<Partners />
+
+
+
       </div>
       <div className="py-10">
         {/* Play Icon Modal */}
@@ -75,6 +94,7 @@ The staff members include; Tour guide/drivers, Tour consultants, and Project Man
           onClose={togglePlayIconModal}
         /> */}
       </div>
+      <Service />
     </div>
   );
 }

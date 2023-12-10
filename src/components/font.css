@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Miandra GD';
+    src: url('./fonts/miandra-gd.ttf') format('ttf'); /* Adjust the file path as needed */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Miandra GD', sans-serif; /* Apply the font family to the body or desired elements */
+  }
+  
