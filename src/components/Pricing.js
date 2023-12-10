@@ -133,7 +133,7 @@ const Pricing = ({ setIsPricingOpen }) => {
   <div className="mt-8">
     <h3 className="text-lg font-bold text-orange-700 mb-2">Payment Options:</h3>
     <p className="mb-4">
-      For payment, you can to do a direct bank transfer (USD account). For safari confirmation, a 30% deposit of the total safari cost is required, and the balance should be cleared three weeks before the safari.
+      For payment, you can do a direct bank transfer (USD account). For safari confirmation, a 30% deposit of the total safari cost is required, and the balance should be cleared three weeks before the safari.
     </p>
     <p className="text-gray-600">
       Note: A supplementary cost may be involved for certain services.

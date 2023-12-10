@@ -1,26 +1,38 @@
-/* .menu-button {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 24px;
-    padding: 0;
-    background: transparent;
-    border: none;
-  }
-   */
-  /* .menu-icon {
-    fill: white;
-  } */
-  
-  /* Custom styles for the open state */
-  /* .menu-button.open .menu-icon {
-    fill: #333; 
-  } */
-  
-  /* Add more styles as needed for the open state, e.g., animation, etc. */
-  .logo-image {
-    width: 100px; /* You can adjust this value as needed to increase or decrease the logo size */
-    height: 100px; /* Make sure to maintain the aspect ratio if you are changing the logo dimensions */
-  }
+
+
+.logo-image {
+  width: 100px;
+  height: 100px;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  display: none;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+.menu-button {
+  cursor: pointer;
+}
+
+/* Additional styling as needed */
+
