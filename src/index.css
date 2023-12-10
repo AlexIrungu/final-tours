@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,7 +10,52 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+/* global.css */
+
+/* Miandra GD Regular */
+@font-face {
+  font-family: 'Miandra GD';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Miandra GD Regular'), local('MiandraGD-Regular'),
+       url('https://fonts.gstatic.com/s/miandragd/v1/pxiEypNc_2UfrJf8d1nAoH8GNlaK.ttf') format('truetype');
 }
+
+/* Optionally, you can include additional styles for the body or specific elements */
+body {
+  font-family: 'Miandra GD', sans-serif;
+  /* Add other global styles as needed */
+}
+
+/* global.css or in your component file */
+.service-card-image {
+  max-width: 100%; /* Set the maximum width to ensure responsiveness */
+  height: auto;
+  border-radius: 8px; /* Optional: Add rounded corners for a softer look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow for depth */
+}
+
+/* global.css or in your component file */
+.mission-container {
+  /* Add styles specific to the mission container */
+  background-color: #f8f8f8; /* Example background color */
+  padding: 20px; /* Example padding */
+  border-radius: 8px; /* Example border radius for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example box shadow for depth */
+}
+
+/* Style the heading within the mission container */
+.mission-container h2 {
+  color: black; /* Example text color for the heading */
+}
+
+/* Optional: Add styles for the paragraph within the mission container */
+.mission-container p {
+  margin-top: 10px; /* Example margin-top for spacing */
+}
+
 
 @tailwind base;
 @tailwind components;

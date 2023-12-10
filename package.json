@@ -1,14 +1,17 @@
 {
   "name": "final-tours",
-  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.16",
+    "@mui/icons-material": "^5.14.16",
+    "@mui/material": "^5.14.16",
     "@reach/dialog": "^0.18.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -20,6 +23,7 @@
     "react-calendar": "^4.6.0",
     "react-datepicker": "^4.16.0",
     "react-dom": "^18.2.0",
+    "react-flow-renderer": "^10.3.17",
     "react-icons": "^4.10.1",
     "react-leaflet": "^4.2.1",
     "react-masonry-css": "^1.0.16",

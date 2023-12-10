@@ -18,6 +18,13 @@ const BookingForm = ({ handleBookNow }) => {
     'Accomodation Bookings',
     'National Parks',
     'National Reserves',
+    'Mount Kenya National Park',
+    'Diani Beach',
+    'Lake Nakuru',
+    'Masai Mara Game reserve',
+    'Lake Naivasha',
+    'Amboseli National Park',
+    'Ol pejeta conservancy',
     // Add more service options as needed
   ];
 

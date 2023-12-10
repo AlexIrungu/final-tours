@@ -76,14 +76,14 @@ const Navbar = () => {
                       Service
                     </button>
                   </li> */}
-                  <li className="dropdown-item">
+                  {/* <li className="dropdown-item">
                     <button
                       className="dropdown-link hover:text-green-600"
                       onClick={() => handleDropdownItemClick("/section")}
                     >
                       Service
                     </button>
-                  </li>
+                  </li> */}
                   {/* Add more dropdown items for other places */}
                 </ul>
               )}
@@ -94,15 +94,25 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="menu-item">
+              <Link to="/maps" className="menu-link hover:text-green-600">
+                Map
+              </Link>
+            </li>
+            {/* <li className="menu-item">
               <Link to="/faq" className="menu-link hover:text-green-600">
                 FAQ
               </Link>
-            </li>
+            </li> */}
             <li className="menu-item">
               <Link to="/contact" className="menu-link hover:text-green-600">
                 Contact Us
               </Link>
             </li>
+            {/* <li>
+              <Link to="/pricing" className="menu-link hover:text-green-600">
+                Pricing
+              </Link>
+            </li> */}
           </ul>
         </div>
       </div>
