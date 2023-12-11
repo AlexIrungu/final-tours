@@ -33,7 +33,7 @@ const BookingForm = ({ handleBookNow }) => {
     // Use the mailto: URL scheme to open the user's default email client with the email pre-filled
     const subject = encodeURIComponent(`Booking Request for ${service}`);
     const body = encodeURIComponent(`I would like to book the ${service} service. Company Email: danilscenic@gmail.com .\n\nMy email: ${email}`);
-    const mailtoLink = `mailto:${companyEmail}?subject=${subject}&body=${body}`;
+    //  const mailtoLink = `mailto:${companyEmail}?subject=${subject}&body=${body}`;
     window.location.href = "mailto:danilscenic@gmail.com";
   };
 

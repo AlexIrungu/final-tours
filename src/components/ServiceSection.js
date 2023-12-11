@@ -137,7 +137,7 @@ const ServiceSection = () => {
             </div> */}
           <div className="w-1/6">
               <button
-                className="bg-orange-600 text-white px-3 py-2 rounded"
+                className="bg-brown-600 text-white px-3 py-2 rounded"
                 onClick={goToNextSlide}
               >
                 <FontAwesomeIcon icon="arrow-right" />
@@ -148,7 +148,7 @@ const ServiceSection = () => {
         <div className="text-center mt-12">
           <Link to="/calendar">
             <button
-              className="bg-brown-600 text-customWhite px-6 py-3 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="bg-brown-600 hover:bg-green-600 text-customWhite px-6 py-3 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
               onClick={handleBookNow}
             >
               Book Now
