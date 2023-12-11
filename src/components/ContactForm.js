@@ -87,7 +87,7 @@ const ContactForm = () => {
           <Zoom cascade>
         <button
           type="submit"
-          className="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-2 rounded-lg focus:outline-none shadow-md transition-all"
+          className="w-full bg-brown-600 hover:bg-green-600 active:bg-orange-700 text-white font-bold py-2 rounded-lg focus:outline-none shadow-md transition-all"
         >
           Send
         </button>
@@ -103,28 +103,28 @@ const ContactForm = () => {
         <Fade bottom>
           <div className="text-center">
             <p>
-              <FaMapMarkerAlt className="inline-block mr-2 text-blue-500" />
+              <FaMapMarkerAlt className="inline-block mr-2 text-brown-600" />
               <span>
                 Address: P.O Box 49377-00100, Nairobi
               </span>
             </p>
             <p>
-              <FaPhone className="inline-block mr-2 text-blue-500" />
-              <span>Phone: 0723 453 576</span>
+              <FaPhone className="inline-block mr-2 text-brown-600" />
+              <span>Phone: +254 723 453 576/+254 777 984 249</span>
             </p>
             <p>
           <FaWhatsapp className="inline-block mr-2 text-green-600" />
           <span>WhatsApp: +254 723 453 576</span>
         </p>
             <p>
-              <FaEnvelope className="inline-block mr-2 text-blue-500" />
+              <FaEnvelope className="inline-block mr-2 text-brown-600" />
               <span>Email: danilscenic@gmail.com</span>
             </p>
             <p className="mt-4">
-          <FaLock className="inline-block mr-2 text-blue-500" />
+          <FaLock className="inline-block mr-2 text-brown-600" />
           <span>
             By using this form you agree with the storage and handling of your data by this website in accordance with our{" "}
-            <Link to="/privacy" className="text-blue-500 underline">
+            <Link to="/privacy" className="text-brown-600 underline">
               Privacy Policy
             </Link>
           </span>
