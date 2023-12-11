@@ -5,19 +5,13 @@ const BookingForm = ({ handleBookNow }) => {
   const [service, setService] = useState('');
   const companyEmail = 'danilscenic@gmail.com';
 
-  const serviceOptions = [
-    'Airport Transfers ',
-    'Excursions',
+  const serviceOptions = [    
+    'Safari Tours',
+    'Cultural Expeditions',
+    'Adventure Safaris',
+    'Beach Escapes',
+    'Customized Safaris',
     'Car Hire',
-    'Air Tickets',
-    'National Marine Parks',
-    'Animal Orphanages and Sanctuaries',
-    'Museum',
-    'Tours & Safari',
-    'Scenic Spots',
-    'Accomodation Bookings',
-    'National Parks',
-    'National Reserves',
     'Mount Kenya National Park',
     'Diani Beach',
     'Lake Nakuru',
@@ -40,7 +34,7 @@ const BookingForm = ({ handleBookNow }) => {
     const subject = encodeURIComponent(`Booking Request for ${service}`);
     const body = encodeURIComponent(`I would like to book the ${service} service. Company Email: danilscenic@gmail.com .\n\nMy email: ${email}`);
     const mailtoLink = `mailto:${companyEmail}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
+    window.location.href = "mailto:danilscenic@gmail.com";
   };
 
   return (
@@ -81,7 +75,7 @@ const BookingForm = ({ handleBookNow }) => {
         <button
           type="submit"
           onClick={handleSendEmail}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none"
+          className="bg-brown-600 hover:bg-green-600 text-white px-4 py-2 rounded focus:outline-none"
         >
           Book Now
         </button>

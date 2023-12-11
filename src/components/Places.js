@@ -93,14 +93,14 @@ function Places(){
           {/* Book Now button */}
           <button
             onClick={handleBookNow}
-            className="mt-4 bg-brown-600 text-white font-bold py-2 px-4 rounded-lg"
+            className="mt-4 bg-brown-600 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"
           >
             Book Now
           </button>
           {/* Pricing button */}
           <button
             onClick={handleViewPricing}
-            className="mt-4 bg-brown-600 text-white font-bold py-2 px-4 rounded-lg"
+            className="mt-4 bg-brown-600 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"
           >
             View Pricing
           </button>
@@ -109,7 +109,7 @@ function Places(){
     );
     return(
         <div>
-            <h1 className="text-3xl font-bold text-orange-700 mt-10 mb-4">Places to Visit</h1>
+            <h1 className="text-3xl font-bold text-brown-600 mt-10 mb-4">Places to Visit</h1>
           <p className="text-gray-700 mb-6">Explore the 
           <button
               onClick={toggleBookAdventureModal}

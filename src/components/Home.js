@@ -79,7 +79,7 @@ function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-orange-600"
+            className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-brown-600"
           >
             Welcome To Danil Scenic Tours!
           </motion.h1>
