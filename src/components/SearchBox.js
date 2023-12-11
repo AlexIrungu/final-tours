@@ -36,7 +36,7 @@ export default function SearchBox(props) {
         >
           <Button
             variant="contained"
-            color="primary"
+            style={{ backgroundColor: "#80461B", color: "white" }}
             onClick={() => {
               // Search
               const params = {
