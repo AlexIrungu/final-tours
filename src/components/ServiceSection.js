@@ -82,13 +82,13 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-100 " id="service" >
+    <section className="py-10 bg-gray-100 " id="service" >
       <div className="container mx-auto  ">
         <div className="text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-3xl font-bold text-gray-800 mb-4">
             Services we offer
           </h1>
-          <p className="text-gray-600 text-lg md:text-xl lg:text-2xl mb-12">
+          <p className="text-gray-600  mb-12">
             At our company, we pride ourselves in providing a comprehensive range of services to cater to all your travel needs. Whether you're arriving at an airport, looking for exciting excursions, seeking thrilling safaris, requiring car hire, accommodation bookings, or assistance with air tickets, we've got you covered!
           </p>
         </div>

@@ -15,30 +15,31 @@ code {
 /* global.css */
 
 /* Miandra GD Regular */
-@font-face {
+/* @font-face {
   font-family: 'Miandra GD';
   font-style: normal;
   font-weight: 400;
   src: local('Miandra GD Regular'), local('MiandraGD-Regular'),
        url('https://fonts.gstatic.com/s/miandragd/v1/pxiEypNc_2UfrJf8d1nAoH8GNlaK.ttf') format('truetype');
-}
+} */
 
 /* Optionally, you can include additional styles for the body or specific elements */
-body {
-  font-family: 'Miandra GD', sans-serif;
-  /* Add other global styles as needed */
+@nest body {
+  /* font-family: 'Miandra GD', sans-serif; */
+  /* global.css */
+@nest body {
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Playfair Display', serif;
+}
+
+  
 }
 
 /* global.css or in your component file */
-.service-card-image {
-  max-width: 100%; /* Set the maximum width to ensure responsiveness */
-  height: auto;
-  border-radius: 8px; /* Optional: Add rounded corners for a softer look */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow for depth */
-}
+
 
 /* global.css or in your component file */
-.mission-container {
+@nest .mission-container {
   /* Add styles specific to the mission container */
   background-color: #f8f8f8; /* Example background color */
   padding: 20px; /* Example padding */
@@ -47,7 +48,7 @@ body {
 }
 
 /* Style the heading within the mission container */
-.mission-container h2 {
+@nest .mission-container h2 {
   color: black; /* Example text color for the heading */
 }
 
