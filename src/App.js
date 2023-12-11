@@ -12,7 +12,7 @@ import Service from './components/Service';
 import Gallery from './components/Gallery.js';
 // import LandingPage from './components/LandingPage'
 import CalendarComponent from './components/CalendarComponent';
-import ToursAndPackages from './components/ToursAndPackages';
+
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Places from './components/Places';
 import Nature from './components/Nature';

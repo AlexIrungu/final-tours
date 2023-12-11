@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import logo from "./tourssss.jpg";
 import './Navbar.css'
+import dstfinal from './dstfinal.png'
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ const Navbar = () => {
     <nav className="bg-brown-600 text-dark p-4">
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="logo-link">
-          <img src={logo} alt="Logo" className="logo-image" />
+          <img src={dstfinal} alt="Logo" className="logo-image" />
         </Link>
         <button
           className={`menu-button show-menu-button lg:hidden`}

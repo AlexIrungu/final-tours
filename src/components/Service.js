@@ -104,9 +104,13 @@ function Service() {
     <div className="service-page">
       <main className="service-section">
         <div className="service-container">
-          <h1 className="text-3xl font-bold text-orange-700 mb-4">Our Services</h1>
-          <p className="text-gray-700 mb-6">At our company, we pride ourselves on providing a comprehensive range of services to cater to all your travel needs.
+
+          <div>
+          <h1 className="text-2xl font-bold text-orange-700 mb-4">Our Services</h1>
+          <p className=" mb-6">At our company, we pride ourselves on providing a comprehensive range of services to cater to all your travel needs.
 						 Whether you're arriving at an airport, looking for exciting excursions, seeking thrilling safaris, requiring car hire, accommodation bookings, or assistance with air tickets, we've got you covered!</p>
+
+          </div>
 
           <div className="grid grid-cols-1 gap-4">
             <ServiceCard

@@ -89,18 +89,18 @@ function Places(){
         <img src={image} alt={title} className="service-card-image" />
         <div className="p-4">
           <h2 className="text-xl font-semibold text-brown-600 mb-2">{title}</h2>
-          <p className="text-gray-700">{description}</p>
+          <p className="text-gray-700 text-s">{description}</p>
           {/* Book Now button */}
           <button
             onClick={handleBookNow}
-            className="mt-4 bg-orange-700 text-white font-bold py-2 px-4 rounded-lg"
+            className="mt-4 bg-brown-600 text-white font-bold py-2 px-4 rounded-lg"
           >
             Book Now
           </button>
           {/* Pricing button */}
           <button
             onClick={handleViewPricing}
-            className="mt-4 bg-orange-700 text-white font-bold py-2 px-4 rounded-lg"
+            className="mt-4 bg-brown-600 text-white font-bold py-2 px-4 rounded-lg"
           >
             View Pricing
           </button>

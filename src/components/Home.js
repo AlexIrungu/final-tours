@@ -83,13 +83,8 @@ function Home() {
           >
             Welcome To Danil Scenic Tours!
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            className="text-xl md:text-2xl leading-relaxed text-dark"
-          >
-            <h2 className="text-3xl font-bold text-orange-600 mb-4">
+        <div>
+            <h2 className="text-3xl font-bold text-green-600 mb-4">
               Why go on safari with Danil Scenic Tours?
             </h2>
             <ul className="list-disc pl-8 text-left">
@@ -99,9 +94,7 @@ function Home() {
               <li className="mb-4">
                 <strong>Responsible Travel:</strong> We are committed to sustainable and responsible tourism, ensuring minimal impact on the environment and a positive contribution to local communities.
               </li>
-              <li className="mb-4">
-                <strong>Experienced Guides:</strong> Our professional guides are passionate about Kenya's wildlife and cultures, enhancing your safari experience.
-              </li>
+             
               <li className="mb-4">
                 <strong>24/7 Customer Support:</strong> We provide assistance round the clock to address your queries or concerns.
               </li>
@@ -117,12 +110,16 @@ function Home() {
               <li className="mb-4">
                 <strong>Maintenance & Safety:</strong> Our vehicles are regularly serviced to ensure your safety and comfort.
               </li>
+              <li className="mb-4">
+                <strong>Experienced Guides:</strong> Our professional guides are passionate about Kenya's wildlife and cultures, enhancing your safari experience.
+              </li>
             </ul>
             <p className="mb-4">
     We provide knowledgeable and professional driver/tour guides who know wildlife and animal behavior as well as the local fauna and flora. Our drivers speak English, French, and Spanish, with other foreign language-speaking guides/tour leaders available on request.
   </p>
   A supplementary cost might be involved.
-          </motion.p>
+  </div>
+          
         </div>
         {/* Image section (if needed) */}
       </main>
