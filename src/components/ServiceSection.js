@@ -137,7 +137,7 @@ const ServiceSection = () => {
             </div> */}
           <div className="w-1/6">
               <button
-                className="bg-brown-600 text-white px-3 py-2 rounded"
+                className="bg-brown-600 hover:bg-green-600 text-white px-3 py-2 rounded"
                 onClick={goToNextSlide}
               >
                 <FontAwesomeIcon icon="arrow-right" />

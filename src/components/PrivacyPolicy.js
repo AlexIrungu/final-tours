@@ -1,9 +1,9 @@
 import React from 'react';
-import './fonts/miandra-gd.ttf'
+// import './fonts/miandra-gd.ttf'
 
 function PrivacyPolicy() {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8 text-gray-800 font-serif">
+    <div className="max-w-2xl mx-auto px-4 py-8 text-gray-800 font-playfair">
       <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
       <p className="text-gray-600 mb-4 text-lg">
         Effective date: 03/08/2023

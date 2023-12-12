@@ -41,7 +41,7 @@ const BannerSlider = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(goToNextSlide, 5000); // Auto transition every 5 seconds
+    const interval = setInterval(goToNextSlide, 10000); // Auto transition every 10 seconds
     return () => clearInterval(interval);
   }, []);
 
