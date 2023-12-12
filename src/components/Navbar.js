@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-brown-600 text-dark p-4">
+    <nav className="bg-brown-600 text-dark p-2">
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="logo-link">
           <img src={dstfinal} alt="Logo" className="logo-image" />
@@ -56,7 +56,7 @@ const Navbar = () => {
         <div
           className={`menu lg:flex ${isMenuOpen ? "block" : "hidden"} transition-all duration-500`}
         >
-          <ul className="menu-list flex flex-col  lg:space-y-0 lg:flex-row lg:items-center">
+          <ul className="menu-list flex flex-col lg:space-y-0 lg:flex-row lg:items-center text-sm"> {/* Adjust the font size and line height */}
             <li className="menu-item">
               <Link to="/" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
                 Home
