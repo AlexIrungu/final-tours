@@ -56,34 +56,34 @@ const Navbar = () => {
         <div
           className={`menu lg:flex ${isMenuOpen ? "block" : "hidden"} transition-all duration-500`}
         >
-          <ul className="menu-list flex flex-col space-y-4 lg:space-x-4 lg:space-y-0 lg:flex-row lg:items-center">
+          <ul className="menu-list flex flex-col  lg:space-y-0 lg:flex-row lg:items-center">
             <li className="menu-item">
-              <Link to="/" className="menu-link hover:text-green-600 px-4 py-2 font-bold">
+              <Link to="/" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
                 Home
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/about" className="menu-link hover:text-green-600 px-4 py-2 font-bold">
+              <Link to="/about" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
                 About
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/places" className="menu-link hover:text-green-600 px-4 py-2 font-bold">
+              <Link to="/places" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
                 Places
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/gallery" className="menu-link hover:text-green-600 px-4 py-2 font-bold">
+              <Link to="/gallery" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
                 Gallery
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/maps" className="menu-link hover:text-green-600 px-4 py-2 font-bold">
+              <Link to="/maps" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
                 Map
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/contact" className="menu-link hover:text-green-600 px-4 py-2 font-bold">
+              <Link to="/contact" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
                 Contact Us
               </Link>
             </li>

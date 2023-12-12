@@ -30,12 +30,25 @@ const BookingForm = ({ handleBookNow }) => {
   };
 
   const handleSendEmail = () => {
-    // // Use the mailto: URL scheme to open the user's default email client with the email pre-filled
-    // const subject = encodeURIComponent(`Booking Request for ${service}`);
-    // const body = encodeURIComponent(`I would like to book the ${service} service. Company Email: danilscenic@gmail.com .\n\nMy email: ${email}`);
-    //  const mailtoLink = `mailto:${companyEmail}?subject=${subject}&body=${body}`;
-    window.location.href = "mailto:danilscenic@gmail.com";
+    const companyEmail = "danilscenic@gmail.com";
+    const subject = `Booking Request for ${service}`;
+    const body = `I would like to book the ${service} service. Company Email: ${companyEmail}.\n\nMy email: ${email}`;
+  
+    const mailtoLink = `mailto:${companyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+    // Open the default email client with a new email draft
+    const emailWindow = window.open(mailtoLink, "_blank");
+  
+    // If the window wasn't blocked by a popup blocker, focus on it
+    if (emailWindow && emailWindow.focus) {
+      emailWindow.focus();
+    } else {
+      // Handle the case where the popup was blocked
+      console.error("Unable to open email window. Please check your browser settings.");
+      // You can provide alternative instructions or a fallback solution here
+    }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="bg-white p-4 rounded-lg shadow-lg">
@@ -49,7 +62,7 @@ const BookingForm = ({ handleBookNow }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          className="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-brown-600"
         />
       </div>
       <div className="mb-4">
@@ -61,7 +74,7 @@ const BookingForm = ({ handleBookNow }) => {
           value={service}
           onChange={(e) => setService(e.target.value)}
           required
-          className="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          className="block w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-brown-600"
         >
           <option value="">Select a service...</option>
           {serviceOptions.map((option) => (
