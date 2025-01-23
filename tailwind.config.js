@@ -6,6 +6,7 @@ module.exports = {
     colors: {
       // Add the brown color to the colors object
       customWhite: '#FFFFFF',
+      black: '#000000', // Define black color with hex code #000000
       brown: {
         600: ' #80461B', // Replace this hex code with the brown color you want
       },
@@ -35,6 +36,9 @@ module.exports = {
       gray: {
         200: "#EDF2F7",
       },
+      yellow: {
+        500: '#FFD700', // Define yellow color with hex code #FFD700
+      },
       // Other colors...
        // Add the green color to the colors object
     green: {
@@ -43,8 +47,5 @@ module.exports = {
     },
   },
   plugins: [],
-  fontFamily: {
-    miandra: ['Miandra GD', 'sans']
-  }
 };
 

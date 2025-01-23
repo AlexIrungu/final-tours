@@ -3,7 +3,7 @@ import safaribooking from './top-places/safaribooking.png';
 
 const Partners = () => {
     const divStyle = {
-        backgroundColor: 'purple',
+        backgroundColor: 'green',
         padding: '10px', // Adjust the padding as needed
         borderRadius: '8px', // Optional: Add rounded corners
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Optional: Add a box shadow
@@ -12,7 +12,7 @@ const Partners = () => {
       };
 
       const linkStyle = {
-        color: 'blue', // Set the text color
+        color: 'green', // Set the text color
         textDecoration: 'underline', // Add an underline
         cursor: 'pointer', // Change the cursor to a pointer on hover
       };
@@ -31,7 +31,7 @@ const Partners = () => {
       <img src={safaribooking} alt="Safari Booking" />
     </div>
     <a
-        href="https://www.safaribookings.com/"
+        href="https://www.safaribookings.com/p6036"
         target="_blank"
         rel="noopener noreferrer"
         style={linkStyle}

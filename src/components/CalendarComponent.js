@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { Transition } from '@headlessui/react';
-import BookingForm from './BookingForm';
-import booking from './booking.jpg'
+import booking from './shiftedfrommain/booking.jpg'
+import { InlineWidget, PopupWidget } from 'react-calendly';
 
 function CalendarComponent() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
+  
 
   const handleBookNow = (email, service) => {
     // Simulating a booking process with a 1.5-second delay
@@ -30,51 +26,28 @@ function CalendarComponent() {
     const body = encodeURIComponent(`I would like to book the ${service} service.\n\nMy email: ${email}`);
     const mailtoLink = `mailto:company@example.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
+
+    
   };
 
   return (
-    <div className="bg-gray-200">
-      <div className="container mx-auto mt-8 p-4">
-        <h1 className="text-3xl font-bold mb-4">Welcome to Our Booking Service</h1>
-        <p className=" text-gray-800 mb-6">
-          Choose your preferred service and fill out the booking form below.
-        </p>
-        <div className="flex flex-wrap-reverse">
-          {/* Booking Form */}
-          <div className="w-full md:w-1/2 p-4">
-            <BookingForm handleBookNow={handleBookNow} />
-          </div>
-          {/* Images */}
-          <div className="w-full md:w-1/2 p-4">
-            <img
-              src={booking}
-              alt="Booking Service"
-              className="w-full rounded-lg shadow-lg"
-            />
-          </div>
+    <div className="bg-gradient-to-r from-green-400 to-blue-500 p-10">
+    <div className="container mx-auto mt-8 p-4 bg-white rounded-lg shadow-lg">
+      <h1 className="text-5xl font-bold mb-8 text-orange-600">Welcome to Our Booking Service</h1>
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="w-full md:w-1/2 p-4 bg-gray-100 rounded-lg shadow-md transition-all duration-500 ease-in-out">
+          <InlineWidget url='https://calendly.com/danilscenic' />
         </div>
-        {/* Calendar */}
-        {/* <div className="mt-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Select Date for Service</h2>
-          <Calendar onChange={handleDateChange} value={selectedDate} className="border p-4" />
-        </div> */}
+        <div className="w-full md:w-1/2 p-4">
+          <img
+            src={booking}
+            alt="Booking Service"
+            className="w-full rounded-lg shadow-lg border border-gray-200 transition-all duration-500 ease-in-out"
+          />
+        </div>
       </div>
-
-      {/* Success Message */}
-      <Transition
-        show={showSuccessMessage}
-        enter="transition-opacity duration-300"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-300"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 bg-white rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold text-gray-800">Booking is Successful!</h2>
-        </div>
-      </Transition>
     </div>
+  </div>
   );
 }
 

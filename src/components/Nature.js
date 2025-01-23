@@ -1,30 +1,54 @@
-import React from 'react'
-import { importAllImages } from './utils/utils'
+import React from 'react';
+import { importAllMediaAsObject } from './utils/utils';
 
-function Nature(){
-    const images = importAllImages(
-        require.context("./nature", false, /\.(png|jpe?g|svg)$/)
-      );
-    return(
-        <div className="gallery-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {Object.values(images).map((value, index) => (
-          <div
+function Nature({ selectedRegion }) {
+  const images = importAllMediaAsObject(
+    require.context('./nature', false, /\.(png|jpe?g|svg)$/)
+  );
+
+  const regionImages = {
+    'Great Rift Valley': [images['riftvalley.jpg'], images['valley1.jpeg'], images['valley2.jpeg'], images['valley3.jpeg'], images['valey4.jpeg']],
+    'Mount Kenya': [images['mtkenya.jpg'], images['kenya1.jpeg'], images['kenya2.jpeg'], images['kenya3.jpeg'], images['kenya4.jpeg']],
+    'Maasai Mara': [images['mara.jpg'],images['mara2.jpg'], images['mara3.jpeg'], images['mara4.jpeg'], images['mara5.jpeg']],
+    'Kenyan Coast': [images['diani.jpg'], images['coast.jpg'], images['coast1.jpeg'], images['coast2.jpeg'], images['coast3.jpeg'], images['coast4.jpeg']],
+    'Mount Elgon': [images['kenyaaa.jpeg'], images['elgon1.jpeg'], images['elgon2.jpeg'], images['elgon3.jpeg'], images['elgon4.jpeg']],
+    'Lake Turkana': [images['turkana.jpeg'], images['turkana1.jpeg'], images['tuk2.jpeg'], images['tuk3.jpeg'], images['tuk4.jpeg']],
+    'Lewa Wildlife Conservancy': [images['lewa.jpeg'], images['lewa1.jpeg'], images['lewa2.jpeg'], images['lewa3.jpeg'], images['lewa4.jpeg']],
+  };
+
+  // Update selectedRegion to include images from regionImages
+  const updatedSelectedRegion = selectedRegion ? {
+    ...selectedRegion,
+    images: regionImages[selectedRegion.name],
+  } : null;
+
+  return (
+    <div className="container mx-auto p-8">
+      <h1 className="text-4xl font-bold mb-8">Discover Kenya's Nature and Landscapes</h1>
+
+      <div className="mb-8">
+  {updatedSelectedRegion && (
+    <div
+      className="rounded"
+      style={{ height: '200px', padding: '10px', backgroundColor: '#f8f8f8' }}
+    >
+      <p className="text-lg font-bold mt-4">{updatedSelectedRegion.description}</p>
+      <div className="flex">
+        {updatedSelectedRegion.images.map((image, index) => (
+          <img
             key={index}
-            className="gallery-item relative overflow-hidden rounded-lg shadow-md cursor-pointer"
-          >
-            <img
-              src={value}
-              alt="tours gallery"
-              className="w-full h-auto max-h-80 object-cover"
-            />
-            <div className="gallery-overlay absolute inset-0 bg-black opacity-0 flex items-center justify-center">
-              <div className="text-white text-center text-sm font-bold">
-                Click to Enlarge
-              </div>
-            </div>
-          </div>
+            src={image}
+            alt={`${updatedSelectedRegion.name} ${index}`}
+            style={{ objectFit: 'contain', height: '150px' }} // Set a specific height here
+            className="w-auto"
+          />
         ))}
       </div>
-    )
+    </div>
+  )}
+</div>
+    </div>
+  );
 }
-export default Nature
+
+export default Nature;

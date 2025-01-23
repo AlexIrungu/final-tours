@@ -1,113 +1,76 @@
 import React from 'react';
-import olpegeta from './top-places/olpegeta.png'
-import amboseli from './top-places/amboseli.jpeg'
-import diani from './top-places/dianibeach.jpeg'
-import naivasha from './top-places/lakenaivasha.jpeg'
-import nakuru from './top-places/lakenakuru.jpeg'
-import maasaimara from './top-places/maasaimara.jpeg'
-import mtkenya from './top-places/mtkenya.jpeg'
-import big5 from './top-places/big5.jpg'
-import kenyabeach from './top-places/kenya-beach.jpg'
-import mm from './top-places/mm.jpg'
-import sk from './top-places/southkenya.jpg'
-import tm from './top-places/tailor-made.jpg'
-import nm from './top-places/nm.jpg'
+import bogoria from './day2day/bogoria.jpg'
+import lavish from './day2day/lavish.jpg'
+import crescent from './day2day/crescent1.jpg'
+import masimara from './day2day/masimara.jpg'
+import mara from './day2day/3mara.jpg'
+import extension from './day2day/extension.jpg'
+import sevenday from './day2day/sevenday.jpg'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
+import { Link } from 'react-router-dom'
+
 const Pricing = ({ setIsPricingOpen }) => {
 
+  
+
+
     const topPlacesPricing = [
-        // {
-        //     place: 'Ol Pejeta Conservancy',
-        //     description: 'Boasting the largest rhinoceros population in Kenya...',
-        //     price: '$50/person',
-        //     image: olpegeta, 
-        //   },
-          // {
-          //   place: 'Amboseli National Park',
-          //   description: 'With the majestic silhouette of Mount Kilimanjaro as its backdrop...',
-          //   price: '$50/person',
-          //   image: amboseli,
-          // },
-          {
-            place: 'Cultural Exploration in Samburu (7 days)',
-            description: 'An authentic journey to experience the traditions of Samburu people',
-            price: 'starting at $2499 per person',
-            image: naivasha,
-          },
-          {
-            place: 'Maasai Mara Safari (4 days)',
-            description: 'Includes game drives, accomodations, and all meals',
-            price: 'starting at $1599 per person',
-            image: maasaimara,
-          },
-          {
-            place: 'Adventuire Safari in the Great Rift Valley (6 days)',
-            description: 'Combines thrilling activities like hiking and biking with wildlife viewing',
-            price: 'starting at $1899 per person',
-            image: nakuru,
-          },
-          {
-            place: 'Kenyan Coastal Retreat (5 Days)',
-            description: 'Luxury beachfront accomodations and water sports',
-            price: 'starting at $1799 per person',
-            image: diani,
-          },
-          // {
-          //   place: 'Mount Kenya National Park',
-          //   description: 'Nestled within the picturesque landscapes of East Africa...',
-          //   price: '$120/person',
-          //   image: mtkenya,
-          // },
-          {
-            place: 'Custom Safari Adventures',
-            description: 'Pricing varies based on your preferences and itenerary',
-            // price: 'from $250',
-            image: tm,
-            
-          },
-          // {
-          //   place: '10 day Kenya and Beach',
-          //   description: 'Go south and swim golden',
-          //   price: 'from $1700',
-          //   image: kenyabeach
-           
-          // },
-          // {
-          //   place: '5 day Kenya: A Beautiful Road Trip',
-          //   description: 'Lake Nakuru + Maasai Mara',
-          //   price: 'from $800',
-          //   // description: 'Extension with Diani Beach Possible',
-          //   image: nm,
-            
-          // },
-          // {
-          //   place: '4 Day Kenya: Maasai Mara Exploration',
-          //   description: 'Maasai Mara Game Reserve, Combination with Diani Beach possible'  ,
-          //   price: 'from $623',
-          //   // description: ,
-          //   image: mm,
-           
-          // },
-          // {
-          //   place: '8 Day Kenya: Big 5 Special Golden',
-          //   description: 'OlPegeta + Lake Nakuru + Lake Naivasha + Maasai Mara , Combination with Diani Beach possible', 
-          //   price: 'from $1200',
-            
-          //   image: big5
-           
-          // },
-          // {
-          //   place: '7 Day Kenya: Go South Golden',
-          //   description: 'Maasai Mara + Lake Naivasha + Amboseli, Combination with Diani Beach possible' , 
-          //   price: 'from $1000',
-            
-          //   image: sk
-           
-          // },
+       
+      {
+        place: '3-Day Exploring Maasai Mara',
+        description: 'This is a 3 day extensive tour to explore the world renowned Masai Mara in Kenya, Africa...',
+        price: '$982 to $1297pp(USD)',
+        image: mara,
+        id: 'maasai-mara' // Unique ID for the place
+      },
+      {
+        place: '10-Day Extensive Tour in Kenya',
+        description: 'A thrilling adventure through Kenya/s magnificent National parks -Tsavo East and West, Amboseli, Samburu and Masai Mara...',
+        price: '$3515 to $4622pp(USD)',
+        image: extension,
+        id: 'extensive-tour' // Unique ID for the place
+      },
+      {
+        place: '7-Day Adventure- Amboseli, Naivasha, Nakuru & Maasai Mara',
+        description: 'During the trip, you will be taken to various destinations namely: Amboseli National Park where you shall get a clear view photo of the snow capped Mt Kilimanjaro...',
+        price: '$1576 to $2175pp(USD)',
+        image: masimara,
+        id: 'adventure-amboseli' // Unique ID for the place
+      },
+      {
+        place: '6-Day Budget Tour - Amboseli, Crescent, Nakuru and Mara',
+        description: 'Experience a thrilling safari in Kenya at Amboseli, Lake Nakuru and Masai Mara National Parks where you shall encounter...',
+        price: '$1,903 to $2,275 pp (USD)',
+        image: crescent,
+        id: 'budget-tour' // Unique ID for the place
+      },
+      {
+        place: '3-Day Lavish Safari - Amboseli National Park',
+        description: 'This is a lavish three-day safari into the heart of Amboseli National Park in Kenya, where untamed wilderness meets unparalleled luxury.',
+        price: '$1,301 to $1,984 pp (USD)',
+        image: lavish,
+        id: 'lavish'
+      },
+      {
+        place: '6-Day Mid Range Safari - Bogoria, Nakuru, Naivasha, Mara',
+        description: 'An exclusive safari through Kenyas natural wonders to Lake Bogoria, Lake Nakuru, Lake Naivasha, and Masai Mara',
+        price: '$2,295 to $3,037 pp (USD)',
+        image: bogoria,
+        id: 'bogoria'
+      },
+      {
+        place: '7-Day Budget -Amboseli, Naivasha, Bogoria, Nakuru, Mara',
+        description: 'A 7-day trip to Kenyas game parks and scenery: Amboseli, Lake Naivasha, Lake Bogoria, Lake Nakuru, and Masai Mara',
+        price: '$2,110 to $2,509 pp (USD)',
+        image: sevenday,
+        id: 'seven'
+      },
+
           
+                
       ];
-    
-
-
     const handleViewPricing = () => {
         // Simulate a process with a delay (replace with your logic)
         console.log("View Pricing process initiated...");
@@ -120,51 +83,46 @@ const Pricing = ({ setIsPricingOpen }) => {
 
   return (
     
-    <div>
-    <div className="bg-white p-4">
-      <h1 className="text-3xl font-bold text-orange-700 mt-10 mb-4 text-center">
-        Tour Rates
-      </h1>
-      <p>
-        Please note that these rates are approximate and may vary depending on factors such as the season, group size, and specific accomodations
+    <div className="p-8 bg-gray-100">
+    <div className="text-center">
+      <h1 className="text-4xl font-bold text-orange-500 mb-4">Tour Rates</h1>
+      <p className="text-lg text-gray-700 mb-2">
+        Please note that these rates are approximate and may vary depending on factors such as the season, group size, and specific accommodations
       </p>
-      <h3>Contact us for precise pricing.</h3>
-       {/* Payment Information */}
-  <div className="mt-8">
-    <h3 className="text-lg font-bold text-orange-700 mb-2">Payment Options:</h3>
-    <p className="mb-4">
-      For payment, you can do a direct bank transfer (USD account). For safari confirmation, a 30% deposit of the total safari cost is required, and the balance should be cleared three weeks before the safari.
-    </p>
-    <p className="text-gray-600">
-      Note: A supplementary cost may be involved for certain services.
-    </p>
-  </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-        {topPlacesPricing.map((placeData, index) => (
-          <div key={index} className="bg-white p-6 border rounded-lg shadow-lg">
-            <img
-              src={placeData.image} // Use the image filename as the source
-              alt={placeData.place}
-              className="h-32 w-32 mb-4"
-            />
-            <h2 className="text-2xl font-bold text-blue-600">{placeData.place}</h2>
+      <h3 className="text-orange-500 font-semibold mb-8">Contact us for precise pricing.</h3>
+    </div>
+    <div className="mb-8">
+      <h3 className="text-2xl font-bold text-orange-500 mb-2">Payment Options:</h3>
+      <p className="text-lg text-gray-700 mb-4">
+        For payment, you can do a direct bank transfer (USD account). For safari confirmation, a 30% deposit of the total safari cost is required, and the balance should be cleared three weeks before the safari.
+      </p>
+      <p className="text-gray-600">
+        Note: A supplementary cost may be involved for certain services.
+      </p>
+    </div>
+    <button className="w-full py-2 mb-8 bg-orange-500 text-white rounded hover:bg-orange-600">
+      <Link to="/calendar" className="text-white">BOOK A CUSTOM TOUR</Link>
+    </button>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {topPlacesPricing.map((placeData, index) => (
+        <div key={index} className="p-6 bg-white border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <Link to={`/${placeData.id}`}>
+            <LazyLoadImage src={placeData.image} alt={placeData.place} className="w-full h-64 object-cover rounded-t-lg" />
+            <h2 className="text-2xl font-bold text-blue-600 mt-4">{placeData.place}</h2>
             <p className="text-gray-700 mb-4">{placeData.description}</p>
             <p className="text-gray-700 font-bold text-2xl">{placeData.price}</p>
-            {/* <button
-              onClick={() => {
-                setIsPricingOpen(true);
-              }}
-              className="cta-button mt-4 bg-customWhite text-brown-600 underline font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
-            >
-              View Pricing
-            </button> */}
-          </div>
-        ))}
-      </div>
+            {/* <LazyLoadImage
+            alt={placeData.place}
+            src={placeData.image} 
+            effect="blur"
+          /> */}
+          </Link>
+        </div>
+      ))}
     </div>
+   
   </div>
-  );
+);
 };
 
 export default Pricing;

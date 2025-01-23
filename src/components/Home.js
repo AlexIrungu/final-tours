@@ -1,85 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import Typical from "react-typical";
 import { Link } from "react-router-dom";
-import maasai from './maasai.jpg';
-import transport from './transport.jpg';
-import kulture from './kulture.jpg'
+import maasai from './shiftedfrommain/maasai.jpg';
+import transport from './shiftedfrommain/transport.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Partners from "./Partners";
 import {
-  faTwitter,
   faFacebook,
   faInstagram,
   faLinkedin,
   faYoutube,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
-import beauty from './assets/linktoplaces.jpg'
-import buffalo from './assets/bibhash-polygon-cafe-banerjee-A3jVgn01NEY-unsplash.jpg'
-import cheetah from './assets/cheetah.jpg'
-import d from './assets/hippos.jpg'
-import elephant from './assets/elephants.jpg'
 import BannerSlider from "./BannerSlider";
-import { LightSpeed } from "react-reveal"; // Import the LightSpeed animation from react-reveal
-import BookingComponent from './BookingComponent'
-import logo from "./tourssss.jpg";
-import './fonts/miandra-gd.ttf';
-import Flow from "./Flow";
-const slideshowImages = [beauty, buffalo, cheetah, d, elephant];
-const slideshowInterval = 3000;
+import TeamData from "./TeamData";
+import { FaTwitter } from 'react-icons/fa'; // Importing the updated Font Awesome Twitter icon
+
 
 function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slideshowImages.length);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, slideshowInterval);
-    return () => clearInterval(interval);
-  }, []);
-
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   return (
     <div className="home-page bg-gray-100 ">
-     <div className="flex justify-center items-center ">
-      {/* <h1
-        className={`text-4xl font-bold ${
-          isLoaded ? 'transition-opacity duration-1000 opacity-100' : 'opacity-0'
-        }`}
-      >
-        WELCOME TO DANIL SCENIC TOURS
-      </h1> */}
-    </div>
-      {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-dark text-center ">
-          <LightSpeed cascade>
-            <h1 className="text-4xl font-bold mb-4 ">
-              <span className="text-dark font-bold ">Welcome to Danil Scenic Tours</span>
-            </h1> */}
-            {/* <p className="text-l mb-6 font-bold">Click Here <FontAwesomeIcon icon={faArrowDown} /></p>
-            <Link
-              to="/home"
-              className="px-8 py-3 rounded-full bg-green-600 hover:bg-green-600 text-white font-bold"
-            >
-              Discover Now
-            </Link> */}
-          {/* </LightSpeed>
-        </div> */}
+     
+     
       <BannerSlider />
-      <div className="page py-10">
+      <div className="page ">
       <main className="home-section text-center p-8 md:px-20 bg-cover bg-center">
         <div className="home-content text-dark">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-brown-600"
+            className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-brown-600 "
           >
             Welcome To Danil Scenic Tours!
           </motion.h1>
@@ -87,7 +39,7 @@ function Home() {
             <h2 className="text-3xl font-bold text-green-600 mb-4">
               Why go on safari with Danil Scenic Tours?
             </h2>
-            <ul className="list-disc pl-8 text-left">
+            <ul className="list-disc pl-8 text-left ">
               <li className="mb-4">
                 <strong>Local Expertise:</strong> We are a Kenyan-based company with an in-depth knowledge of the country and its unique attractions.
               </li>
@@ -111,13 +63,12 @@ function Home() {
                 <strong>Maintenance & Safety:</strong> Our vehicles are regularly serviced to ensure your safety and comfort.
               </li>
               <li className="mb-4">
-                <strong>Experienced Guides:</strong> Our professional guides are passionate about Kenya's wildlife and cultures, enhancing your safari experience.
+                <strong>Experienced Guides:</strong> We provide knowledgeable and professional driver/tour guides who know wildlife and animal behavior as well as the local fauna and flora. Our drivers speak English, French, and Spanish, with other foreign language-speaking guides/tour leaders available on request.
+                A supplementary cost might be involved.
               </li>
             </ul>
-            <p className="mb-4">
-    We provide knowledgeable and professional driver/tour guides who know wildlife and animal behavior as well as the local fauna and flora. Our drivers speak English, French, and Spanish, with other foreign language-speaking guides/tour leaders available on request.
-  </p>
-  A supplementary cost might be involved.
+         
+ 
   </div>
           
         </div>
@@ -125,17 +76,11 @@ function Home() {
       </main>
     </div>
 
-          {/* booking process */}
-     {/* <div className="flex justify-center my-8">
-  <div className="max-w-sm mx-4">
-    <div className="bg-white rounded-lg shadow-md p-4">
-      <BookingComponent />
-      <Flow />
-    </div>
-  </div>
-</div> */}
+  
 
-      <section className="details-section py-10">
+         
+
+      <div className="details-section py-10">
         <div className="details-container container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <Link to="/nature">
             <motion.div
@@ -193,88 +138,108 @@ function Home() {
             </motion.div>
           </Link>
         </div>
-      </section>
+      </div>
+
+    
+
+    <div>
+      <TeamData />
+    </div>
 
 
   
 
       {/* footer section */}
-      <footer className="footer py-4 bg-brown-600 text-white">
-  <div className="footer-container container mx-auto flex flex-col md:flex-row justify-between items-center">
-    <div className="follow-container text-center mb-6">
-      <div className="mb-4"> {/* Add margin to separate social icons */}
-        <h2 className="text-2xl font-bold">Follow Us</h2>
+      <footer className="footer py-8 bg-brown-600 text-white">
+  <div className="footer-container container mx-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-0">
+    <div className="follow-container text-center mb-6 md:mb-0">
+      <div className="mb-4">
+        <h2 className="text-3xl font-bold text-customWhite mb-4">Follow Us</h2>
       </div>
-      <div className="social-icons mt-4">
-        {/* Add your social media icons here */}
-        <a
-                href="https://twitter.com/@DanilScenic"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mr-4"
-              >
-                <FontAwesomeIcon icon={faTwitter} className="text-customWhite text-2xl" />
-              </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61550528048010"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mr-4"
-              >
-                <FontAwesomeIcon icon={faFacebook} className="text-customWhite text-2xl" />
-              </a>
-              <a
-                href="https://www.instagram.com/danil.scenic/"
-                target="_alexirungu"
-                rel="noopener noreferrer"
-                className="mr-4"
-              >
-                <FontAwesomeIcon icon={faInstagram} className="text-customWhite text-2xl" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/danil-scenic-743945286/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mr-4"
-              >
-                <FontAwesomeIcon icon={faLinkedin} className="text-customWhite text-2xl" />
-              </a>
-              <a
-                href="https://www.youtube.com/channel/UCutpUrWcoi58yHOJb0bTXQg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mr-4"
-              >
-                <FontAwesomeIcon icon={faYoutube} className="text-customWhite text-2xl" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@danilscenic"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mr-4"
-              >
-                <FontAwesomeIcon icon={faTiktok} className="text-customWhite text-2xl" />
-              </a>
+      <div className="social-icons mt-4 flex justify-center">
+  {/* Add your social media icons here */}
+  <a
+  href="https://twitter.com/@DanilScenic"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mr-4 inline-block align-middle" // Adjust margin and alignment
+>
+  <FaTwitter className="social-icon" /> {/* Using the updated Font Awesome Twitter icon */}
+</a>
+<a
+  href="https://www.facebook.com/profile.php?id=61550528048010"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mr-4 inline-block align-middle" // Apply the same margin and alignment
+>
+  <FontAwesomeIcon icon={faFacebook}  />
+</a>
+<a
+  href="https://www.instagram.com/danil.scenic/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mr-4 inline-block align-middle" // Apply the same margin and alignment
+>
+  <FontAwesomeIcon icon={faInstagram} />
+</a>
+<a
+  href="https://www.linkedin.com/in/danil-scenic-743945286/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mr-4 inline-block align-middle" // Apply the same margin and alignment
+>
+  <FontAwesomeIcon icon={faLinkedin}  />
+</a>
+<a
+  href="https://www.youtube.com/channel/UCutpUrWcoi58yHOJb0bTXQg"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mr-4 inline-block align-middle" // Apply the same margin and alignment
+>
+  <FontAwesomeIcon icon={faYoutube}  />
+</a>
+<a
+  href="https://www.tiktok.com/@danilscenic"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mr-4 inline-block align-middle" // Apply the same margin and alignment
+>
+  <FontAwesomeIcon icon={faTiktok}  />
+</a>
+<div className="mt-8">
+          <Link to="/reviews">
+            <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+              Customer Testimonials
+            </button>
+          </Link>
+        </div>
       </div>
-      {/* <div className="company-logo text-center">
-      <img src={logo} alt="Company Logo" className="object-cover w-30 h-20" />
-    </div> */}
+    </div>
+
+    <div className="flex items-center justify-center mt-6 md:mt-0">
+      <Partners /> 
     </div>
     
-    <div className="text-center font-bold text-left">
-      <div className="text-customWhite mb-4">
+    <div className="text-center font-bold text-left mt-6 md:mt-0">
+      <div className="text-customWhite ">
         <Link to='/faq' className="menu-link hover:text-green-600">
           FAQs
         </Link>
       </div>
-      <div className="text-customWhite mb-4">
+      <div className="text-customWhite ">
         <Link to='/contact' className="menu-link hover:text-green-600">
           Contact Us
         </Link>
       </div>
-      <div className="text-center">
-        <p>&copy; {new Date().getFullYear()} Danil Scenic Tours. All rights reserved.</p>
-        <p>&copy; Developed and Maintained by Alex Irungu.</p>
+      <div className="text-customWhite ">
+        <Link to='/terms' className="menu-link hover:text-green-600">
+          Terms & Conditions
+        </Link>
+      </div>
+    
+      <div className="text-center mt-6">
+      <p className="text-sm">&copy; {new Date().getFullYear()} Danil Scenic Tours. All rights reserved.</p>
+        <p className="text-sm">&copy; Developed and Maintained by Alex Irungu.</p>
       </div>
     </div>
   </div>

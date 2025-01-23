@@ -1,12 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import nick from './nick.jpg'
-import muze from './muze.jpg'
-import watamu from './watamu.jpeg'
-import park from './park.jpeg';
-import orphan from './orphan.jpg'
-import reserve from './reserve.jpg'
 import ModalVideo from 'react-modal-video';
 import amboseli from './top-places/amboseli.jpeg'
 import diani from './top-places/dianibeach.jpeg'
@@ -86,7 +80,7 @@ function Places(){
   
     const ServiceCard = ({ image, title, description }) => (
       <div className="service-card bg-white rounded-lg shadow-lg mb-4">
-        <img src={image} alt={title} className="service-card-image" />
+        <img src={image} alt={title} className="service-card-image w-auto h-64" />
         <div className="p-4">
           <h2 className="text-xl font-semibold text-brown-600 mb-2">{title}</h2>
           <p className="text-gray-700 text-s">{description}</p>
@@ -113,7 +107,7 @@ function Places(){
           <p className="text-gray-700 mb-6">Explore the 
           <button
               onClick={toggleBookAdventureModal}
-              className="cta-button mt-4 bg-customWhite text-brown-600 underline font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
+              className="cta-button mt-4 bg-customWhite text-green-600 underline font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-600"
             >
               top tourist destination
             </button>
@@ -121,7 +115,7 @@ function Places(){
 
           
 
-      <div className="grid grid-cols-1  gap-4 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         <ServiceCard
           title="Mount Kenya National Park"
           image={mtkenya}
@@ -160,45 +154,7 @@ function Places(){
         />
       </div>
 
-      {/* <p>Other Places to visit include:</p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
-        <ServiceCard
-          image={park}
-          title="National Parks"
-          description="Kenya boasts a diverse range of national parks, each offering a unique wildlife and nature experience. Explore the Nairobi National Park, Aberdare National Park, Amboseli National Park, South Island National Park, Hells Gate National Park, Sibiloi National Park, Ruma National Park, Ol Donyo Sabuk National Park, Ndere Island National Park, Mount Longonot National Park, Kora National Park, Meru National Park, Marsabit National Park & Reserve, Mount Kenya National Park & Reserve, Lake Nakuru National Park, Chyulu Hills National Park, Central Island National Park, Arabuko Sokoke National Park, Tsavo East, Tsavo West National Parks, Mount Elgon National Park, and Saiwa Swamp National Park."
-        />
-
-        <ServiceCard
-          image={reserve}
-          title="National Reserves"
-          description="Discover the beauty of Kenya's national reserves, home to various wildlife and stunning landscapes. Visit the Masai Mara National Reserve, Malka Mari National Park, Mwingi Game Reserve, Nasolot National Reserve, Samburu National Reserve, Kakamega Forest National Reserve, Bisanadi National Reserve, Shimba Hills National Reserve, Mwea National Reserve, Rahole National Reserve, Arawale National Reserve, Boni National Reserve, Buffalo Springs National Reserve, Dodori National Reserve, Lake Bogoria National Reserve, and Rimoi National Reserve."
-        />
-
-        <ServiceCard
-          image={watamu}
-          title="National Marine Parks and Reserves"
-          description="Explore the mesmerizing marine life and underwater wonders of Kenya's marine parks and reserves. Dive into the Mombasa Marine National Park & Reserve, Kisite Mpunguti Marine Park, Malindi Marine National Park & Reserve, Watamu Marine National Park & Reserve, Kiunga Marine National Reserve, and Diani-Chale Marine Reserve."
-        />
-
-        <ServiceCard
-          image={orphan}
-          title="Animal Orphanages and Sanctuaries"
-          description="Get up close with Kenya's wildlife conservation efforts by visiting animal orphanages and sanctuaries. Visit the Nairobi Animal Orphanage, Nairobi Safari Walk, Lake Simbi National Sanctuary, Kisumu Impala Sanctuary, and Mwaluganje Elephant Sanctuary."
-        />
-
-        <ServiceCard
-          image={nick}
-          title="Scenic Spots"
-          description="Immerse yourself in the breathtaking beauty of Kenya's scenic spots. Witness God’s Footprint (Lwayo Lwa Mulungu), The Mbaraki Pillar, Marafa’s Hell's Kitchen, Lake Kapedo, Eliye Beach, Kyamwilu Hill, Takawiri Island, and Mzima Springs, and experience the magic of nature."
-        />
-
-        <ServiceCard
-          image={muze}
-          title="Museums"
-          description="Delve into Kenya's rich history and cultural heritage by visiting its museums. Discover the Nairobi National Museum, Nairobi Gallery, Karen Blixen Museum, Uhuru Gardens National Monument, Hyrax Hill Museum, Kariandusi Archaeological Site, Nyeri Museum, Olorgesailie Pre-historic Site, Thimlich Ohinga Archaeological Site, Fort Jesus, Gede Ruins, Kapenguria Museum, Bomas of Kenya, Lamu Museum, National Archives, Nairobi Railway Museum, and Oloolua Nature Trail."
-        />
-      </div> */}
+      
           <div className='py-10'>
           <ModalVideo
       channel="youtube"

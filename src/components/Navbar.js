@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import logo from "./tourssss.jpg";
 import './Navbar.css'
-import dstfinal from './dstfinal.png'
+import dstfinal from './shiftedfrommain/dstfinal.png'
+import { HiOutlineMenu } from 'react-icons/hi'; // Import the menu icon from Heroicons
+// import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
+
 
 const Navbar = () => {
+  const { t } = useTranslation(); // Use useTranslation hook to access translations
+
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const history = useHistory();
@@ -29,67 +34,65 @@ const Navbar = () => {
           <img src={dstfinal} alt="Logo" className="logo-image" />
         </Link>
         <button
-          className={`menu-button show-menu-button lg:hidden`}
+          className={`menu-button show-menu-button lg:hidden ${
+            !isMenuOpen ? "text-green-500" : ""
+          }`}
           onClick={toggleMenu}
         >
-          <svg
-            className={`w-6 h-6 fill-current ${
-              isMenuOpen ? "text-customWhite" : "text-black"
-            }`}
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {isMenuOpen ? (
-              // Icon when menu is open (e.g., close icon)
+          {isMenuOpen ? (
+            <HiOutlineMenu className={`w-6 h-6 fill-current ${isMenuOpen ? "text-customWhite" : "text-green-500"}`} />
+          ) : (
+            <svg
+              className="w-6 h-6 fill-current text-green-600"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                fill="green"  
+                d="M12 0C5.38 0 0 5.38 0 12c0 3.24 1.21 6.21 3.21 8.5 0 .1.01.19.02.29.01.1.03.2.05.29 0 .01 0 .01.01.02l.01.01L12 24l8.71-2.91c0-.01 0-.01.01-.02s0-.01.01-.02c.02-.09.04-.19.05-.28.01-.1.02-.2.02-.31C22.58 18.21 24 15.24 24 12c0-6.62-5.38-12-12-12zM12 21v-2c-2.76 0-5-2.24-5-5H5c0 2.76 2.24 5 5 5zm7-3h2c0-3.31-2.69-6-6-6v2c2.21 0 4 1.79 4 4zm-9-7.99v-2C7 8.69 8.69 7 11 7V5c-3.31 0-6 2.69-6 6h2zm7-2h2c0-2.21-1.79-4-4-4v2c1.66 0 3 1.34 3 3z"
               />
-            ) : (
-              // Lion icon when menu is closed
-              // Replace the following with the SVG data for the lion icon
-              <path
-                d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm1 15H9v-2h2v2zm2.26-5.67l.47-1.89H7.27l.47 1.89H13z"
-              />
-            )}
-          </svg>
+            </svg>
+          )}
         </button>
         <div
           className={`menu lg:flex ${isMenuOpen ? "block" : "hidden"} transition-all duration-500`}
         >
-          <ul className="menu-list flex flex-col lg:space-y-0 lg:flex-row lg:items-center text-sm"> {/* Adjust the font size and line height */}
+          <ul className="menu-list flex flex-col lg:space-y-0 lg:flex-row lg:items-center text-sm">
             <li className="menu-item">
               <Link to="/" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                Home
+                {t('home')}
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/about" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                About
+                {t('about')}
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/places" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                Places
+              <Link to="/pricing" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
+                {t('Packages')}
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/gallery" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                Gallery
+                {t('gallery')}
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/maps" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                Map
+                {t("Maps")}
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/contact" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                Contact Us
+                {t("contact")}
               </Link>
             </li>
+            
           </ul>
         </div>
-      </div>
+        {/* <LanguageSwitcher /> */}
+      </div>  
     </nav>
   );
 };

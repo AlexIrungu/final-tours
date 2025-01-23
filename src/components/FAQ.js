@@ -10,12 +10,12 @@ function Faq() {
     {
       question: "WHAT DESTINATIONS IN KENYA DO YOU OFFER TOURS TO?",
       answer:
-        "Our tour packages are designed to provide a comprehensive and hassle-free experience. Depending on the specific itinerary, our packages typically include accommodations, meals as specified, transportation within Kenya, park and entrance fees, experienced guides, and activities mentioned in the itinerary. Any additional inclusions or exclusions will be clearly outlined in the tour package details provided to you.",
+        " Our diverse range of tours covers a multitude of captivating destinations across Kenya. From the iconic landscapes of Maasai Mara to the pristine beaches of the Kenyan coast, our itineraries are crafted to showcase the rich tapestry of Kenya's natural and cultural wonders. For comprehensive information, please refer to the specific tour package details provided to you.",
     },
     {
       question: "WHAT IS INCLUDED IN YOUR TOUR PACKAGES?",
       answer:
-        "Our tour packages are designed to provide a comprehensive and hassle-free experience. Depending on the specific itinerary, our packages typically include accommodations, meals as specified, transportation within Kenya, park and entrance fees, experienced guides, and activities mentioned in the itinerary. Any additional inclusions or exclusions will be clearly outlined in the tour package details provided to you.",
+        "Our tour packages are designed to provide a comprehensive, hassle-free experience. Depending on the specific itinerary, our packages typically include accommodations, meals as specified, transportation within Kenya, park and entrance fees, experienced guides, and activities mentioned in the itinerary. Any additional inclusions or exclusions will be clearly outlined in the tour package details provided to you.",
     },
     {
       question: "HOW DO I BOOK A TOUR WITH DANIL SCENIC TOURS?",

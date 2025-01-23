@@ -4,7 +4,7 @@ import { Zoom } from "react-reveal";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaLock } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import PrivacyPolicy from "./PrivacyPolicy";
-import './fonts/miandra-gd.ttf'
+
 import './font.css'
 
 const ContactForm = () => {
@@ -110,15 +110,16 @@ const ContactForm = () => {
             </p>
             <p>
               <FaPhone className="inline-block mr-2 text-brown-600" />
-              <span>Phone: +254 723 453 576/+254 777 984 249</span>
+              <span>Phone: +254 723 453576/+254 777 989249/+254 722 919249</span>
             </p>
             <p>
           <FaWhatsapp className="inline-block mr-2 text-green-600" />
-          <span>WhatsApp: +254 723 453 576</span>
+          <span>WhatsApp: +254 723 453 576/+254 777 989 249/+254 722 919249</span>
         </p>
             <p>
               <FaEnvelope className="inline-block mr-2 text-brown-600" />
-              <span>Email: danilscenic@gmail.com</span>
+              <span>Email: danilscenic@gmail.com or safari@danilscenictours.co.ke
+              </span>
             </p>
             <p className="mt-4">
           <FaLock className="inline-block mr-2 text-brown-600" />

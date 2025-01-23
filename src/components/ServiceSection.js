@@ -1,22 +1,16 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlane,
-  
- 
-  faCar,
-  faHotel,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCar } from "@fortawesome/free-solid-svg-icons";
 
-import { faBinoculars, faGlobeAfrica, faLandmark, faUsers, faMap, faHiking, faUmbrellaBeach, faSun, faCogs, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faBinoculars, faLandmark, faMap, faUmbrellaBeach, faCogs,  } from '@fortawesome/free-solid-svg-icons';
 
-import carImage from "./hireee.jpg";
+import carImage from "./shiftedfrommain/hireee.jpg";
 import { Link } from "react-router-dom";
-import safaritours from './safaritours.jpg'
-import cultural from './culturalexpeditions.jpg'
-import adventuresafari from './adventuresafari1.jpg'
-import beaches from './beachescapes.avif'
-import custom from './customizedsafari.jpg'
+import safaritours from './shiftedfrommain/safaritours.jpg'
+import cultural from './shiftedfrommain/culturalexpeditions.jpg'
+import adventuresafari from './shiftedfrommain/adventuresafari1.jpg'
+import beaches from './shiftedfrommain/beachescapes.avif'
+import custom from './shiftedfrommain/customizedsafari.jpg'
 
 const ServiceSection = () => {
   const services = [
@@ -102,39 +96,12 @@ const ServiceSection = () => {
           ))}
         </div>
         <div className="relative mx-auto w-5/6 md:w-4/6 lg:w-3/6 mt-12">
-          {/* <div className="flex justify-between items-center">
-            <div className="w-1/6">
-              <button
-                className="bg-gray-800 text-white px-3 py-2 rounded"
-                onClick={goToPreviousSlide}
-              >
-                <FontAwesomeIcon icon="arrow-left" />
-              </button>
-            </div>
-            <div className="w-4/6">
-              <ServiceCard {...services[currentSlide]} />
-            </div>
-            <div className="w-1/6">
-              <button
-                className="bg-gray-800 text-white px-3 py-2 rounded"
-                onClick={goToNextSlide}
-              >
-                <FontAwesomeIcon icon="arrow-right" />
-              </button>
-            </div>
-          </div> */}
+          
           
           <div className="mt-8">
             <ServiceCard {...services[currentSlide]} />
           </div>
-          {/* <div className="w-1/6">
-              <button
-                className="bg-gray-800 text-white px-3 py-2 rounded"
-                onClick={goToPreviousSlide}
-              >
-                <FontAwesomeIcon icon="arrow-left" />
-              </button>
-            </div> */}
+         
           <div className="w-1/6">
               <button
                 className="bg-brown-600 hover:bg-green-600 text-white px-3 py-2 rounded"
