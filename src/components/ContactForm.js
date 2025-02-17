@@ -1,139 +1,115 @@
 import React, { useState } from "react";
-import { Fade } from "react-reveal";
-import { Zoom } from "react-reveal";
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaLock } from "react-icons/fa";
-import { Link } from 'react-router-dom'
-import PrivacyPolicy from "./PrivacyPolicy";
-
-import './font.css'
+import { Send, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    feedback: "",
+    subject: "",
+    message: "",
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Replace 'your_company_email' with the actual email address where you want to receive the feedback
-    const emailTo = "danilscenic@gmail.com";
-    const subject = "Feedback from Tourism Website";
-    // const emailBody = `
-    //   Name: ${formData.name}
-    //   Email: ${formData.email}
-    //   Feedback: ${formData.feedback}
-    // `;
+  const handleSubmit = (e) => {
+    e.preventDefault();
     window.location.href = "mailto:danilscenic@gmail.com";
-
   };
 
   return (
-    <div className="contact-form  rounded-lg p-4">
-      <h2 className="text-center text-2xl font-bold mb-4">
-        <Fade top>Let's Chat</Fade>
+    <div className="max-w-2xl mx-auto">
+      <h2 className="text-3xl font-bold text-gray-900 mb-8">
+        Send us a message
       </h2>
-      <form onSubmit={handleSubmit}>
-        {/* Use the Fade animation for the form fields */}
-        <Fade bottom>
-        <div className="form-group mb-4 ">
-  <label htmlFor="name" className="block mb-2">
-    Name
-  </label>
-  <input
-    type="text"
-    id="name"
-    name="name"
-    value={formData.name}
-    onChange={handleChange}
-    required
-    className="w-full px-3 py-2 border rounded-md border-solid border-brown-600 border-opacity-75"
-  />
-</div>
-<div className="form-group mb-4">
-  <label htmlFor="email" className="block mb-2">
-    Email
-  </label>
-  <input
-    type="email"
-    id="email"
-    name="email"
-    value={formData.email}
-    onChange={handleChange}
-    required
-    className="w-full px-3 py-2 border rounded-md border-solid border-brown-600 border-opacity-75"
-  />
-</div>
-<div className="form-group mb-4">
-  <label htmlFor="feedback" className="block mb-2">
-    Feedback
-  </label>
-  <textarea
-    id="feedback"
-    name="feedback"
-    value={formData.feedback}
-    onChange={handleChange}
-    required
-    className="w-full px-3 py-2 border rounded-md border-solid border-brown-600 border-opacity-75"
-    rows="6"
-  ></textarea>
-</div>
 
-          <Zoom cascade>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors bg-white/50"
+              placeholder="John Doe"
+              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors bg-white/50"
+              placeholder="john@example.com"
+              required
+            />
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+            Subject
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors bg-white/50"
+            placeholder="How can we help you?"
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows="6"
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors bg-white/50 resize-none"
+            placeholder="Tell us about your travel plans..."
+            required
+          ></textarea>
+        </div>
+
         <button
           type="submit"
-          className="w-full bg-brown-600 hover:bg-green-600 active:bg-orange-700 text-white font-bold py-2 rounded-lg focus:outline-none shadow-md transition-all"
+          className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 px-6 rounded-lg 
+                   flex items-center justify-center space-x-2 transition-colors duration-200
+                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
         >
-          Send
+          <Send className="w-5 h-5" />
+          <span>Send Message</span>
         </button>
-      </Zoom>
 
-        </Fade>
+        <p className="text-sm text-gray-500 text-center flex items-center justify-center">
+          <Lock className="w-4 h-4 mr-2" />
+          Your information is protected by our{" "}
+          <Link to="/privacy" className="text-orange-600 hover:text-orange-700 ml-1">
+            Privacy Policy
+          </Link>
+        </p>
       </form>
-      {/* Additional contact details section */}
-      <div className="contact-details mt-6">
-        <h3 className="text-center text-xl font-bold">
-          <Fade bottom>Contact Details</Fade>
-        </h3>
-        <Fade bottom>
-          <div className="text-center">
-            <p>
-              <FaMapMarkerAlt className="inline-block mr-2 text-brown-600" />
-              <span>
-                Address: P.O Box 49377-00100, Nairobi
-              </span>
-            </p>
-            <p>
-              <FaPhone className="inline-block mr-2 text-brown-600" />
-              <span>Phone: +254 723 453576/+254 777 989249/+254 722 919249</span>
-            </p>
-            <p>
-          <FaWhatsapp className="inline-block mr-2 text-green-600" />
-          <span>WhatsApp: +254 723 453 576/+254 777 989 249/+254 722 919249</span>
-        </p>
-            <p>
-              <FaEnvelope className="inline-block mr-2 text-brown-600" />
-              <span>Email: danilscenic@gmail.com or safari@danilscenictours.co.ke
-              </span>
-            </p>
-            <p className="mt-4">
-          <FaLock className="inline-block mr-2 text-brown-600" />
-          <span>
-            By using this form you agree with the storage and handling of your data by this website in accordance with our{" "}
-            <Link to="/privacy" className="text-brown-600 underline">
-              Privacy Policy
-            </Link>
-          </span>
-        </p>
-
-          </div>
-        </Fade>
-      </div>
     </div>
   );
 };

@@ -33,6 +33,9 @@ import LavishSafari from './components/LavishSafari.js';
 import SevenDay from './components/SevenDay.js';
 import Reviews from './components/Reviews.js';
 import Enviro from './components/Enviro.js';
+import i18n from './i18n';
+import { I18nextProvider } from 'react-i18next'; // Import I18nextProvider
+import { TranslationProvider } from './components/TranslationContext';
 
 library.add(faArrowLeft, faArrowRight);
 
@@ -51,6 +54,7 @@ function App() {
   };  
   // const isLandingPage = location.pathname === "/"
   return (
+    <TranslationProvider> {/* Wrap your app with I18nextProvider */}
      <div className='App'>
     {/* {
       !isLandingPage && 
@@ -92,6 +96,7 @@ function App() {
     </Switch>
     <AccessibilityTools />
     </div>
+    </TranslationProvider>
   );
 }
 export default App;

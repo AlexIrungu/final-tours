@@ -1,4 +1,6 @@
-// utils.js
+import { clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
 function importAllMedia(r) {
     let images = [];
     r.keys().forEach((item, index) => {
@@ -18,4 +20,9 @@ function importAllMediaAsObject(r) {
     return images;
 }
 
-export { importAllMedia, importAllMediaAsObject }
+// New utility function for combining class names
+function cn(...inputs) {
+    return twMerge(clsx(inputs))
+}
+
+export { importAllMedia, importAllMediaAsObject, cn }

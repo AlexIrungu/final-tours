@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 
-const ExploreCulture = () => {
-  const [selectedElement, setSelectedElement] = useState('');
-
+const ExploreCulture = ({ onElementClick, selectedElement }) => {
   const culturalElements = [
     {
       name: 'Traditional Tribes',
-      description: 'Dive into the rich tapestry of Kenya’s cultural heritage by exploring the traditions, rituals, and unique lifestyles of its various tribes such as the Maasai, Samburu, and Kikuyu.',
+      description: 'Dive into the rich tapestry of Kenya/s cultural heritage by exploring the traditions, rituals, and unique lifestyles of its various tribes such as the Maasai, Samburu, and Kikuyu.',
     },
     {
       name: 'Vibrant Festivals',
@@ -18,11 +18,11 @@ const ExploreCulture = () => {
     },
     {
       name: 'Arts and Crafts',
-      description: 'Discover the artistic expressions of Kenya through traditional crafts, beadwork, and contemporary art. Explore the bustling markets filled with handmade goods that reflect the country’s creativity.',
+      description: 'Discover the artistic expressions of Kenya through traditional crafts, beadwork, and contemporary art. Explore the bustling markets filled with handmade goods that reflect the country/s creativity.',
     },
     {
       name: 'Music and Dance',
-      description: 'Explore the vibrant music and dance traditions of Kenya. From the rhythmic beats of traditional drums to the energetic moves of tribal dances, immerse yourself in the country’s musical culture.',
+      description: 'Explore the vibrant music and dance traditions of Kenya. From the rhythmic beats of traditional drums to the energetic moves of tribal dances, immerse yourself in the country/s musical culture.',
     },
     {
       name: 'Languages and Communication',
@@ -30,7 +30,7 @@ const ExploreCulture = () => {
     },
     {
       name: 'Sacred Sites',
-      description: 'Journey to the sacred sites of Kenya, where ancient rituals and ceremonies have been performed for centuries, enriching the cultural tapestry of the nation. One such sacred site is Subukia, known for its spiritual significance. Here, diverse communities engage in traditional ceremonies that connect them to their roots and heritage. These sites not only hold historical and religious importance but also provide a profound glimpse into Kenya’s rich religious diversity, showcasing the enduring traditions that have shaped the spiritual landscape of the country for generations.',
+      description: 'Journey to the sacred sites of Kenya, where ancient rituals and ceremonies have been performed for centuries, enriching the cultural tapestry of the nation. One such sacred site is Subukia, known for its spiritual significance. Here, diverse communities engage in traditional ceremonies that connect them to their roots and heritage. These sites not only hold historical and religious importance but also provide a profound glimpse into Kenya/s rich religious diversity, showcasing the enduring traditions that have shaped the spiritual landscape of the country for generations.',
     },
     {
       name: 'Traditional Clothing',
@@ -46,35 +46,31 @@ const ExploreCulture = () => {
     },
   ];
 
-  const handleElementClick = (elementName) => {
-    setSelectedElement((prevElement) => (prevElement === elementName ? '' : elementName));
-  };
-
   return (
-    <div className="container mx-auto p-8 bg-white rounded-md shadow-md">
-    <h2 className="text-4xl font-bold mb-4">Explore Kenya's Culture</h2>
-    <p className="text-lg mb-6">Choose an element to immerse yourself in the vibrant culture of Kenya:</p>
-
-    <div className="">
+    <div className="space-y-4">
       {culturalElements.map((element) => (
-        <div
+        <motion.div
           key={element.name}
-          className={`bg-white p-4 rounded-md shadow-md cursor-pointer transition duration-300 ${
-            selectedElement === element.name ? 'border-brown-600' : 'border-gray-300'
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className={`p-6 rounded-xl cursor-pointer transition-all duration-300 ${
+            selectedElement?.name === element.name
+              ? 'bg-amber-800 text-white shadow-lg'
+              : 'bg-white shadow-md hover:shadow-lg'
           }`}
-          onClick={() => handleElementClick(element.name)}
+          onClick={() => onElementClick(element)}
         >
-          <h3 className="text-xl font-semibold mb-2">{element.name}</h3>
-          {/* Display the description only when the element is selected */}
-          {selectedElement === element.name && (
-            <p className="text-brown-600">{element.description}</p>
-          )}
-        </div>
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-semibold">{element.name}</h3>
+            <ChevronRight 
+              className={`w-5 h-5 transition-transform ${
+                selectedElement?.name === element.name ? 'rotate-90' : ''
+              }`}
+            />
+          </div>
+        </motion.div>
       ))}
     </div>
-
-    {/* Additional content or interactive elements can be added here */}
-  </div>
   );
 };
 

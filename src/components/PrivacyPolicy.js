@@ -1,86 +1,126 @@
-import React from 'react';
-// import './fonts/miandra-gd.ttf'
+import React, { useState, useEffect } from "react";
 
 function PrivacyPolicy() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAccepted, setIsAccepted] = useState(false);
+
+  useEffect(() => {
+    const accepted = localStorage.getItem("policyAccepted");
+    if (accepted) setIsAccepted(true);
+  }, []);
+
+  const handleAccept = () => {
+    setIsAccepted(true);
+    localStorage.setItem("policyAccepted", "true");
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8 text-gray-800 font-playfair">
-      <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
-      <p className="text-gray-600 mb-4 text-lg">
-        Effective date: 03/08/2023
-      </p>
-      <p className="mb-8 leading-relaxed">
-        <span className="font-bold">Our Commitment to Privacy</span>
-        <br />
-        At Danil Scenic, we value and respect your privacy.
-        This Privacy Policy outlines how we collect, use, disclose, and protect your personal information when you interact with our website and services.
-        By using our website and services, you agree to the practices described in this Privacy Policy.
-      </p>
-      <h2 className="text-2xl font-bold mb-4">Information We Collect</h2>
-      <p className="mb-4 leading-relaxed">
-        <span className="font-bold">1.1. Personal Information:</span>
-        We may collect personally identifiable information from you, such as your name, email address, phone number, and any other information you voluntarily provide to us when you use our website, subscribe to our newsletter, or contact us.
-      </p>
-      <p className="mb-4 leading-relaxed">
-        <span className="font-bold">1.2. Non-Personal Information:</span>
-        We may also collect non-personal information, such as your IP address, browser type, operating system, and usage data, to improve our website's functionality and user experience.
-      </p>
-      <h2 className="text-2xl font-bold mb-4">How We Use Your Information</h2>
-      <p className="mb-4 leading-relaxed">
-        <span className="font-bold">2.1. Provide and Improve Services:</span>
-        We use your personal information to provide the services you request from us, such as processing bookings, responding to inquiries, and improving our website's content and features.
-      </p>
-      <p className="mb-4 leading-relaxed">
-        <span className="font-bold">2.2. Communication:</span>
-        We may use your email address to send you updates, newsletters, promotional offers, and other information related to our services.
-        You can opt-out of receiving these communications at any time by following the unsubscribe link provided in the emails or by contacting us directly.
-      </p>
-      <p className="mb-4 leading-relaxed">
-        <span className="font-bold">2.3. Analytics:</span>
-        We may use non-personal information for analytics purposes, such as analyzing user behavior and preferences on our website, to enhance our services and tailor our content to better serve our users.
-      </p>
-      <h2 className="text-2xl font-bold mb-4">Sharing Your Information</h2>
-      <p className="mb-4 leading-relaxed">
-        <span className="font-bold">3.1. Third-Party Service Providers:</span>
-        We may share your personal information with trusted third-party service providers who assist us in delivering our services, such as payment processors, email marketing services, and website analytics providers.
-        These third parties are bound by confidentiality obligations and are prohibited from using your personal information for any other purposes.
-      </p>
-      <p className="mb-4 leading-relaxed">
-        <span className="font-bold">3.2. Legal Requirements:</span>
-        We may disclose your information in response to a subpoena, court order, or other legal process, or when we believe it is necessary to protect our rights, privacy, safety, or property, or that of others.
-      </p>
-      <h2 className="text-2xl font-bold mb-4">Security</h2>
-      <p className="mb-4 leading-relaxed">
-        We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction.
-        However, please be aware that no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
-      </p>
-      <h2 className="text-2xl font-bold mb-4">Third-Party Links</h2>
-      <p className="mb-4 leading-relaxed">
-        Our website may contain links to third-party websites or services.
-        We are not responsible for the privacy practices or content of these third-party sites.
-        We recommend reviewing their respective privacy policies before providing any personal information.
-      </p>
-      <h2 className="text-2xl font-bold mb-4">Children's Privacy</h2>
-      <p className="mb-4 leading-relaxed">
-        Our services are not intended for children under the age of 13.
-        We do not knowingly collect or solicit personal information from children.
-        If we learn that we have collected personal information from a child under the age of 13, we will promptly delete it.
-      </p>
-      <h2 className="text-2xl font-bold mb-4">Changes to this Privacy Policy</h2>
-      <p className="mb-4 leading-relaxed">
-        We reserve the right to update or modify this Privacy Policy at any time.
-        Any changes will be posted on this page with a revised "Effective date."
-        Your continued use of our website and services after such changes signify your acceptance of the updated Privacy Policy.
-      </p>
-      <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-      <p>
-        If you have any questions or concerns about this Privacy Policy or how we handle your personal information,
-        please contact us at danilscenic@gmail.com.
-      </p>
-      <footer className="footer bg-brown-600 text-white py-4">
-        <div className="container mx-auto">
-          <p className="text-center font-bold">&copy; {new Date().getFullYear()} Danil Scenic Tours. All rights reserved.</p>
+    <div className="max-w-4xl mx-auto px-4 py-8 text-gray-800">
+      <div className="bg-white shadow-lg rounded-lg p-8">
+        <h1 className="text-3xl font-bold text-orange-700 mb-4">Privacy Policy</h1>
+        <p className="text-gray-600 mb-6">Last updated: March 8, 2023</p>
+
+        <div className="space-y-8">
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">1. Introduction</h2>
+            <p className="text-gray-700 leading-relaxed">
+              Danil Scenic Tours ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website and use our services.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">2. Information We Collect</h2>
+            <div className="space-y-4">
+              <h3 className="text-xl font-medium text-gray-800">2.1 Personal Information</h3>
+              <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                <li>Name and contact information</li>
+                <li>Billing and payment details</li>
+                <li>Travel preferences and requirements</li>
+                <li>Passport and visa information when necessary</li>
+                <li>Emergency contact details</li>
+              </ul>
+
+              <h3 className="text-xl font-medium text-gray-800">2.2 Technical Information</h3>
+              <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                <li>IP address and browser information</li>
+                <li>Device information</li>
+                <li>Cookies and usage data</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">3. How We Use Your Information</h2>
+            <ul className="list-disc pl-6 text-gray-700 space-y-2">
+              <li>To process and manage your tour bookings</li>
+              <li>To communicate important trip information</li>
+              <li>To provide customer support</li>
+              <li>To send relevant marketing communications (with your consent)</li>
+              <li>To improve our services and website functionality</li>
+              <li>To comply with legal obligations</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">4. Your Rights</h2>
+            <p className="text-gray-700 mb-4">You have the right to:</p>
+            <ul className="list-disc pl-6 text-gray-700 space-y-2">
+              <li>Access your personal data</li>
+              <li>Correct inaccurate data</li>
+              <li>Request deletion of your data</li>
+              <li>Withdraw consent for marketing communications</li>
+              <li>Request a copy of your data</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">5. Contact Us</h2>
+            <p className="text-gray-700">
+              For any questions about this Privacy Policy, please contact us at:<br />
+              Email: danilscenic@gmail.com<br />
+              Phone: +254 123 456 789
+            </p>
+          </section>
         </div>
-      </footer>
+
+        {!isAccepted && (
+          <div className="mt-8 border-t pt-6">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              Accept Privacy Policy
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+          <div className="bg-white p-8 rounded-lg shadow-xl w-[480px] text-center">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Privacy Policy Acceptance</h2>
+            <p className="text-gray-600 mb-6">
+              By accepting this privacy policy, you acknowledge that you have read and understood how we collect, use, and protect your personal information.
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={handleAccept}
+                className="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-all duration-300"
+              >
+                Accept Policy
+              </button>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition-all duration-300"
+              >
+                Review Later
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

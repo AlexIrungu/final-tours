@@ -15,41 +15,26 @@ function Bogoria(){
   };
     return(
         <div className="w-full">
-      {/* Navigation */}
-      <nav className="flex justify-center items-center bg-brown-500 p-2 rounded-md">
-  <button
-    onClick={() => handleSectionClick("overview")}
-    className={`hover:bg-green-600 text-lg font-semibold px-3 py-2 focus:outline-none transition-colors ${
-      activeSection === "overview" ? "text-blue-600" : "text-white"
-    }`}
-  >
-    Overview
-  </button>
-  <button
-    onClick={() => handleSectionClick("day-to-day")}
-    className={`hover:bg-green-600 text-lg font-semibold px-3 py-2 focus:outline-none transition-colors ${
-      activeSection === "day-to-day" ? "text-blue-600" : "text-white"
-    }`}
-  >
-    Day to Day
-  </button>
-  <button
-    onClick={() => handleSectionClick("rates")}
-    className={`hover:bg-green-600 text-lg font-semibold px-3 py-2 focus:outline-none transition-colors ${
-      activeSection === "rates" ? "text-blue-600" : "text-white"
-    }`}
-  >
-    Rates
-  </button>
-  <button
-    onClick={() => handleSectionClick("inclusion")}
-    className={`hover:bg-green-600 text-lg font-semibold px-3 py-2 focus:outline-none transition-colors ${
-      activeSection === "inclusion" ? "text-blue-600" : "text-white"
-    }`}
-  >
-    Inclusion
-  </button>
-</nav>
+     <nav className="flex justify-center items-center bg-orange-600 p-4 rounded-lg shadow-md space-x-4">
+      {[
+        { name: "Overview", key: "overview" },
+        { name: "Day to Day", key: "day-to-day" },
+        { name: "Rates", key: "rates" },
+        { name: "Inclusion", key: "inclusion" }
+      ].map((item) => (
+        <button
+          key={item.key}
+          onClick={() => handleSectionClick(item.key)}
+          className={`text-lg font-semibold px-4 py-2 rounded-md transition-all duration-300 focus:outline-none ${
+            activeSection === item.key
+              ? "bg-white text-orange-600 shadow-md"
+              : "bg-orange-500 text-white hover:bg-orange-700"
+          }`}
+        >
+          {item.name}
+        </button>
+      ))}
+    </nav>
 
 
 
@@ -57,358 +42,194 @@ function Bogoria(){
       <div className="p-4">
         {/* Overview Section */}
         {activeSection === "overview" && (
-          <div>
-     <LazyLoadImage src={bogoria1} alt="" className=" " effect="blur" />
-            <h2 className="text-2xl font-bold mb-4 border-b text-left">Overview</h2>
-            <p className="bg-white rounded-lg shadow-md p-4">An exclusive safari through Kenya's natural wonders to Lake Bogoria, Lake Nakuru, Lake Naivasha, and Masai Mara. Throughout the journey, our guides will ensure an immersive experience, sharing their extensive knowledge of the region's wildlife, culture, and conservation efforts. We guarantee comfortable full board accommodation and a journey of a lifetime where you shall witness Africa's big five: lions, leopards, buffaloes, rhinos and elephants, diverse bird populations, and many more animals.
-                 </p>
+      <div className="p-6 bg-gray-100">
+      <LazyLoadImage src={bogoria1} alt="" className="w-full h-64 object-cover rounded-lg shadow-md" effect="blur" />
+      <h2 className="text-2xl font-bold mb-4 border-b pb-2">Overview</h2>
+      <p className="bg-white rounded-lg shadow-md p-4">
+        An exclusive safari through Kenya's natural wonders to Lake Bogoria, Lake Nakuru, Lake Naivasha, and Masai Mara...
+      </p>
 
-                 {/* content */}
-                 <div className="py-8">
-                    <h2 className="text-2xl font-bold mb-4 border-b text-left">Tour Features</h2>
-                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-white rounded-lg shadow-md ">
-                   
-      <div className="flex items-center">
-        <FaDollarSign className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Mid-range Tour</h3>
-          <p>This mid-range tour uses lodges and tented camps.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaUsers className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Private Tour</h3>
-          <p>This tour will be organized exclusively for you and won't be shared with others.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaCalendarAlt className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Can be customized</h3>
-          <p>You can request minor changes to the accommodations and destinations of this tour.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaUsers className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Suitable for solo travelers</h3>
-          <p>Solo travelers can book this private tour.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaCalendarAlt className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Can start any day</h3>
-          <p>If availability permits, this tour can start on any day.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaChild className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Suitable for all ages</h3>
-          <p>This tour is suitable for children of all ages.</p>
-        </div>
-      </div>
-    </div>
-
-    {/* section2 */}
-    <div className="py-8">
-     <h2 className="text-2xl font-bold mb-4 border-b text-left">Activities & Transportation</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white rounded-lg shadow-md">
-   
-      <div>
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            <FaBinoculars className="text-orange-500 mr-2" />
-            Activities:
-          </h3>
-          <p>Game drives</p>
-        </div>
-
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            <FaBinoculars className="text-orange-500 mr-2" />
-            Game Drives:
-          </h3>
-          <p>Pop-up roof 4x4 vehicle</p>
-        </div>
-      </div>
-
-      <div>
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            <FaCar className="text-orange-500 mr-2" />
-            Getting around:
-          </h3>
-          <p>Pop-up roof 4x4 vehicle</p>
-        </div>
-
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            <FaMapMarkedAlt className="text-orange-500 mr-2" />
-            Transport:
-          </h3>
-          <p>A transfer from and back to the airport is included</p>
-        </div>
-      </div>
-    </div>
-    </div>
-
-            {/* section3 */}
-                    <div className="py-8">
-                        <h2 className="text-2xl font-bold border-b text-left">Accomodation & Meals</h2>
-                        <div className="flex items-center">
-      <FaExclamation className="text-red-500 mr-2" />
-      <p>Additional accommodation before and at the end of the tour can be arranged for an extra cost</p>
-    </div>
-                        <div className="overflow-x-auto bg-white rounded-lg shadow-md">
-      <table className="min-w-full">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Day
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Accommodation
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Meals
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 1</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-          <div>
-            <p className="text-left">Lake Bogoria Spa Resort</p>
-            <p className="text-left ml-4">Mid-range hotel just outside Lake Bogoria NR</p>
-            <div className="flex">
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/560_16119408949297_bogoria5.jpg" alt="Accommodation 1"  />
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/560_1528_16127956406714_3w1a6190_boking.jpg" alt="Accommodation 1"  />
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/560_1528_16127950242702_3w1a6701_booking.jpg" alt="Accommodation 1"  />
+      {/* Tour Features */}
+      <div className="py-8">
+        <h2 className="text-2xl font-bold mb-4 border-b pb-2">Tour Features</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-white rounded-lg shadow-md p-6">
+          {[
+            { icon: <FaDollarSign />, title: "Mid-range Tour", desc: "This mid-range tour uses lodges and tented camps." },
+            { icon: <FaUsers />, title: "Private Tour", desc: "This tour will be organized exclusively for you and won't be shared with others." },
+            { icon: <FaCalendarAlt />, title: "Can be customized", desc: "You can request minor changes to the accommodations and destinations of this tour." },
+            { icon: <FaUsers />, title: "Suitable for solo travelers", desc: "Solo travelers can book this private tour." },
+            { icon: <FaCalendarAlt />, title: "Can start any day", desc: "If availability permits, this tour can start on any day." },
+            { icon: <FaChild />, title: "Suitable for all ages", desc: "This tour is suitable for children of all ages." },
+          ].map((feature, index) => (
+            <div key={index} className="flex items-center space-x-3">
+              <span className="text-orange-500 text-2xl">{feature.icon}</span>
+              <div>
+                <h3 className="text-lg font-semibold">{feature.title}</h3>
+                <p className="text-gray-600">{feature.desc}</p>
+              </div>
             </div>
-          </div>
-      </td>
-            <td className="px-6 py-4 whitespace-nowrap">All Meals Included</td>
-          </tr>
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 2</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-          <div>
-            <p className="text-left">Lake Nakuru Sopa Lodge</p>
-            <p className="text-left ml-4">Mid-range lodge inside Lake Nakuru NP</p>
-            <div className="flex">
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930996435_nakuru.jpg" alt="Accommodation 1"  />
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930912846_nakuru6.jpg" alt="Accommodation 1"  />
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930895067_nakuru1.jpg" alt="Accommodation 1"  />
-            </div>
-          </div>
-      </td>
-            <td className="px-6 py-4 whitespace-nowrap">All Meals Included</td>
-          </tr>
-          {/* Add more rows as needed */}
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 3</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-          <div>
-            <p className="text-left">Lake Naivasha Sopa Resort</p>
-            <p className="text-left ml-4">Mid-range hotel at Lake Naivasha</p>
-            <div className="flex">
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929864951_naivasha7.jpg" alt="Accommodation 1"  />
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929843779_naivasha2.jpg" alt="Accommodation 1"  />
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929854435_naivasha9.jpg" alt="Accommodation 1"  />
-            </div>
-          </div>
-      </td>
-            <td className="px-6 py-4 whitespace-nowrap">All Meals Included</td>
-          </tr>
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 4 - Day 5</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-          <div>
-            <p className="text-left">Masai Mara Sopa Lodge</p>
-            <p className="text-left ml-4">Mid-range hotel inside Masai Mara NR</p>
-            <div className="flex">
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/251_16114928325858_mara3.jpg"   />
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/251_16114928328067_mara1.jpg"   />
-            <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/251_16114928333584_mara2.jpg" />
-            </div>
-          </div>
-      </td>
-            <td className="px-6 py-4 whitespace-nowrap">All Meals Included</td>
-          </tr>
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 6</td>
-            <td className="px-6 py-4 whitespace-nowrap text-left">End of Tour</td>
-            <td className="px-6 py-4 whitespace-nowrap">Breakfast Included</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-                    </div>
+          ))}
+        </div>
+      </div>
 
-                </div>
-                        
-          </div>
+      {/* Activities & Transportation */}
+      <div className="py-8">
+        <h2 className="text-2xl font-bold mb-4 border-b pb-2">Activities & Transportation</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white rounded-lg shadow-md p-6">
+          {[
+            { icon: <FaBinoculars />, title: "Activities", desc: "Game drives" },
+            { icon: <FaBinoculars />, title: "Game Drives", desc: "Pop-up roof 4x4 vehicle" },
+            { icon: <FaCar />, title: "Getting around", desc: "Pop-up roof 4x4 vehicle" },
+            { icon: <FaMapMarkedAlt />, title: "Transport", desc: "A transfer from and back to the airport is included" },
+          ].map((activity, index) => (
+            <div key={index} className="flex items-center space-x-3">
+              <span className="text-orange-500 text-2xl">{activity.icon}</span>
+              <div>
+                <h3 className="text-lg font-semibold">{activity.title}</h3>
+                <p className="text-gray-600">{activity.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Accommodation & Meals */}
+      <div className="py-8">
+        <h2 className="text-2xl font-bold mb-4 border-b pb-2">Accommodation & Meals</h2>
+        <div className="flex items-center space-x-3 text-red-500">
+          <FaExclamation className="text-2xl" />
+          <p>Additional accommodation before and at the end of the tour can be arranged for an extra cost.</p>
+        </div>
+        <div className="overflow-x-auto bg-white rounded-lg shadow-md mt-6">
+          <table className="min-w-full text-left">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="px-6 py-3 font-medium text-gray-500">Day</th>
+                <th className="px-6 py-3 font-medium text-gray-500">Accommodation</th>
+                <th className="px-6 py-3 font-medium text-gray-500">Meals</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {[
+                { day: "Day 1", place: "Lake Bogoria Spa Resort", meals: "All Meals Included", image: "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/560_16119408949297_bogoria5.jpg" },
+                { day: "Day 2", place: "Lake Nakuru Sopa Lodge", meals: "All Meals Included", image: "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930996435_nakuru.jpg" },
+                { day: "Day 3", place: "Lake Naivasha Sopa Resort", meals: "All Meals Included", image: "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929864951_naivasha7.jpg" },
+                { day: "Day 4 - 5", place: "Masai Mara Sopa Lodge", meals: "All Meals Included", image: "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/251_16114928325858_mara3.jpg" },
+                { day: "Day 6", place: "End of Tour", meals: "Breakfast Included" },
+              ].map((stay, index) => (
+                <tr key={index}>
+                  <td className="px-6 py-4">{stay.day}</td>
+                  <td className="px-6 py-4">
+                    <p>{stay.place}</p>
+                    {stay.image && <img src={stay.image} alt={stay.place} className="mt-2 w-32 h-20 object-cover rounded-lg" />}
+                  </td>
+                  <td className="px-6 py-4">{stay.meals}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
         )}
 
         {/* Day to Day Section */}
         {activeSection === "day-to-day" && (
-          <div className="py-8">
-            <h2 className="text-3xl font-bold mb-4">Day to Day</h2>
-
-            <div className="bg-white rounded-lg shadow-md mb-8 p-6">
-            <div className="flex items-center mb-4">
-  <FaPlaneArrival className="mr-2" />
-  <h2 className="text-2xl font-bold">Arrival</h2>
-</div>
-
-
-<ul className="list-disc pl-6 text-left mb-4">
-  <li>You'll be collected from the airport.</li>
-  <li>Accommodation before the tour starts can be arranged for an extra cost.</li>
-</ul>
-<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
-{/* day1-day3 */}
-<div className="bg-white rounded-lg shadow-md p-6">
-    <div className="relative flex items-center">
-      <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Lake_Bogoria_National_Reserve_010.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-      <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-        <p className="text-sm font-bold">Day 1</p>
-        <p className="text-lg font-semibold mb-2">Lake Bogoria</p>
-      </div>
-    </div>
-    <p className="mb-4">Your adventure begins at Lake Bogoria, a hidden gem within the Lake Bogoria National reserve that is renowned for its flamingo-filled shores and bubbling hot springs. You shall not only witness the surreal spectacle of thousands of flamingos painting the lake pink but also marvel at the geothermal activity as steam rises from the earth's surface. Through our expert guide, you will get to enjoy a leisurely stroll along the boardwalks as you soak yourself in the serene beauty of the Lake's unique landscape.</p>
-    <h3 className="text-left font-semibold mb-2">Accommodation: </h3>
-                <h4 className="text-left font-semibold mb-2">Lake Bogoria Spa Resort</h4>
-                <h4 className="text-left mb-2">Mid-range lodge located just outside Lake Bogoria NR</h4>
-                <div className="flex">
-                 
-                  <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/560_16119408949297_bogoria5.jpg" alt="" />
-                  <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/560_1528_16127956406714_3w1a6190_boking.jpg" alt="" />
-                </div>
-
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-  </div>
-
-                {/* day4-day5 */}
-<div className="bg-white rounded-lg shadow-md p-6">
-<div className="relative flex items-center">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Lake_Nakuru_National_Park_013.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold">Day 2</p>
-    <p className="text-lg font-semibold">Lake Nakuru National Park</p>
-  </div>
-</div>
-<p className="mb-4">Next, we head to Lake Nakuru which is adjacent to Nakuru National Park. For bird lovers, this lake is home to one of Africa's most diverse bird populations. The guide will aid you in exploring the lake's shores in search of majestic pelicans, and marabou storks. Keep your camera ready for sightings of the endangered black and white rhinos roaming freely in the park, as well as the elusive Rothschild's giraffe.
-                </p>
-                <h3 className="text-left font-semibold mb-2">Accommodation: </h3>
-                <h4 className="text-left font-semibold mb-2">Lake Nakuru Spa Lodge</h4>
-                <h4 className="text-left mb-2">Mid-range lodge located inside Lake Nakuru NP</h4>
-                <div className="flex">
-          
-                  <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930996435_nakuru.jpg" alt="" />
-                  <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930912846_nakuru6.jpg" alt="" />
-                  </div>
-
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-                </div>
-
-                {/* day6-day7 */}
-                <div className="bg-white rounded-lg shadow-md p-6">
-                <div className="relative flex items-center">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Lake_Naivasha_022.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold">Day 3</p>
-    <p className="text-lg font-semibold">Lake Naivasha</p>
-    
-  </div>
-  
-</div>
-<p className="mb-4">Your safari continues to the tranquil shores of Lake Naivasha, where lush vegetation and abundant wildlife await. To break the monotony of a game drive, this day you shall take a boat safari along the lake's glassy waters, spotting hippos wallowing in the shallows and eagles soaring overhead. An option to explore Crescent Island on foot, encountering zebras, giraffes, and antelopes in their natural habitat, will be at your disposal, but at an extra cost.
-                </p>
-                <h3 className="text-left font-semibold mb-2">Accommodation: </h3>
-                <h4 className="text-left font-semibold mb-2">Lake Naivasha Sopa Resort</h4>
-                <h4 className="text-left mb-2">Mid-range lodge located at Lake Naivasha</h4>
-                <div className="flex">
-               
-                  <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929864951_naivasha7.jpg" alt="" />
-                 <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929843779_naivasha2.jpg" alt="" />
-                  </div>
-
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-                </div>
-
-                {/* day8-day9 */}
-                <div className="bg-white rounded-lg shadow-md p-6">
-                <div className="relative flex items-center">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Masai_Mara_National_Reserve_075.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold">Day 4-5</p>
-    <p className="text-lg font-semibold">Masai Mara</p>
-    
-  </div>
-  
-</div>
-<p className="mb-4">Finally, as the journey comes close to ending, your last two days of the safari will be at Kenya's most iconic safari destination: the Masai Mara. As you gear up to set out on game drives across the vast Savannah plains, you are encouraged to keep your cameras rolling since you'll encounter Africa's Big Five: lions, elephants, buffaloes, leopards, and rhinos, along with countless other species. If the season is ripe, you will also witness the legendary Great Migration, as millions of wildebeests and zebras traverse the Mara River in search of greener pastures. For more thrill while game viewing, there is an option of a hot air balloon safari at an extra cost upon request.
-                </p>
-                <h3 className="text-left font-semibold mb-2">Accommodation: </h3>
-                <h4 className="text-left font-semibold mb-2">Masai Mara Sopa Lodge</h4>
-                <h4 className="text-left mb-2">Mid-range lodge located inside Masai Mara NR</h4>
-                <div className="flex">
-                  <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/251_16114928328067_mara1.jpg" alt="" />
-                  <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/251_16114928325858_mara3.jpg" alt="" />
-                 
-                  </div>
-
-
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-                </div>
-
-
-                {/* day10 */}
-                <div className="bg-white rounded-lg shadow-md p-6">
-                <div className="relative flex items-center">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Nairobi_Airport_002.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold ">Day 6</p>
-    <p className="text-lg font-semibold">Nairobi Enroute Back Home</p>
-    
-  </div>
-  
-</div>
-<p className="mb-4">This day, you pack up all your belongings and start your journey back to the airport in Nairobi. If time allows, an optional visit to the Masai Village at an extra cost is encouraged since you will get to not only learn about their culture but also purchase hand-made souvenirs for your loved ones back at home. As you board the flight back to your destination of origin, we hope that you will carry with you a treasure trove of memories and, most importantly, a deeper appreciation for the rich culture and natural wonders of this remarkable country: Kenya. Until we meet again, Kwaheri! (goodbye).
-                </p>
-                <h3 className="text-left font-semibold text-lg mb-2 text-gray-700">Main Destination: Jomo Kenyatta International Airport (Nairobi)</h3>
-        <h3 className="text-left font-semibold text-lg mb-2 text-gray-700">Accommodation: No Accommodation</h3>
-        <h3 className="text-left font-semibold text-lg mb-2 text-gray-700">Meals & Drinks:</h3>
-        <h4 className="text-left mb-2">Breakfast (Lunch & dinner not included)</h4>
-                <h4 className="text-left mb-2">Drinks not included </h4>
-                </div>
-                 
+         <div className="py-8 px-6 bg-gray-100">
+         <h2 className="text-3xl font-bold mb-6 border-b pb-2">Day to Day</h2>
+         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+           <div className="flex items-center mb-4">
+             <FaPlaneArrival className="text-orange-500 text-2xl mr-2" />
+             <h2 className="text-2xl font-bold">Arrival</h2>
+           </div>
+           <ul className="list-disc pl-6 text-left mb-4 text-gray-700">
+             <li>You'll be collected from the airport.</li>
+             <li>Accommodation before the tour starts can be arranged for an extra cost.</li>
+           </ul>
+         </div>
+   
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+           {[ 
+             {
+               day: 'Day 1',
+               title: 'Lake Bogoria',
+               image: 'https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Lake_Bogoria_National_Reserve_010.jpg',
+               description: 'Your adventure begins at Lake Bogoria...',
+               accommodation: 'Lake Bogoria Spa Resort',
+               accommodationDesc: 'Mid-range lodge located just outside Lake Bogoria NR',
+               images: [
+                 'https://cloudfront.safaribookings.com/accommodations/photos/thumbs/560_16119408949297_bogoria5.jpg',
+                 'https://cloudfront.safaribookings.com/accommodations/photos/thumbs/560_1528_16127956406714_3w1a6190_boking.jpg'
+               ]
+             },
+             {
+               day: 'Day 2',
+               title: 'Lake Nakuru National Park',
+               image: 'https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Lake_Nakuru_National_Park_013.jpg',
+               description: 'Next, we head to Lake Nakuru...',
+               accommodation: 'Lake Nakuru Spa Lodge',
+               accommodationDesc: 'Mid-range lodge located inside Lake Nakuru NP',
+               images: [
+                 'https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930996435_nakuru.jpg',
+                 'https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930912846_nakuru6.jpg'
+               ]
+             },
+             {
+               day: 'Day 3',
+               title: 'Lake Naivasha',
+               image: 'https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Lake_Naivasha_022.jpg',
+               description: 'Your safari continues to the tranquil shores of Lake Naivasha...',
+               accommodation: 'Lake Naivasha Sopa Resort',
+               accommodationDesc: 'Mid-range lodge located at Lake Naivasha',
+               images: [
+                 'https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929864951_naivasha7.jpg',
+                 'https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929843779_naivasha2.jpg'
+               ]
+             },
+             {
+               day: 'Day 4-5',
+               title: 'Masai Mara',
+               image: 'https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Masai_Mara_National_Reserve_075.jpg',
+               description: 'Finally, as the journey comes close to ending...',
+               accommodation: 'Masai Mara Sopa Lodge',
+               accommodationDesc: 'Mid-range lodge located inside Masai Mara NR',
+               images: [
+                 'https://cloudfront.safaribookings.com/accommodations/photos/thumbs/251_16114928328067_mara1.jpg',
+                 'https://cloudfront.safaribookings.com/accommodations/photos/thumbs/251_16114928325858_mara3.jpg'
+               ]
+             },
+             {
+               day: 'Day 6',
+               title: 'Nairobi Enroute Back Home',
+               image: 'https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Nairobi_Airport_002.jpg',
+               description: 'This day, you pack up all your belongings...',
+               accommodation: 'No Accommodation',
+               accommodationDesc: 'Main Destination: Jomo Kenyatta International Airport (Nairobi)',
+               images: []
+             }
+           ].map((day, index) => (
+             <div key={index} className="bg-white rounded-lg shadow-md p-6">
+               <div className="relative">
+                 <img src={day.image} alt={day.title} className="w-full h-64 object-cover rounded-md" />
+                 <div className="absolute bottom-0 left-0 bg-orange-500 p-2 text-white">
+                   <p className="text-sm font-bold">{day.day}</p>
+                   <p className="text-lg font-semibold">{day.title}</p>
                  </div>
-
-               
-
-
-            </div>
-
-          </div>
+               </div>
+               <p className="mt-4 text-gray-700">{day.description}</p>
+               <h3 className="font-semibold mt-4">Accommodation:</h3>
+               <p className="text-gray-700">{day.accommodation}</p>
+               <p className="text-gray-600 text-sm">{day.accommodationDesc}</p>
+               <div className="flex space-x-2 mt-4">
+                 {day.images.map((img, imgIndex) => (
+                   <img key={imgIndex} src={img} alt={day.title} className="w-24 h-16 object-cover rounded-md" />
+                 ))}
+               </div>
+             </div>
+           ))}
+         </div>
+       </div>
         )}
 
         {/* Rates Section */}

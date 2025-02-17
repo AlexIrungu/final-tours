@@ -1,241 +1,384 @@
 import React, { useState, useEffect } from 'react';
-// import { useTranslation } from 'react-i18next';
-import { HiOutlineAdjustments, HiOutlineEye, HiOutlineViewGrid, HiOutlineArrowNarrowLeft, HiOutlinePlus, HiOutlineMinus } from 'react-icons/hi'; // Importing icons
 import { useSpeechSynthesis } from 'react-speech-kit';
-import { HiOutlineSearch } from 'react-icons/hi';
-import { FaAccessibleIcon } from 'react-icons/fa';
-
+import {
+  Accessibility,
+  Eye,
+  EyeOff,
+  ZoomIn,
+  ZoomOut,
+  Link,
+  Image,
+  Type,
+  Volume2,
+  Languages,
+  X,
+  Sun,
+  Moon,
+  AlignCenter,
+  Keyboard,
+  Settings2
+} from 'lucide-react';
 
 const AccessibilityTools = () => {
-  // const { t, i18n } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
-  const [fontSize, setFontSize] = useState(16); // State for font size adjustment
-  const [isMagnifyActive, setIsMagnifyActive] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
- 
-  const { speak } = useSpeechSynthesis();
-
-  // Function to toggle high contrast mode
-  const toggleHighContrastMode = () => {
-    // Toggle high contrast mode class on root element
-    document.documentElement.classList.toggle('high-contrast');
-  };
-
-  // Function to increase font size
-  const increaseFontSize = () => {
-    setFontSize(prevSize => prevSize + 1);
-  };
-
-  // Function to decrease font size
-  const decreaseFontSize = () => {
-    setFontSize(prevSize => Math.max(prevSize - 1, 10)); // Ensure font size does not go below 10
-  };
-
-  // Function to highlight all links
-const highlightLinks = () => {
-  const links = document.querySelectorAll('a');
-  links.forEach(link => link.classList.toggle('highlight'));
-};
-
-// Function to hide all images
-const hideImages = () => {
-  const images = document.querySelectorAll('img');
-  images.forEach(image => image.style.display = image.style.display === 'none' ? '' : 'none');
-};
-
-// Function to magnify text on hover
-const magnifyText = () => {
-  setIsMagnifyActive(prevState => !prevState);
-  const elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, a'); // Add any other elements you want to magnify on hover
-  elements.forEach(element => {
-    element.addEventListener('mouseover', () => {
-      element.style.fontSize = '2em'; // Increase font size on hover
-    });
-    element.addEventListener('mouseout', () => {
-      element.style.fontSize = ''; // Reset font size when mouse leaves
-    });
+  const [isOpen, setIsOpen] = useState(false);
+  const [settings, setSettings] = useState({
+    fontSize: 16,
+    lineHeight: 1.5,
+    letterSpacing: 0,
+    wordSpacing: 0,
+    fontFamily: 'default',
+    theme: 'default',
+    cursor: 'default',
+    animations: true,
+    isMagnifyActive: false,
+    isHighContrast: false,
+    isDyslexiaFont: false,
+    areImagesHidden: false,
+    areLinksHighlighted: false,
+    isReadingGuide: false
   });
-};
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const { speak, cancel } = useSpeechSynthesis();
 
-// Function to toggle reading mask
-const toggleReadingMask = () => {
-  let mask = document.getElementById('reading-mask');
-  if (mask) {
-    // If the mask already exists, remove it
-    mask.remove();
-  } else {
-    // If the mask does not exist, create it
-    mask = document.createElement('div');
-    mask.id = 'reading-mask';
-    mask.style.position = 'absolute';
-    mask.style.top = '0';
-    mask.style.left = '0';
-    mask.style.width = '100%';
-    mask.style.height = '100px'; // Height of the reading mask
-    mask.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // Semi-transparent black
-    mask.style.pointerEvents = 'none'; // Allow clicks to pass through the mask
-    document.body.appendChild(mask);
+  // Load saved settings from localStorage
+  useEffect(() => {
+    const savedSettings = localStorage.getItem('accessibility-settings');
+    if (savedSettings) {
+      setSettings(JSON.parse(savedSettings));
+      applySettings(JSON.parse(savedSettings));
+    }
+  }, []);
 
-    // Move the mask to the current mouse position
-    document.addEventListener('mousemove', (e) => {
-      mask.style.top = `${e.pageY - 50}px`; // Center the mask on the mouse cursor
+  // Save settings to localStorage when they change
+  useEffect(() => {
+    localStorage.setItem('accessibility-settings', JSON.stringify(settings));
+    applySettings(settings);
+  }, [settings]);
+
+  const applySettings = (currentSettings) => {
+    const root = document.documentElement;
+    
+    // Apply font size
+    root.style.fontSize = `${currentSettings.fontSize}px`;
+    
+    // Apply line height
+    root.style.lineHeight = currentSettings.lineHeight;
+    
+    // Apply letter spacing
+    root.style.letterSpacing = `${currentSettings.letterSpacing}px`;
+    
+    // Apply word spacing
+    root.style.wordSpacing = `${currentSettings.wordSpacing}px`;
+    
+    // Apply theme
+    root.classList.remove('theme-default', 'theme-dark', 'theme-light', 'high-contrast');
+    root.classList.add(`theme-${currentSettings.theme}`);
+    
+    // Apply cursor size
+    if (currentSettings.cursor === 'large') {
+      root.classList.add('large-cursor');
+    } else {
+      root.classList.remove('large-cursor');
+    }
+    
+    // Apply animations
+    if (!currentSettings.animations) {
+      root.classList.add('reduce-motion');
+    } else {
+      root.classList.remove('reduce-motion');
+    }
+    
+    // Apply dyslexia-friendly font
+    if (currentSettings.isDyslexiaFont) {
+      root.classList.add('dyslexia-font');
+    } else {
+      root.classList.remove('dyslexia-font');
+    }
+
+    // Apply high contrast
+    if (currentSettings.isHighContrast) {
+      root.classList.add('high-contrast');
+    } else {
+      root.classList.remove('high-contrast');
+    }
+
+    // Handle images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      img.style.display = currentSettings.areImagesHidden ? 'none' : '';
     });
-  }
-};
 
-  // Function to skip to main content
-  const skipToMainContent = () => {
-    const mainContentElement = document.getElementById('main-content');
-    if (mainContentElement) {
-      mainContentElement.focus();
+    // Handle links
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      link.classList.toggle('highlighted-link', currentSettings.areLinksHighlighted);
+    });
+  };
+
+  const updateSetting = (key, value) => {
+    setSettings(prev => ({ ...prev, [key]: value }));
+  };
+
+  const textToSpeech = () => {
+    if (isSpeaking) {
+      cancel();
+      setIsSpeaking(false);
+    } else {
+      const selectedText = window.getSelection().toString();
+      const textToRead = selectedText || document.body.innerText;
+      speak({ text: textToRead });
+      setIsSpeaking(true);
     }
   };
 
-  // Apply font size to body of document
-  useEffect(() => {
-    document.body.style.fontSize = `${fontSize}px`;
-  }, [fontSize]);
-
-    // Function to change language
-    // const changeLanguage = (language) => {
-    //   i18n.changeLanguage(language);
-    // };
-
-    const textToSpeech = (text) => {
-      setIsSpeaking(true);
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.onend = () => setIsSpeaking(false);
-      window.speechSynthesis.speak(utterance);
-    };
-
+  const toggleReadingGuide = () => {
+    updateSetting('isReadingGuide', !settings.isReadingGuide);
+    let guide = document.getElementById('reading-guide');
     
-
+    if (!settings.isReadingGuide) {
+      if (!guide) {
+        guide = document.createElement('div');
+        guide.id = 'reading-guide';
+        guide.className = 'fixed w-full h-12 bg-yellow-200 opacity-20 pointer-events-none z-50';
+        document.body.appendChild(guide);
+        
+        const moveGuide = (e) => {
+          guide.style.top = `${e.clientY - 24}px`;
+        };
+        
+        document.addEventListener('mousemove', moveGuide);
+      }
+    } else {
+      guide?.remove();
+    }
+  };
 
   return (
-    <div className="fixed bottom-4 right-4 bg-green-600">
-      {/* Dropdown icon */}
+    <div className="fixed bottom-6 right-6 z-50">
       <button
-        className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none"
-        aria-label="Toggle Accessibility Tools"
-        aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
+        className="p-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full shadow-lg transition-all"
+        aria-label="Toggle Accessibility Tools"
       >
-        <FaAccessibleIcon className="h-6 w-6 text-gray-700" />
+        <Accessibility className="w-6 h-6" />
       </button>
 
-      {/* Dropdown menu */}
       {isOpen && (
-        <div className="absolute bottom-12 right-0 bg-white shadow-md rounded-md bg-green-600" role="menu">
-          {/* Keyboard navigation */}
-          <button
-            className="block w-full py-2 px-4 text-left hover:bg-gray-100"
-            onClick={() => console.log('Navigating with keyboard')}
-            role="menuitem"
-          >
-            <HiOutlineViewGrid className="inline-block mr-2" /> Keyboard Navigation
-          </button>
+        <div className="absolute bottom-16 right-0 w-80 bg-white rounded-lg shadow-xl border border-gray-200 max-h-[80vh] overflow-y-auto">
+          <div className="p-4">
+            <div className="flex justify-between items-center mb-4 sticky top-0 bg-white">
+              <h2 className="text-lg font-semibold text-gray-800">Accessibility Settings</h2>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-1 text-gray-500 hover:text-gray-700"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
-          {/* High contrast mode */}
-          <button
-            className="block w-full py-2 px-4 text-left hover:bg-gray-100"
-            onClick={toggleHighContrastMode}
-            role="menuitem"
-          >
-            <HiOutlineEye className="inline-block mr-2" /> Toggle High Contrast Mode
-          </button>
+            {/* Content Section */}
+            <div className="space-y-4">
+              {/* Display Settings */}
+              <div className="space-y-2">
+                <h3 className="font-medium text-gray-700 flex items-center gap-2">
+                  <Settings2 className="w-4 h-4" /> Display
+                </h3>
+                
+                {/* Theme Selector */}
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => updateSetting('theme', 'default')}
+                    className={`flex-1 p-2 rounded ${settings.theme === 'default' ? 'bg-blue-100' : 'bg-gray-100'}`}
+                  >
+                    Default
+                  </button>
+                  <button
+                    onClick={() => updateSetting('theme', 'dark')}
+                    className={`flex-1 p-2 rounded ${settings.theme === 'dark' ? 'bg-blue-100' : 'bg-gray-100'}`}
+                  >
+                    <Moon className="w-4 h-4 inline mr-2" />
+                    Dark
+                  </button>
+                  <button
+                    onClick={() => updateSetting('theme', 'light')}
+                    className={`flex-1 p-2 rounded ${settings.theme === 'light' ? 'bg-blue-100' : 'bg-gray-100'}`}
+                  >
+                    <Sun className="w-4 h-4 inline mr-2" />
+                    Light
+                  </button>
+                </div>
 
-          {/* Highlight links */}
-<button
-  className="block w-full py-2 px-4 text-left hover:bg-gray-100"
-  onClick={highlightLinks}
-  role="menuitem"
->
-  Highlight Links
-</button>
+                {/* Font Size Controls */}
+                <div className="flex items-center justify-between gap-2">
+                  <button
+                    onClick={() => updateSetting('fontSize', Math.max(12, settings.fontSize - 2))}
+                    className="p-2 text-gray-700 hover:bg-gray-100 rounded"
+                  >
+                    <ZoomOut className="w-5 h-5" />
+                  </button>
+                  <span className="text-gray-700">Font Size: {settings.fontSize}px</span>
+                  <button
+                    onClick={() => updateSetting('fontSize', settings.fontSize + 2)}
+                    className="p-2 text-gray-700 hover:bg-gray-100 rounded"
+                  >
+                    <ZoomIn className="w-5 h-5" />
+                  </button>
+                </div>
 
-{/* Hide images */}
-<button
-  className="block w-full py-2 px-4 text-left hover:bg-gray-100"
-  onClick={hideImages}
-  role="menuitem"
->
-  Hide Images
-</button>
+                {/* Line Height */}
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-gray-700">Line Height</span>
+                  <input
+                    type="range"
+                    min="1"
+                    max="2"
+                    step="0.1"
+                    value={settings.lineHeight}
+                    onChange={(e) => updateSetting('lineHeight', parseFloat(e.target.value))}
+                    className="w-32"
+                  />
+                </div>
 
-       {/* Magnify text */}
-<button
-  className="block w-full py-2 px-4 text-left hover:bg-gray-100"
-  onClick={magnifyText}
-  role="menuitem"
->
-  {isMagnifyActive ? <HiOutlineSearch className="inline-block mr-2" /> : null}
-  Magnify Text
-</button>
+                {/* Letter Spacing */}
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-gray-700">Letter Spacing</span>
+                  <input
+                    type="range"
+                    min="0"
+                    max="5"
+                    step="0.5"
+                    value={settings.letterSpacing}
+                    onChange={(e) => updateSetting('letterSpacing', parseFloat(e.target.value))}
+                    className="w-32"
+                  />
+                </div>
+              </div>
 
-{/* Reading mask */}
-<button
-  className="block w-full py-2 px-4 text-left hover:bg-gray-100"
-  onClick={toggleReadingMask}
-  role="menuitem"
->
-  Toggle Reading Mask
-</button>
+              {/* Reading Aids */}
+              <div className="space-y-2">
+                <h3 className="font-medium text-gray-700 flex items-center gap-2">
+                  <Type className="w-4 h-4" /> Reading Aids
+                </h3>
+                
+                <button
+                  onClick={() => updateSetting('isDyslexiaFont', !settings.isDyslexiaFont)}
+                  className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <span>Dyslexia-friendly Font</span>
+                  <input
+                    type="checkbox"
+                    checked={settings.isDyslexiaFont}
+                    onChange={() => {}}
+                    className="ml-2"
+                  />
+                </button>
 
-          {/* Font size adjustment */}
-          <div className="flex items-center justify-between px-4 py-2 border-t border-gray-200">
-            <button
-              className="text-gray-700 hover:text-gray-900 focus:outline-none"
-              onClick={decreaseFontSize}
-              role="menuitem"
-            >Decrease 
-              <HiOutlineMinus className="h-5 w-5" />
-            </button>
-            <span className="text-gray-700" aria-live="polite">{fontSize}px</span>
-            <button
-              className="text-gray-700 hover:text-gray-900 focus:outline-none"
-              onClick={increaseFontSize}
-              role="menuitem"
-            >Increase 
-              <HiOutlinePlus className="h-5 w-5" />
-            </button>
+                <button
+                  onClick={toggleReadingGuide}
+                  className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <span>Reading Guide</span>
+                  <input
+                    type="checkbox"
+                    checked={settings.isReadingGuide}
+                    onChange={() => {}}
+                    className="ml-2"
+                  />
+                </button>
+
+                <button
+                  onClick={textToSpeech}
+                  className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <span>Text to Speech</span>
+                  <Volume2 className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Visual Preferences */}
+              <div className="space-y-2">
+                <h3 className="font-medium text-gray-700 flex items-center gap-2">
+                  <Eye className="w-4 h-4" /> Visual Preferences
+                </h3>
+
+                <button
+                  onClick={() => updateSetting('isHighContrast', !settings.isHighContrast)}
+                  className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <span>High Contrast</span>
+                  <input
+                    type="checkbox"
+                    checked={settings.isHighContrast}
+                    onChange={() => {}}
+                    className="ml-2"
+                  />
+                </button>
+
+                <button
+                  onClick={() => updateSetting('areImagesHidden', !settings.areImagesHidden)}
+                  className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <span>Hide Images</span>
+                  <input
+                    type="checkbox"
+                    checked={settings.areImagesHidden}
+                    onChange={() => {}}
+                    className="ml-2"
+                  />
+                </button>
+
+                <button
+                  onClick={() => updateSetting('areLinksHighlighted', !settings.areLinksHighlighted)}
+                  className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <span>Highlight Links</span>
+                  <input
+                    type="checkbox"
+                    checked={settings.areLinksHighlighted}
+                    onChange={() => {}}
+                    className="ml-2"
+                  />
+                </button>
+              </div>
+
+              {/* Motion & Interaction */}
+              <div className="space-y-2">
+                <h3 className="font-medium text-gray-700 flex items-center gap-2">
+                  <Eye className="w-4 h-4" /> Motion & Interaction
+                </h3>
+
+                <button
+                  onClick={() => updateSetting('animations', !settings.animations)}
+                  className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <span>Allow Animations</span>
+                  <input
+                    type="checkbox"
+                    checked={settings.animations}
+                    onChange={() => {}}
+                    className="ml-2"
+                  />
+                </button>
+
+                <button
+                  onClick={() => updateSetting('cursor', settings.cursor === 'default' ? 'large' : 'default')}
+                  className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded"
+                >
+                  <span>Large Cursor</span>
+                  <input
+                    type="checkbox"
+                    checked={settings.cursor === 'large'}
+                    onChange={() => {}}
+                    className="ml-2"
+                  />
+                </button>
+              </div>
+            </div>
           </div>
-
-           {/* Skip to main content */}
-           <button
-            className="block w-full py-2 px-4 text-left hover:bg-gray-100"
-            onClick={skipToMainContent}
-            role="menuitem"
-          >
-            Skip to Main Content
-          </button>
-
-          <button onClick={() => textToSpeech('Your text here')}>
-  {isSpeaking ? 'Speaking...' : 'Text to Speech'}
-</button>
-
-           {/* Language selection */}
-           {/* <div className="py-2 px-4">
-            <label htmlFor="language-selection">{t('Select Language')}</label>
-            <select id="language-selection" onChange={(e) => changeLanguage(e.target.value)}>
-              <option value="en">{t('English')}</option>
-              <option value="es">{t('Spanish')}</option>
-             
-            </select>
-          </div> */}
-
-          {/* Close button */}
-          <button
-            className="block w-full py-2 px-4 text-left hover:bg-gray-100"
-            onClick={() => setIsOpen(false)}
-            role="menuitem"
-          >
-            <HiOutlineArrowNarrowLeft className="inline-block mr-2" /> Close
-          </button>
         </div>
       )}
-      
     </div>
   );
 };
 
-export default AccessibilityTools
+export default AccessibilityTools;

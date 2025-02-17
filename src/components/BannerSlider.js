@@ -1,34 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import adv from './shiftedfrommain/adv.jpg';
 import ele from './shiftedfrommain/ele.jpg';
 import bal from './shiftedfrommain/newbaloon.jpg';
-import './BannerSlider.css'
-
 
 const slides = [
   {
-    background: `url(${adv})`,
+    background: adv,
     title: "Explore Scenic Wonders With Us",
-    content: "",
     videoLink: "https://www.youtube.com/watch?v=ZJq26SI2IUc",
     linkText: "Watch Now",
   },
   {
-    background: `url(${bal})`,
+    background: bal,
     title: "Discover the Colorful World",
-    content: "",
     videoLink: "https://www.youtube.com/watch?v=ZJq26SI2IUc",
     linkText: "Watch Now",
   },
   {
-    background: `url(${ele})`,
+    background: ele,
     title: "Life-long Memories Just a Click Away",
-    content: "",
     videoLink: "https://www.youtube.com/watch?v=ZJq26SI2IUc",
     linkText: "Watch Now",
   },
- 
 ];
 
 const BannerSlider = () => {
@@ -41,8 +36,6 @@ const BannerSlider = () => {
   const goToNextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
-
-  
 
   const redirectToVideo = (videoLink) => {
     window.open(videoLink, '_blank');
@@ -59,63 +52,53 @@ const BannerSlider = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const slide = slides[currentSlide];
-
   return (
-    <section className="default-banner active-blog-slider relative" style={{position: 'relative', height: '80vh'}}> {/* Set relative position and height to parent */}
+    <div className="banner-slider relative h-[80vh] overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`item-slider relative bg-cover bg-no-repeat bg-center slide-transition ${currentSlide === index ? 'slide-in' : 'slide-out'}`}
-          style={{
-            backgroundImage: slide.background,
-            width: "100vw",
-            height: "80vh",
-            backgroundSize: "cover",
-            position: 'absolute', // Keep absolute positioning
-          }}
-      >
-        <div className="overlay" style={{ background: "rgba(0,0,0,.3)" }}></div>
-        <div className="container">
-          <div className="row h-full md:items-center">
-            <div className="col-md-10 col-12 mx-auto">
-              <div className="banner-content text-center py-20 md:py-0">
-                <div className="mb-4 absolute top-0 left-0 right-0 p-8 text-center">
-                  <h4 className="text-customWhite text-lg md:text-xl lg:text-2xl mb-4 font-semibold uppercase tracking-wider">
-                    {slide.title}
-                  </h4>
-                </div>
-               
-                <p className="text-gray-200 text-lg md:text-xl lg:text-2xl mb-6 leading-relaxed">
-                  {slide.content}
-                </p>
-                 <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
-        <button
-          className="px-8 py-3 rounded-full bg-green-600 hover:bg-green-600 text-white font-bold"
-          onClick={() => redirectToVideo(slide.videoLink)}
+          className={`slide absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center transition-opacity duration-1000 ${
+            currentSlide === index ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url(${slide.background})` }}
         >
-          {slide.linkText}
-          <FontAwesomeIcon icon="arrow-right" className="ml-2" />
-        </button>
-      </div>
-              </div>
-            </div>
+          <div className="overlay absolute top-0 left-0 w-full h-full bg-black/30"></div>
+          
+          {/* Title at the top */}
+          <div className="absolute top-[20%] left-1/2 transform -translate-x-1/2 text-center text-white z-10 px-4">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-wider">
+              {slide.title}
+            </h2>
+          </div>
+
+          {/* Watch Now button at the bottom */}
+          <div className="absolute bottom-[15%] left-1/2 transform -translate-x-1/2 text-center text-white z-10 px-4">
+            <button
+              className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full transition-colors transform hover:scale-105 duration-300"
+              onClick={() => redirectToVideo(slide.videoLink)}
+            >
+              {slide.linkText}
+              <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
+            </button>
           </div>
         </div>
-      </div>
       ))}
-      <div
-          className="navigation-buttons absolute left-0 bottom-0 flex py-10"
-          style={{ transform: "translateY(50%)" }}
+
+      <div className="navigation-buttons absolute left-4 top-1/2 transform -translate-y-1/2 z-10 flex">
+        <button
+          className="bg-gray-800 text-white p-3 rounded-full mr-2 hover:bg-gray-700 transition-colors"
+          onClick={goToPreviousSlide}
         >
-          <button className="bg-gray-800 text-white px-3 py-2 rounded mr-2" onClick={goToPreviousSlide}>
-            <FontAwesomeIcon icon="arrow-left" />
-          </button>
-          <button className="bg-gray-800 text-white px-3 py-2 rounded" onClick={goToNextSlide}>
-            <FontAwesomeIcon icon="arrow-right" />
-          </button>
-        </div>
-    </section>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+        <button
+          className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors"
+          onClick={goToNextSlide}
+        >
+          <FontAwesomeIcon icon={faArrowRight} />
+        </button>
+      </div>
+    </div>
   );
 };
 

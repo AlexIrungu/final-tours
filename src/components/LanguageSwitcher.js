@@ -1,43 +1,49 @@
-// LanguageSwitcher.js
-
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLanguage, faAngleDown, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const LanguageSwitcher = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language); // Use a state variable for currentLanguage
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
-    setCurrentLanguage(language); // Update currentLanguage when the language changes
-    setShowDropdown(false); // Close the dropdown after selecting a language
+    setCurrentLanguage(language);
+    setShowDropdown(false);
   };
 
-  const languages = ['en', 'es', 'fr', 'de', 'pt', 'it']; // Add other languages as needed
-
-  console.log('Current language:', currentLanguage);
+  const languages = ['en', 'es', 'fr', 'de', 'pt', 'it']; // Supported languages
 
   return (
-    <div className="language-switcher">
-      <div className="dropdown">
-        <button className="dropbtn" onClick={() => setShowDropdown(!showDropdown)}>
-          <FontAwesomeIcon icon={faGlobe} />
-          {currentLanguage.toUpperCase()}
-          <FontAwesomeIcon icon={faAngleDown} />
-        </button>
-        {showDropdown && (
-          <div className="dropdown-content">
-            {languages.map((lang) => (
-              <button key={lang} onClick={() => changeLanguage(lang)} className={currentLanguage === lang ? 'active' : ''}>
-                {lang.toUpperCase()}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
+    <div className="relative">
+      {/* Language Switcher Button */}
+      <button
+        onClick={() => setShowDropdown(!showDropdown)}
+        className="flex items-center space-x-2 p-2 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none"
+      >
+        <FontAwesomeIcon icon={faGlobe} className="text-gray-700" />
+        <span className="text-gray-700 font-medium">{currentLanguage.toUpperCase()}</span>
+        <FontAwesomeIcon icon={faAngleDown} className="text-gray-700" />
+      </button>
+
+      {/* Dropdown Menu */}
+      {showDropdown && (
+        <div className="absolute right-0 mt-2 w-24 bg-white rounded-lg shadow-lg border border-gray-200">
+          {languages.map((lang) => (
+            <button
+              key={lang}
+              onClick={() => changeLanguage(lang)}
+              className={`w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 ${
+                currentLanguage === lang ? 'font-bold' : ''
+              }`}
+            >
+              {lang.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

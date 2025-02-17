@@ -1,98 +1,138 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import './Navbar.css'
-import dstfinal from './shiftedfrommain/dstfinal.png'
-import { HiOutlineMenu } from 'react-icons/hi'; // Import the menu icon from Heroicons
-// import LanguageSwitcher from "./LanguageSwitcher";
-import { useTranslation } from 'react-i18next'; // Import useTranslation hook
-
+import { HiMenu, HiX } from 'react-icons/hi';
+import dstfinal from './shiftedfrommain/dstfinal.png';
+import SimpleLanguageSwitcher from "./SimpleLanguageSwitcher";
+import { useTranslation } from './TranslationContext';
 
 const Navbar = () => {
-  const { t } = useTranslation(); // Use useTranslation hook to access translations
-
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const history = useHistory();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { translateText, language } = useTranslation();
+  const [translations, setTranslations] = useState({
+    home: 'Home',
+    about: 'About',
+    gallery: 'Gallery',
+    maps: 'Maps',
+    contact: 'Contact'
+  });
 
-  const toggleDropdown = () => {
-    setDropdownOpen((prevDropdownState) => !prevDropdownState);
-  };
+  // Update translations when language changes
+  useEffect(() => {
+    const translateNavItems = async () => {
+      const translated = {
+        home: await translateText('Home', language),
+        about: await translateText('About', language),
+        gallery: await translateText('Gallery', language),
+        maps: await translateText('Maps', language),
+        contact: await translateText('Contact', language)
+      };
+      setTranslations(translated);
+    };
+
+    if (language !== 'en') {
+      translateNavItems();
+    } else {
+      setTranslations({
+        home: 'Home',
+        about: 'About',
+        gallery: 'Gallery',
+        maps: 'Maps',
+        contact: 'Contact'
+      });
+    }
+  }, [language, translateText]);
+
+  const navItems = [
+    { name: translations.home, path: '/' },
+    { name: translations.about, path: '/about' },
+    { name: translations.gallery, path: '/gallery' },
+    { name: translations.maps, path: '/maps' },
+    { name: translations.contact, path: '/contact' }
+  ];
 
   const toggleMenu = () => {
-    setMenuOpen((prevMenuState) => !prevMenuState);
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleDropdownItemClick = (route) => {
-    setDropdownOpen(false);
-    history.push(route);
+  const handleNavigation = (path) => {
+    history.push(path);
+    setIsMenuOpen(false);
   };
 
   return (
-    <nav className="bg-brown-600 text-dark p-2">
-      <div className="container mx-auto flex items-center justify-between">
-        <Link to="/" className="logo-link">
-          <img src={dstfinal} alt="Logo" className="logo-image" />
-        </Link>
-        <button
-          className={`menu-button show-menu-button lg:hidden ${
-            !isMenuOpen ? "text-green-500" : ""
-          }`}
-          onClick={toggleMenu}
-        >
-          {isMenuOpen ? (
-            <HiOutlineMenu className={`w-6 h-6 fill-current ${isMenuOpen ? "text-customWhite" : "text-green-500"}`} />
-          ) : (
-            <svg
-              className="w-6 h-6 fill-current text-green-600"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="green"  
-                d="M12 0C5.38 0 0 5.38 0 12c0 3.24 1.21 6.21 3.21 8.5 0 .1.01.19.02.29.01.1.03.2.05.29 0 .01 0 .01.01.02l.01.01L12 24l8.71-2.91c0-.01 0-.01.01-.02s0-.01.01-.02c.02-.09.04-.19.05-.28.01-.1.02-.2.02-.31C22.58 18.21 24 15.24 24 12c0-6.62-5.38-12-12-12zM12 21v-2c-2.76 0-5-2.24-5-5H5c0 2.76 2.24 5 5 5zm7-3h2c0-3.31-2.69-6-6-6v2c2.21 0 4 1.79 4 4zm-9-7.99v-2C7 8.69 8.69 7 11 7V5c-3.31 0-6 2.69-6 6h2zm7-2h2c0-2.21-1.79-4-4-4v2c1.66 0 3 1.34 3 3z"
+    <nav className="bg-gradient-to-r from-brown-700 to-brown-900 text-white sticky top-0 z-50 shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          <Link 
+            to="/" 
+            className="flex-shrink-0 flex items-center"
+          >
+            <div className="relative overflow-hidden">
+              <img 
+                className="h-16 w-auto object-contain transition-all duration-300 hover:scale-105 filter brightness-125 contrast-125 drop-shadow-lg" 
+                src={dstfinal} 
+                alt="Company Logo" 
               />
-            </svg>
-          )}
-        </button>
-        <div
-          className={`menu lg:flex ${isMenuOpen ? "block" : "hidden"} transition-all duration-500`}
-        >
-          <ul className="menu-list flex flex-col lg:space-y-0 lg:flex-row lg:items-center text-sm">
-            <li className="menu-item">
-              <Link to="/" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                {t('home')}
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="/about" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                {t('about')}
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="/pricing" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                {t('Packages')}
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="/gallery" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                {t('gallery')}
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="/maps" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                {t("Maps")}
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="/contact" className="menu-link hover:text-green-600 px-2 py-0 font-bold">
-                {t("contact")}
-              </Link>
-            </li>
-            
-          </ul>
+              <div className="absolute inset-0 rounded-lg ring-2 ring-white/20 hover:ring-white/40 transition-all duration-300"></div>
+            </div>
+          </Link>
+
+          {/* Mobile menu button */}
+          <div className="flex lg:hidden">
+            <button 
+              onClick={toggleMenu} 
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-brown-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition-colors duration-200"
+              aria-expanded={isMenuOpen}
+            >
+              <span className="sr-only">Open main menu</span>
+              {isMenuOpen ? (
+                <HiX className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <HiMenu className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+
+          {/* Desktop menu */}
+          <div className="hidden lg:flex lg:items-center">
+            <div className="flex space-x-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="text-gray-100 hover:bg-brown-600 hover:text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 transform hover:scale-105"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            <div className="ml-6">
+              <SimpleLanguageSwitcher />
+            </div>
+          </div>
         </div>
-        {/* <LanguageSwitcher /> */}
-      </div>  
+      </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="lg:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-brown-800 rounded-b-lg shadow-lg">
+            {navItems.map((item) => (
+              <div
+                key={item.path}
+                onClick={() => handleNavigation(item.path)}
+                className="text-white hover:bg-brown-600 block px-3 py-2 rounded-md text-base font-medium cursor-pointer transition-colors duration-150"
+              >
+                {item.name}
+              </div>
+            ))}
+            <div className="mt-4 px-3 py-2">
+              <SimpleLanguageSwitcher />
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

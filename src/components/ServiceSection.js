@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCar } from "@fortawesome/free-solid-svg-icons";
-
-import { faBinoculars, faLandmark, faMap, faUmbrellaBeach, faCogs,  } from '@fortawesome/free-solid-svg-icons';
-
-import carImage from "./shiftedfrommain/hireee.jpg";
+import {
+  faBinoculars,
+  faLandmark,
+  faMap,
+  faUmbrellaBeach,
+  faCogs,
+  faCar,
+  faXmark
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import safaritours from './shiftedfrommain/safaritours.jpg'
-import cultural from './shiftedfrommain/culturalexpeditions.jpg'
-import adventuresafari from './shiftedfrommain/adventuresafari1.jpg'
-import beaches from './shiftedfrommain/beachescapes.avif'
-import custom from './shiftedfrommain/customizedsafari.jpg'
+import safaritours from "./shiftedfrommain/safaritours.jpg";
+import cultural from "./shiftedfrommain/culturalexpeditions.jpg";
+import adventuresafari from "./shiftedfrommain/adventuresafari1.jpg";
+import beaches from "./shiftedfrommain/beachescapes.avif";
+import custom from "./shiftedfrommain/customizedsafari.jpg";
+import carImage from "./shiftedfrommain/hireee.jpg";
 
 const ServiceSection = () => {
+  const [selectedService, setSelectedService] = useState(null);
+
   const services = [
     {
       icon: faBinoculars,
@@ -33,7 +40,7 @@ const ServiceSection = () => {
       title: "Car Hire",
       description:
         "The company has a diverse fleet of well-maintained vehicles. We provide both residents and tourists the freedom to explore Kenya's scenic landscapes, cities and attractionsat their own pace. Our fleet comprises of; Economy Cars, SUVs, Luxury Cars, Vans and 4x4 Off-Road Vehicles",
-      image: carImage ,
+      image: carImage,
     },
     {
       icon: faMap,
@@ -47,7 +54,7 @@ const ServiceSection = () => {
       title: "Customized Safaris",
       description:
         "We tailor itineraries to match your preferences, whether you're travelling with family, friends, or as a solo-adventurer.",
-      image: custom ,
+      image: custom,
     },
     {
       icon: faUmbrellaBeach,
@@ -56,68 +63,39 @@ const ServiceSection = () => {
         "Unwind on the pristine shores of the Kenyan Coast in Diani, Watamu, or Malindi. Relax in luxury beach resorts and explore marine life through snorkeling and diving.",
       image: beaches,
     },
-    // ... add other services
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const goToPreviousSlide = () => {
-    setCurrentSlide(
-      (prevSlide) => (prevSlide - 1 + services.length) % services.length
-    );
-  };
-
-  const goToNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % services.length);
-  };
-
-  const handleBookNow = () => {
-    console.log("Book Now clicked!");
-  };
-
   return (
-    <section className="py-10 bg-gray-100 " id="service" >
-      <div className="container mx-auto  ">
-        <div className="text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-3xl font-bold text-gray-800 mb-4">
+    <section className="py-16 bg-white" id="service">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h1 className="text-4xl font-bold text-gray-800 mb-6">
             Services we offer
           </h1>
-          <p className="text-gray-600  mb-12">
-            At our company, we pride ourselves in providing a comprehensive range of services to cater to all your travel needs. Whether you're arriving at an airport, looking for exciting excursions, seeking thrilling safaris, requiring car hire, accommodation bookings, or assistance with air tickets, we've got you covered!
+          <p className="text-gray-600">
+            At our company, we pride ourselves in providing a comprehensive range
+            of services to cater to all your travel needs. Whether you're arriving
+            at an airport, looking for exciting excursions, seeking thrilling
+            safaris, requiring car hire, accommodation bookings, or assistance
+            with air tickets, we've got you covered!
           </p>
         </div>
-        <div className="flex justify-center mt-8">
-          {services.map((_, index) => (
-            <span
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <ServiceCard
               key={index}
-              className={`dot ${index === currentSlide ? "active" : ""}`}
-              onClick={() => setCurrentSlide(index)}
-            ></span>
+              service={service}
+              isSelected={selectedService === index}
+              onClick={() => setSelectedService(index)}
+              onClose={() => setSelectedService(null)}
+            />
           ))}
         </div>
-        <div className="relative mx-auto w-5/6 md:w-4/6 lg:w-3/6 mt-12">
-          
-          
-          <div className="mt-8">
-            <ServiceCard {...services[currentSlide]} />
-          </div>
-         
-          <div className="w-1/6">
-              <button
-                className="bg-brown-600 hover:bg-green-600 text-white px-3 py-2 rounded"
-                onClick={goToNextSlide}
-              >
-                <FontAwesomeIcon icon="arrow-right" />
-              </button>
-            </div>
-            
-        </div>
+
         <div className="text-center mt-12">
           <Link to="/calendar">
-            <button
-              className="bg-brown-600 hover:bg-green-600 text-customWhite px-6 py-3 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              onClick={handleBookNow}
-            >
+            <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg transition-colors duration-300 transform hover:scale-105">
               Book Now
             </button>
           </Link>
@@ -127,21 +105,67 @@ const ServiceSection = () => {
   );
 };
 
-const ServiceCard = ({ icon, title, description, image }) => (
-  <div className="bg-white rounded-lg p-8 shadow-md">
-    <div className="mt-6">
-      <img
-        src={image}
-        alt={title}
-        className="rounded-md shadow-md w-full h-80 object-cover"
+const ServiceCard = ({ service, isSelected, onClick, onClose }) => {
+  return (
+    <div 
+      className="relative group cursor-pointer h-96 rounded-xl overflow-hidden"
+      onClick={onClick}
+    >
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+        style={{ backgroundImage: `url(${service.image})` }}
       />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-50" />
+
+      {/* Default Content (Visible when not selected) */}
+      {!isSelected && (
+        <div className="absolute inset-0 p-6 flex flex-col justify-end text-white transform transition-transform duration-300 translate-y-8 group-hover:translate-y-0">
+          <div className="mb-4">
+            <FontAwesomeIcon icon={service.icon} className="text-3xl mb-2" />
+          </div>
+          <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+          <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Click to learn more
+          </p>
+        </div>
+      )}
+
+      {/* Expanded Content (Visible when selected) */}
+      {isSelected && (
+        <div className="absolute inset-0 bg-black bg-opacity-80 p-6 flex flex-col text-white">
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose();
+            }}
+            className="absolute top-4 right-4 text-white hover:text-gray-300"
+          >
+            <FontAwesomeIcon icon={faXmark} className="text-xl" />
+          </button>
+          
+          <div className="flex items-center mb-4">
+            <FontAwesomeIcon icon={service.icon} className="text-3xl mr-3" />
+            <h3 className="text-2xl font-bold">{service.title}</h3>
+          </div>
+          
+          <p className="text-gray-200 leading-relaxed overflow-y-auto">
+            {service.description}
+          </p>
+          
+          <Link 
+            to="/calendar" 
+            className="mt-auto self-start px-6 py-2 bg-orange-600 hover:bg-orange-700 rounded-lg transition-colors duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Book Now
+          </Link>
+        </div>
+      )}
     </div>
-    <div className="mb-6 mt-4">
-      <FontAwesomeIcon icon={icon} className="text-4xl text-green-600" />
-    </div>
-    <h3 className="text-xl md:text-2xl font-semibold mb-4">{title}</h3>
-    <p className="text-l text-gray-600">{description}</p>
-  </div>
-);
+  );
+};
 
 export default ServiceSection;

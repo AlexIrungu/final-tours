@@ -1,552 +1,495 @@
 import React from "react";
-import { FaDollarSign, FaUsers, FaCalendarAlt, FaChild, FaExclamation, FaCheck, FaTimes, FaPlaneArrival,  FaCar, FaBinoculars, FaMapMarkedAlt } from "react-icons/fa";
+import {
+  FaDollarSign,
+  FaUsers,
+  FaCalendarAlt,
+  FaChild,
+  FaExclamation,
+  FaCheck,
+  FaTimes,
+  FaPlaneArrival,
+  FaCar,
+  FaBinoculars,
+  FaMapMarkedAlt,
+} from "react-icons/fa";
 import { useState } from "react";
-import { Link } from 'react-router-dom'
-import crescent from './day2day/crescent.png'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { Link } from "react-router-dom";
+import crescent from "./day2day/crescent.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import {
+  CalendarDays,
+  DollarSign,
+  Users,
+  Baby,
+  Map,
+  Car,
+  Binoculars,
+  PlaneLanding,
+  Check,
+  X,
+  Info,
+  Coffee,
+  Hotel,
+  Sun,
+  Moon,
+  AlertCircle,
+  Utensils
+} from "lucide-react";
 
-function BudgetTour(){
-    const [activeSection, setActiveSection] = useState("overview");
+function BudgetTour() {
+  const [activeSection, setActiveSection] = useState("overview");
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
   };
-    return(
-        <div className="w-full">
-      {/* Navigation */}
-      <nav className="flex justify-center items-center bg-brown-500 p-2 rounded-md">
-  <button
-    onClick={() => handleSectionClick("overview")}
-    className={`hover:bg-green-600 text-lg font-semibold px-3 py-2 focus:outline-none transition-colors ${
-      activeSection === "overview" ? "text-blue-600" : "text-white"
-    }`}
-  >
-    Overview
-  </button>
-  <button
-    onClick={() => handleSectionClick("day-to-day")}
-    className={`hover:bg-green-600 text-lg font-semibold px-3 py-2 focus:outline-none transition-colors ${
-      activeSection === "day-to-day" ? "text-blue-600" : "text-white"
-    }`}
-  >
-    Day to Day
-  </button>
-  <button
-    onClick={() => handleSectionClick("rates")}
-    className={`hover:bg-green-600 text-lg font-semibold px-3 py-2 focus:outline-none transition-colors ${
-      activeSection === "rates" ? "text-blue-600" : "text-white"
-    }`}
-  >
-    Rates
-  </button>
-  <button
-    onClick={() => handleSectionClick("inclusion")}
-    className={`hover:bg-green-600 text-lg font-semibold px-3 py-2 focus:outline-none transition-colors ${
-      activeSection === "inclusion" ? "text-blue-600" : "text-white"
-    }`}
-  >
-    Inclusion
-  </button>
-</nav>
+  return (
+    <div className="min-h-screen bg-gray-50">
+     
 
+    {/* Hero Section */}
+    <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent z-10"></div>
+        <LazyLoadImage
+          src={crescent}
+          alt="Extensive Safari Tour"
+          className="w-full h-[50vh] object-cover"
+          effect="blur"
+        />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-20 w-full px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">
+            Kenyan Safari Adventure
+          </h1>
+          <p className="text-xl text-white max-w-2xl mx-auto drop-shadow-md">
+          Amboseli, Lake Nakuru and Masai Mara National Parks
+          </p>
+        </div>
+      </div>
+
+       {/* Navigation */}
+       <nav className="sticky top-0 z-50 bg-white shadow-lg">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-center space-x-8 p-4">
+            {["overview", "day-to-day", "rates", "inclusion"].map((section) => (
+              <button
+                key={section}
+                onClick={() => setActiveSection(section)}
+                className={`px-4 py-2 rounded-lg transition-all ${
+                  activeSection === section
+                    ? "bg-orange-500 text-white font-semibold"
+                    : "text-gray-600 hover:bg-orange-100"
+                }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1).replace("-", " ")}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
 
       {/* Sections */}
-      <div className="p-4">
-        {/* Overview Section */}
-        {activeSection === "overview" && (
-          <div>
-           <LazyLoadImage
-  src={crescent}
-  alt="Masai Mara National Reserve"
-  className=""
-  effect="blur"
-/>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+      {activeSection === "overview" && (
+  <div className="space-y-8">
+    <div className="bg-white rounded-xl shadow-lg p-6">
+      <h2 className="text-3xl font-bold mb-4 text-gray-800">Overview</h2>
+      <p className="text-gray-600 leading-relaxed">
+              Experience a thrilling safari in Kenya at Amboseli, Lake Nakuru
+              and Masai Mara National Parks where you shall encounter majestic
+              wildlife. Also included is a boat ride to Crescent Island in Lake
+              Naivasha where you will be taken to a nature trail with a
+              professional guide—all at a budget-friendly price!
+            </p>
+            </div>
 
-            <h2 className="text-2xl font-bold mb-4 text-left border-b">Overview</h2>
-            <p className="bg-white rounded-lg shadow-md p-4">Experience a thrilling safari in Kenya at Amboseli, Lake Nakuru and Masai Mara National Parks where you shall encounter majestic wildlife. Also included is a boat ride to Crescent Island in Lake Naivasha where you will be taken to a nature trail with a professional guide—all at a budget-friendly price!
-                 </p>
+             {/* Tour Operations */}
+                        <div className="bg-white rounded-xl shadow-sm p-6">
+                          <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-gray-200 pb-2">Tour Operations</h2>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {[
+                              { icon: <FaDollarSign />, title: "Budget Tour", desc: "This budget tour uses tented camps." },
+                              { icon: <FaUsers />, title: "Shared Tour", desc: "On this shared tour, you will join a group of other travelers. Max 6 people per vehicle." },
+                              { icon: <FaCalendarAlt />, title: "Cannot be customized", desc: "The contents of this tour cannot be changed." },
+                              { icon: <FaUsers />, title: "Suitable for single travelers", desc: "Single travelers can join this group tour, but it requires a minimum of 6 people to run." },
+                              { icon: <FaCalendarAlt />, title: "Can start any day", desc: "If availability permits, this tour can start on any day." },
+                              { icon: <FaChild />, title: "Suitable for all ages", desc: "This tour is suitable for children of all ages." }
+                            ].map((item, index) => (
+                              <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                                <div className="text-orange-500 text-2xl mt-1 flex-shrink-0">
+                                  {item.icon}
+                                </div>
+                                <div>
+                                  <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
+                                  <p className="text-gray-600 mt-1">{item.desc}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
 
-                 {/* content */}
-                 <div className="py-8">
-                    <h2 className="text-2xl font-bold mb-4 border-b text-left">Tour Features</h2>
-                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-white rounded-lg shadow-md">
-                   
-      <div className="flex items-center">
-        <FaDollarSign className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Budget Tour</h3>
-          <p>This budget tour uses tented camps.</p>
-        </div>
-      </div>
+               {/* Activities & Transportation */}
+                         <div className="bg-white rounded-xl shadow-sm p-6">
+                           <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-gray-200 pb-2">Activities & Transportation</h2>
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                             <div className="space-y-6">
+                               <div>
+                                 <h3 className="text-lg font-semibold flex items-center text-gray-800">
+                                   <FaBinoculars className="text-orange-500 mr-2" />
+                                   Activities:
+                                 </h3>
+                                 <p className="text-gray-600 mt-1 ml-7">Game drives</p>
+                               </div>
+                               <div>
+                                 <h3 className="text-lg font-semibold flex items-center text-gray-800">
+                                   <FaBinoculars className="text-orange-500 mr-2" />
+                                   Game Drives:
+                                 </h3>
+                                 <p className="text-gray-600 mt-1 ml-7">Pop-up roof 4x4 vehicle</p>
+                               </div>
+                             </div>
+                             <div className="space-y-6">
+                               <div>
+                                 <h3 className="text-lg font-semibold flex items-center text-gray-800">
+                                   <FaCar className="text-orange-500 mr-2" />
+                                   Getting around:
+                                 </h3>
+                                 <p className="text-gray-600 mt-1 ml-7">Pop-up roof 4x4 vehicle</p>
+                               </div>
+                               <div>
+                                 <h3 className="text-lg font-semibold flex items-center text-gray-800">
+                                   <FaMapMarkedAlt className="text-orange-500 mr-2" />
+                                   Transport:
+                                 </h3>
+                                 <p className="text-gray-600 mt-1 ml-7">A transfer from and back to the airport is included</p>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
 
-      <div className="flex items-center">
-        <FaUsers className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Shared Tour</h3>
-          <p>On this shared tour, you will join a group of other travelers. Max 6 people per vehicle.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaCalendarAlt className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Cannot be customized</h3>
-          <p>The contents of this tour cannot be changed.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaUsers className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Suitable for single travelers</h3>
-          <p>Single travelers can join this group tour, but it requires a minimum of 6 people to run.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaCalendarAlt className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Can start any day</h3>
-          <p>If availability permits, this tour can start on any day.</p>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <FaChild className="text-orange-500 mr-2" />
-        <div>
-          <h3 className="text-lg font-semibold">Suitable for all ages</h3>
-          <p>This tour is suitable for children of all ages.</p>
-        </div>
-      </div>
-    </div>
-
-    {/* section2 */}
-    <div className="py-8">
-     <h2 className="text-2xl font-bold mb-4 border-b text-left">Activities & Transportation</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white rounded-lg shadow-md">
-   
-      <div>
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            <FaBinoculars className="text-orange-500 mr-2" />
-            Activities:
-          </h3>
-          <p>Game drives</p>
-        </div>
-
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            <FaBinoculars className="text-orange-500 mr-2" />
-            Game Drives
-          </h3>
-          <p>Pop-up roof 4x4 vehicle</p>
-        </div>
-      </div>
-
-      <div>
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            <FaCar className="text-orange-500 mr-2" />
-            Getting around:
-          </h3>
-          <p>Pop-up roof 4x4 vehicle</p>
-        </div>
-
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold flex items-center">
-            <FaMapMarkedAlt className="text-orange-500 mr-2" />
-            Transport
-          </h3>
-          <p>A transfer from and back to the airport is included</p>
-        </div>
-      </div>
-    </div>
-    </div>
-
-            {/* section3 */}
-                    <div className="py-8">
-                        <h2 className="text-2xl font-bold border-b text-left">Accomodation & Meals</h2>
-                        <div className="flex items-center">
-      <FaExclamation className="text-red-500 mr-2" />
-      <p>Additional accommodation before and at the end of the tour can be arranged for an extra cost</p>
-    </div>
-                        <div className="overflow-x-auto bg-white rounded-lg shadow-md">
-      <table className="min-w-full">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Day
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Accommodation
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Meals
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 1</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-            <div>
-              <p className="text-left">Nyati Safari Camp </p>
-              <p className="text-left ml-4">Budget tented camp just outside Amboseli NP</p>
-              <div className="flex">
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593609669_ny4r.jpeg" alt="" />
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593661237_ny5r.jpeg" alt="" />
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593489318_ny2r.jpeg" alt="" />
+              {/* section3 */}
+              <div className="py-8">
+                <div className="flex items-center mb-6">
+                        <Hotel className="text-orange-500 w-6 h-6 mr-3" />
+                        <h2 className="text-2xl font-bold text-gray-800">Accommodation & Meals</h2>
+                      </div>
+                
+                      <div className="flex items-center mb-6 bg-orange-50 p-4 rounded-lg">
+                        <AlertCircle className="text-orange-500 w-5 h-5 mr-2 flex-shrink-0" />
+                        <p className="text-gray-700">Additional accommodation before and after the tour can be arranged for an extra cost</p>
+                      </div>
+               <div className="space-y-6">
+                       {[
+                         {
+                           days: "Day 1",
+                           lodge: "Nyati Safari Camp",
+                           type: "Budget tented camp just outside Amboseli NP",
+                           images: [
+                            "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593609669_ny4r.jpeg" ,
+                            "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593661237_ny5r.jpeg" ,
+                            "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593489318_ny2r.jpeg" 
+                           ],
+                           meals: "All meals included"
+                         },
+                         {
+                           days: "Day 2",
+                           lodge: "Masada Hotel",
+                           type: "Mid-range hotel at Lake Naivasha",
+                           images: [
+                            //  "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929864951_naivasha7.jpg", 
+                            //  "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929843779_naivasha2.jpg" ,
+                            //  "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/271_16114929854435_naivasha9.jpg"
+                           ],
+                           meals: "All meals included"
+                         },
+                         {
+                           days: "Day 3",
+                           lodge: "Ivory Park Hotel",
+                           type: "Budget Hotel just outside Lake Nakuru NP",
+                           images: [
+                            //  "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930996435_nakuru.jpg",
+                            //  "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930912846_nakuru6.jpg" ,
+                            //  "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/272_16114930895067_nakuru1.jpg"
+                           ],
+                           meals: "All meals included"
+                         },
+                         {
+                           days: "Day 4-5",
+                           lodge: "Fisi Camp",
+                           type: "Budget tented camp just outside Masai Mara NR",
+                           images: [
+                            "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563954409_fisi3.jpg",
+                            "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563946172_fisi1.jpg" ,
+                            "https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563954427_fisi2.jpg"
+                           ],
+                           meals: "All meals included"
+                         }
+                       ].map((accommodation, index) => (
+                         <div key={index} className="border border-gray-100 rounded-lg overflow-hidden shadow-md">
+                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+                             <div className="md:col-span-1">
+                               <div className="bg-gray-50 p-4 rounded-lg">
+                                 <h3 className="font-semibold text-lg text-gray-800 mb-2">{accommodation.days}</h3>
+                                 <div className="space-y-2">
+                                   <h4 className="font-semibold text-gray-800">{accommodation.lodge}</h4>
+                                   <p className="text-gray-600 text-sm">{accommodation.type}</p>
+                                 </div>
+                               </div>
+                             </div>
+                             
+                             <div className="md:col-span-2">
+                               <div className="grid grid-cols-3 gap-2">
+                                 {accommodation.images.map((image, imgIndex) => (
+                                   <div key={imgIndex} className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">
+                                     <LazyLoadImage
+                                       src={image}
+                                       alt={`${accommodation.lodge} view ${imgIndex + 1}`}
+                                       className="w-full h-full object-cover"
+                                       effect="blur"
+                                     />
+                                   </div>
+                                 ))}
+                               </div>
+                             </div>
+                           </div>
+                           
+                           <div className="bg-gray-50 px-6 py-4 flex items-center">
+                             <Utensils className="text-orange-500 w-5 h-5 mr-2" />
+                             <div>
+                               <span className="font-semibold text-gray-800">Meals:</span>
+                               <span className="text-gray-600 ml-2">{accommodation.meals}</span>
+                             </div>
+                           </div>
+                         </div>
+                       ))}
+               
+                       {/* Final Day */}
+                       <div className="border border-gray-100 rounded-lg overflow-hidden shadow-md">
+                         <div className="p-6">
+                           <h3 className="font-semibold text-lg text-gray-800 mb-2">Day 6</h3>
+                           <p className="text-gray-600">Departure day - Breakfast included</p>
+                         </div>
+                       </div>
+                     </div>
               </div>
             </div>
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">All Meals Included</td>
-          </tr>
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 2</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-              <div>
-              <p className="text-left">Masada Hotel</p>
-            <p className="text-left ml-4">Mid-range hotel at Lake Naivasha</p>
-              </div>
           
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">All Meals Included</td>
-          </tr>
-          {/* Add more rows as needed */}
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 3</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-            <div>
-            <p className="text-left">Ivory Park Hotel</p>
-            <p className="text-left ml-4">Budget hotel just outside Lake Nakuru NP</p>
-            </div>
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">All Meals Included</td>
-          </tr>
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 4-Day 5</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-            <div>
-              <p className="text-left">Fisi Camp</p>
-              <p className="text-left ml-4">Budget tented camp just outside Masai Mara NR</p>
-              <div className="flex">
-              <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563954409_fisi3.jpg" alt="" />
-              <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563946172_fisi1.jpg" alt="" />
-              <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563954427_fisi2.jpg" alt="" />
-              </div>
-            </div>
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">All Meals Included</td>
-          </tr>
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">Day 6</td>
-            <td className="px-6 py-4 whitespace-nowrap text-left">End of tour</td>
-            <td className="px-6 py-4 whitespace-nowrap">Breakfast Included</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-                    </div>
-
-                </div>
-                        
-          </div>
         )}
 
         {/* Day to Day Section */}
-        {activeSection === "day-to-day" && (
-          <div>
-            <h2 className="text-3xl font-bold mb-4">Day to Day</h2>
-
-            <div className="bg-white rounded-lg shadow-md">
-            <div className="flex items-center mb-4">
-  <FaPlaneArrival className="mr-2" />
-  <h2 className="text-2xl font-bold">Arrival</h2>
-</div>
-
-
-<ul className="list-disc pl-6 text-left mb-4">
-  <li>You'll be collected from the airport.</li>
-  <li>Accommodation before the tour starts can be arranged for an extra cost.</li>
-</ul>
-{/* day1 - day2 */}
-<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
-<div className="bg-white rounded-lg shadow-md p-6">
-<div className="relative">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Amboseli_National_Park_062.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold">Day 1</p>
-    <p className="text-lg font-semibold">Amboseli home of African Elephants</p>
-  </div>
-</div>
-
-
-
-                <p className="mb-4">Located at the foot of Mount Kilimanjaro, Amboseli offers breathtaking view of Africa's highest peak as a backdrop to its diverse wildlife. Join us as we traverse vast savannas, encountering herds of elephants, graceful giraffes, majestic lions, and an array of other iconic African species. Our expert guides will lead you on thrilling game drive, ensuring you capture the perfect photo and create lasting memories.</p>
-                <h3 className="text-left font-semibold mb-2">Accommodation: </h3>
-                <h4 className="text-left font-semibold mb-2">Nyati Safari Camp</h4>
-                <h4 className="text-left mb-2">Budget tented camp located just outside Amboseli NP</h4>
-                <div className="flex">
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593609669_ny4r.jpeg" alt="" />
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593661237_ny5r.jpeg" alt="" />
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/0_16987593489318_ny2r.jpeg" alt="" />
-                </div>
-
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-                </div>
-
-                {/* day3 */}
-                <div className="bg-white rounded-lg shadow-md p-6">
-<div className="relative flex items-center">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Crescent_Island_Game_Park_001.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold">Day 2</p>
-    <p className="text-lg font-semibold">Touring Crescent Island in Lake Naivasha</p>
-  </div>
-</div>
-
-
-                <p className="mb-4">A tour of Crescent Island in Lake Naivasha promises an unforgettable adventure filled with natural wonders, wildlife encounters and serene landscapes, making it a must-visit destination for nature lovers and photographers alike. As you step onto the Island, you're greeted by an enchanting landscape characterized by sweeping grasslands, acacia forests, and serene lake views. You'll encounter a wide array of animals in their natural habitat. Expect to see grazing herbivores such as giraffes, zebras, wildebeests, and Waterbuck roaming freely.
-                </p>
-                <h3 className="text-left font-semibold mb-2">Accommodation: </h3>
-                <h4 className="text-left font-semibold mb-2">Masada Hotel</h4>
-                <h4 className="text-left mb-2">Mid-range lodge located at Lake Naivasha</h4>
-
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-                </div>
-
-                {/* day4 */}
-                <div className="bg-white rounded-lg shadow-md p-6">
-<div className="relative flex items-center">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Lake_Nakuru_National_Park_013.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold">Day 3</p>
-    <p className="text-lg font-semibold">Lake Nakuru National Park</p>
-  </div>
-</div>
-
-
-                <p className="mb-4">Due to its stunning scenery and abundant biodiversity, Lake Nakuru National Park promises an unforgettable safari experience. Watch a vast flock of pink Flamingos painting the shores of the alkaline lake with as well as over 400 other avian species. The park also hosts iconic African wildlife, including endangered black and white Rhinos, majestic Lions, and elusive Leopards.</p>
-                <h3 className="text-left font-semibold mb-2">Accommodation: </h3>
-                <h4 className="text-left font-semibold mb-2">Ivory Park Hotel</h4>
-                <h4 className="text-left mb-2">Budget hotel located just outside Lake Nakuru NP</h4>
-
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-                </div>
-
-                {/* day5  */}
-                <div className="bg-white rounded-lg shadow-md p-6">
-<div className="relative flex items-center">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Masai_Mara_National_Reserve_031.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold">Day 4 - Day 5</p>
-    <p className="text-lg font-semibold">The famous Masai Mara National Reserve</p>
-  </div>
-</div>
-
-
-                <p className="mb-4">As the safari comes close to an end, prepare to be mesmerized by the raw beauty and unparalleled diversity of Masai Mara, where every moment is an adventure waiting to unfold. Traverse the vast plains dotted with acacia trees, where the golden Savannah stretches as far as the eye can see. Encounter the iconic members of the African Savannah, from the powerful lions and graceful cheetahs to the imposing elephants and towering giraffes, as they roam freely in their natural habitat. Witness the breathtaking spectacle of the Great Migration, as millions of wildebeest and zebra thunder across the Mara River in a primal display of survival.</p>
-                <h3 className="text-left font-semibold mb-2">Accommodation:</h3>
-                <h4 className="text-left font-semibold mb-2">Fisi Camp</h4>
-                <h4 className="text-left mb-2">Budget tented camp located just outside Masai Mara NR</h4>
-                <div className="flex">
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563954409_fisi3.jpg" alt="" />
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563946172_fisi1.jpg" alt="" />
-                <img src="https://cloudfront.safaribookings.com/accommodations/photos/thumbs/313_16117563954427_fisi2.jpg" alt="" />
-                </div>
-
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-                </div>
-
-                   {/*  day6 */}
-                   <div className="bg-white rounded-lg shadow-md p-6">
-<div className="relative flex items-center">
-  <img src="https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Jomo_Kenyatta_International_Airport_001.jpg" alt="" className="w-auto h-64 rounded-md mr-4" />
-  <div className="absolute bottom-0 left-0 bg-gray-800 p-2 bg-orange-500">
-    <p className="text-sm font-bold">Day 6</p>
-    <p className="text-lg font-semibold">Nairobi - Jomo Kenyatta International Airport</p>
-
-  </div>
-</div>
-
-
-                <p className="mb-4">
-This being the last day of the tour, our professional guide will drive you from Masai Mara to the Airport in Nairobi. On your way home, reflect on the beauty and serenity of Kenya's flora and fauna, knowing that the memories you've created will stay with you forever. Kwaheri - goodbye.</p>
-                <h3 className="text-left font-semibold mb-2">Accommodation:</h3>
-                <h4 className="text-left font-semibold mb-2">Sentrim Mara Camp</h4>
-                <h4 className="text-left mb-2">Mid-range lodge located just outside Masai Mara NR</h4>
-                <h3 className="text-left font-semibold mb-2">Meals & Drinks:</h3>
-                <h4 className="text-left mb-2">All meals included</h4>
-                <h4 className="text-left mb-2">Drinking water(Other drinks not included) </h4>
-                </div>
-
-
-        
-
-            </div>
-            </div>
-
-          </div>
-        )}
+               {activeSection === "day-to-day" && (
+                 <div className="space-y-8">
+                   <div className="bg-white rounded-xl p-6 shadow-md">
+                     <div className="flex items-center mb-6">
+                       <FaPlaneArrival className="text-amber-500 text-2xl mr-3" />
+                       <h2 className="text-3xl font-bold text-gray-800">Arrival</h2>
+                     </div>
+       
+                     <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                       <li>You'll be collected from the airport.</li>
+                       <li>Accommodation before the tour starts can be arranged for an extra cost.</li>
+                     </ul>
+                   </div>
+       
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     {[
+                       {
+                         day: "Day 1",
+                         title: "Amboseli home of African Elephants",
+                         image: "https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Amboseli_National_Park_062.jpg",
+                         description: "Located at the foot of Mount Kilimanjaro, Amboseli offers breathtaking view of Africa's highest peak as a backdrop to its diverse wildlife. Join us as we traverse vast savannas, encountering herds of elephants, graceful giraffes, majestic lions, and an array of other iconic African species. Our expert guides will lead you on thrilling game drive, ensuring you capture the perfect photo and create lasting memories.",
+                         lodge: "Nyati Safari Camp",
+                         lodgeType: "Budget tented camp located outside Amboseli NP"
+                       },
+                       {
+                         day: "Day 2",
+                         title: "Touring Crescent Island in Lake Naivasha",
+                         image: "https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Crescent_Island_Game_Park_001.jpg",
+                         description: "A tour of Crescent Island in Lake Naivasha promises an unforgettable adventure filled with natural wonders, wildlife encounters and serene landscapes, making it a must-visit destination for nature lovers and photographers alike. As you step onto the Island, you're greeted by an enchanting landscape characterized by sweeping grasslands, acacia forests, and serene lake views. You'll encounter a wide array of animals in their natural habitat. Expect to see grazing herbivores such as giraffes, zebras, wildebeests, and Waterbuck roaming freely.",
+                         lodge: "Masada Hotel",
+                         lodgeType: "Mid-range lodge located at Lake Naivasha"
+                       },
+                       {
+                         day: "Day 3",
+                         title: "Lake Nakuru National Park",
+                         image: "https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Lake_Nakuru_National_Park_013.jpg",
+                         description: "Due to its stunning scenery and abundant biodiversity, Lake Nakuru National Park promises an unforgettable safari experience. Watch a vast flock of pink Flamingos painting the shores of the alkaline lake with as well as over 400 other avian species. The park also hosts iconic African wildlife, including endangered black and white Rhinos, majestic Lions, and elusive Leopards",
+                         lodge: "Ivory Park Hotel",
+                         lodgeType: "Budget hotel located outside Lake Nakuru NP"
+                       },
+                       {
+                         day: "Day 4-5",
+                         title: "The famous Masai Mara National Reserve",
+                         image: "https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Masai_Mara_National_Reserve_031.jpg",
+                         description: "As the safari comes close to an end, prepare to be mesmerized by the raw beauty and unparalleled diversity of Masai Mara, where every moment is an adventure waiting to unfold. Traverse the vast plains dotted with acacia trees, where the golden Savannah stretches as far as the eye can see. Encounter the iconic members of the African Savannah, from the powerful lions and graceful cheetahs to the imposing elephants and towering giraffes, as they roam freely in their natural habitat. Witness the breathtaking spectacle of the Great Migration, as millions of wildebeest and zebra thunder across the Mara River in a primal display of survival",
+                         lodge: "Fisi Camp",
+                         lodgeType: "Budget tented camp located just outside Masai Mara NR"
+                       },
+                       {
+                         day: "Day 6",
+                         title: "End of trip to Jomo Kenyatta International Airport",
+                         image: "https://cloudfront.safaribookings.com/lib/kenya/destination/752x253/Jomo_Kenyatta_International_Airport_001.jpg",
+                         description: "This being the last day of the tour, our professional guide will drive you from Masai Mara to the Airport in Nairobi. On your way home, reflect on the beauty and serenity of Kenya's flora and fauna, knowing that the memories you've created will stay with you forever. Kwaheri - goodbye",
+                         lodge: "No Accommodation",
+                         lodgeType: "",
+                         meals: "Breakfast (Lunch & dinner not included)"
+                       }
+                     ].map((day, index) => (
+                       <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md transition-transform hover:scale-[1.02]">
+                         <div className="relative">
+                           <img 
+                             src={day.image} 
+                             alt={day.title} 
+                             className="w-full h-56 object-cover"
+                           />
+                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                           <div className="absolute bottom-0 left-0 p-4 text-white">
+                             <p className="text-amber-300 font-bold">{day.day}</p>
+                             <h3 className="text-xl font-bold">{day.title}</h3>
+                           </div>
+                         </div>
+                         
+                         <div className="p-5 space-y-4">
+                           <p className="text-gray-700 leading-relaxed">{day.description}</p>
+                           
+                           <div className="space-y-2">
+                             <h4 className="font-semibold text-gray-800">Accommodation:</h4>
+                             <p className="font-medium text-gray-700">{day.lodge}</p>
+                             {day.lodgeType && <p className="text-sm text-gray-600">{day.lodgeType}</p>}
+                           </div>
+                           
+                           <div className="space-y-2">
+                             <h4 className="font-semibold text-gray-800">Meals & Drinks:</h4>
+                             <p className="text-gray-700">{day.meals || "All meals included"}</p>
+                             <p className="text-gray-700">Drinking water (Other drinks not included)</p>
+                           </div>
+                         </div>
+                       </div>
+                     ))}
+                   </div>
+                 </div>
+               )}
 
         {/* Rates Section */}
-        {activeSection === "rates" && (
-          <div>
-            <h2 className="text-3xl font-bold mb-4">Rates</h2>
-
-            <div className="my-8">
-  <h2 className="text-xl font-semibold mb-4">Important to Know</h2>
-  <ol className="list-decimal pl-6">
-    <li className="text-left mb-2">
-      Rates are per person and exclude the international flight from/to your home country.
-    </li>
-    <li className="text-left mb-2">
-      A travel party of 1 or 2 people can join this group tour, but it requires a minimum of 6 people to run.
-    </li>
-    <li className="text-left mb-2">
-      This tour accepts children of all ages.
-    </li>
-  </ol>
-</div>
-
-
-<div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-2xl font-bold mb-4">Rates per person</h2>
-
-                <div className="overflow-x-auto">
-        <table className="table-auto w-full border-collapse">
-          <thead>
-            <tr>
-              <th className="px-4 py-2 bg-gray-200">Start Dates</th>
-              <th className="px-4 py-2 bg-gray-200">Single</th>
-              <th className="px-4 py-2 bg-gray-200">2 People</th>
-              <th className="px-4 py-2 bg-gray-200">3 People</th>
-              <th className="px-4 py-2 bg-gray-200">4 People</th>
-              <th className="px-4 py-2 bg-gray-200">5 People</th>
-              <th className="px-4 py-2 bg-gray-200">6 People</th>
-              <th className="px-4 py-2 bg-gray-200">7+ People</th>
-            </tr>
-          </thead>
-          
-          <tbody>
-            {/* Add rows of data here */}
-            <tr>
-              <td className="border px-4 py-2">Jan 2, 2024 - Jun 30, 2024</td>
-              <td className="border px-4 py-2">$1,626</td>
-              <td className="border px-4 py-2">$982</td>
-              <td className="border px-4 py-2">$768</td>
-              <td className="border px-4 py-2">$662</td>
-              <td className="border px-4 py-2">$597</td>
-              <td className="border px-4 py-2">$554</td>
-              <td className="border px-4 py-2 hover:bg-brown-600 ">
-                <Link to="/quote-form">
-                Get Quote
-                </Link></td>
-            </tr>
-
-            <tr>
-              <td className="border px-4 py-2">Jul 1, 2024 - Dec 31, 2024</td>
-              <td className="border px-4 py-2">$1,626</td>
-              <td className="border px-4 py-2">$982</td>
-              <td className="border px-4 py-2">$768</td>
-              <td className="border px-4 py-2">$662</td>
-              <td className="border px-4 py-2">$597</td>
-              <td className="border px-4 py-2">$554</td>
-              <td className="border px-4 py-2 hover:bg-brown-600 ">
-                <Link to="/quote-form">
-                Get Quote
-                </Link></td>
-            </tr>
-
-            {/* <tr>
-              <td className="border px-4 py-2">Nov 1, 2024 - Dec 19, 2024</td>
-              <td className="border px-4 py-2">$2,013</td>
-              <td className="border px-4 py-2">$1,297</td>
-              <td className="border px-4 py-2">$1,090</td>
-              <td className="border px-4 py-2">$965</td>
-              <td className="border px-4 py-2">$908</td>
-              <td className="border px-4 py-2">$853</td>
-              <td className="border px-4 py-2">Available</td>
-            </tr>
-
-            <tr>
-              <td className="border px-4 py-2">Dec 20, 2024 - Dec 31, 2024</td>
-              <td className="border px-4 py-2">$2,013</td>
-              <td className="border px-4 py-2">$1,297</td>
-              <td className="border px-4 py-2">$1,090</td>
-              <td className="border px-4 py-2">$965</td>
-              <td className="border px-4 py-2">$908</td>
-              <td className="border px-4 py-2">$853</td>
-              <td className="border px-4 py-2">Available</td>
-            </tr> */}
-
-
-            {/* Add more rows as needed */}
-          </tbody>
-        </table>
-      </div>
-      {/* <div className="mt-4 hover:bg-brown-600">
-    
-                <Link to="/quote-form">
-                Get Quote
-                </Link>
-      </div> */}
-            </div>
-
-          </div>
-        )}
+                {activeSection === "rates" && (
+                  <div className="space-y-8">
+                    <div className="bg-white rounded-xl p-6 shadow-md">
+                      <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b pb-2">Important to Know</h2>
+                      <ul className="list-disc pl-6 space-y-3 text-gray-700">
+                        <li>Rates are per person and exclude the international flight from/to your home country.</li>
+                        <li>A travel party of 1 or 2 people can join this group tour, but it requires a minimum of 6 people to run.</li>
+                        <li>This tour accepts children of all ages. Children under 3 are free.</li>
+                      </ul>
+                    </div>
+        
+                    <div className="bg-white rounded-xl p-6 shadow-md">
+                      <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b pb-2">Rates per person</h2>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white rounded-lg overflow-hidden">
+                          <thead className="bg-amber-100">
+                            <tr>
+                              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Start Dates</th>
+                              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Single</th>
+                              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">2 People</th>
+                              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">3 People</th>
+                              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">4 People</th>
+                              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">5 People</th>
+                              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">6 People</th>
+                              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">7+ People</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-gray-200">
+                            {[
+                              {
+                                dates: "Jan 2, 2024 - Jun 30, 2024",
+                                prices: ["$1,626", "$982", "$768", "$662", "$597", "$554"]
+                              },
+                              {
+                                dates: "Jun 1, 2024 - Dec 31, 2024",
+                                prices: ["$1,626", "$982", "$768", "$662", "$597", "$554"]
+                              },
+                              // {
+                              //   dates: "Nov 1, 2024 - Dec 20, 2024",
+                              //   prices: ["$5,970", "$3,779", "$3,255", "$2,827", "$2,690", "$2,487"]
+                              // },
+                              // {
+                              //   dates: "Dec 21, 2024 - Jan 2, 2025",
+                              //   prices: ["$6,668", "$4,622", "$3,968", "$3,504", "$3,432", "$2,745"]
+                              // }
+                            ].map((period, index) => (
+                              <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                <td className="py-3 px-4 font-medium text-gray-700">{period.dates}</td>
+                                {period.prices.map((price, i) => (
+                                  <td key={i} className="py-3 px-4 text-gray-700">{price}</td>
+                                ))}
+                                <td className="py-3 px-4">
+                                  <Link to="/quote-form" className="block text-center bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded-md transition-colors">
+                                    Get Quote
+                                  </Link>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
         {/* Inclusion Section */}
         {activeSection === "inclusion" && (
-          <div>
-            {/* <h2 className="text-2xl font-bold mb-4">Inclusion</h2> */}
-            <div className="flex justify-center">
-      <div className="w-1/2 mr-4">
-        <div className="flex items-center">
-        <FaCheck className="text-orange-500 mr-2" />
-        <h2 className="text-lg font-semibold mb-2">  Included</h2>
-        </div>
-        
-        <ul className="list-disc pl-4 text-left">
-          <li>Park fees (For non-residents)</li>
-          <li>All activities (Unless labeled as optional)</li>
-          <li>All accommodation (Unless listed as upgrade)</li>
-          <li>A professional driver/guide</li>
-          <li>All transportation (Unless labeled as optional)</li>
-          <li>All Taxes/VAT</li>
-          <li>Roundtrip airport transfer</li>
-          <li>Meals (As specified in the day-by-day section)</li>
-          <li>Drinks (As specified in the day-by-day section)</li>
-        </ul>
-      </div>
-      <div className="w-1/2">
-        <div className="flex items-center">
-        <FaTimes className="text-orange-500 mr-2" />
-        <h2 className="text-lg font-semibold mb-2"> Excluded</h2>
-        </div>
-        
-        <ul className="list-disc pl-4 text-left">
-          <li>International flights (From/to home)</li>
-          <li>Additional accommodation before and at the end of the tour</li>
-          <li>Tips (Tipping guideline US$10.00 pp per day)</li>
-          <li>Personal items (Souvenirs, travel insurance, visa fees, etc.)</li>
-          <li>Government imposed increase of taxes and/or park fees</li>
-        </ul>
-      </div>
-    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl shadow-lg p-6">
+              <div className="flex items-center mb-4">
+                <Check className="text-green-500 w-6 h-6 mr-2" />
+                <h2 className="text-2xl font-bold text-gray-800">Included</h2>
+              </div>
+              <ul className="space-y-3">
+                {[
+                  "Park fees (For non-residents)",
+                  "All activities (Unless labeled as optional)",
+                  "All accommodation",
+                  "Professional driver/guide",
+                  "All transportation",
+                  "All Taxes/VAT",
+                  "Roundtrip airport transfer",
+                  "Meals (As specified)",
+                  "Drinking water"
+                ].map((item) => (
+                  <li key={item} className="flex items-center text-gray-600">
+                    <Check className="text-green-500 w-4 h-4 mr-2" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6">
+              <div className="flex items-center mb-4">
+                <X className="text-red-500 w-6 h-6 mr-2" />
+                <h2 className="text-2xl font-bold text-gray-800">Not Included</h2>
+              </div>
+              <ul className="space-y-3">
+                {[
+                  "International flights",
+                  "Additional accommodation",
+                  "Tips (US$10.00 pp per day)",
+                  "Personal items",
+                  "Visa fees",
+                  "Travel insurance",
+                  "Government imposed increase of taxes"
+                ].map((item) => (
+                  <li key={item} className="flex items-center text-gray-600">
+                    <X className="text-red-500 w-4 h-4 mr-2" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
       </div>
     </div>
-    )
+  );
 }
-export default BudgetTour
+export default BudgetTour;

@@ -1,40 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap'); */
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
-/* global.css */
-
-/* Miandra GD Regular */
-/* @font-face {
-  font-family: 'Miandra GD';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Miandra GD Regular'), local('MiandraGD-Regular'),
-       url('https://fonts.gstatic.com/s/miandragd/v1/pxiEypNc_2UfrJf8d1nAoH8GNlaK.ttf') format('truetype');
-} */
-
-/* Optionally, you can include additional styles for the body or specific elements */
- 
-  /* font-family: 'Miandra GD', sans-serif; */
-  /* global.css */
+@import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 
  
 
 body {
   /* font-family: 'Roboto', sans-serif; */
-  font-family: 'PLayfair Display', serif;
+  font-family: 'Helvetica', serif;
 }
 
 
