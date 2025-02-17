@@ -30,3 +30,4 @@ yarn-error.log*
 /src/components/shiftedfrommain
 /src/components/team/
 /src/components/top-places
+build.zip
