@@ -1,13 +1,8 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
 
-// List of public LibreTranslate instances to try
-const LIBRETRANSLATE_INSTANCES = [
-  'https://translate.argosopentech.com',  // More reliable instance
-  'https://libretranslate.de',
-  'https://translate.terraprint.co'
-];
-
 const TranslationContext = createContext();
+
+const MYMEMORY_API_URL = 'https://api.mymemory.translated.net/get';
 
 export const TranslationProvider = ({ children }) => {
   const [language, setLanguage] = useState('en');
@@ -32,54 +27,75 @@ export const TranslationProvider = ({ children }) => {
     setIsLoading(true);
     setError(null);
 
-    // Try each instance until one works
-    for (const baseUrl of LIBRETRANSLATE_INSTANCES) {
-      try {
-        const response = await fetch('http://localhost:5000/translate', { 
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                q: text,
-                source: 'en',
-                target: targetLang
-            })
-        });
-        
+    try {
+      // Using MyMemory API directly from frontend
+      const langPair = `en|${targetLang}`;
+      const encodedText = encodeURIComponent(text);
+      const url = `${MYMEMORY_API_URL}?q=${encodedText}&langpair=${langPair}`;
+      
+      const response = await fetch(url);
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-        const data = await response.json();
+      const data = await response.json();
+      
+      if (data.responseStatus === 200) {
+        const translatedText = data.responseData.translatedText;
         
         // Update cache
         setCache(prevCache => ({
           ...prevCache,
-          [cacheKey]: data.translatedText
+          [cacheKey]: translatedText
         }));
 
         setIsLoading(false);
-        return data.translatedText;
-
-      } catch (err) {
-        console.warn(`Failed to translate using ${baseUrl}:`, err);
-        // Continue to next instance if available
-        continue;
+        return translatedText;
+      } else {
+        throw new Error(data.responseDetails || 'Translation failed');
       }
-    }
 
-    // If all instances failed
-    setError('Translation service unavailable. Please try again later.');
-    setIsLoading(false);
-    return text; // Fallback to original text
+    } catch (err) {
+      console.error('Translation error:', err);
+      setError('Translation service unavailable. Please try again later.');
+      setIsLoading(false);
+      return text; // Fallback to original text
+    }
   }, [language, cache]);
+
+  // Batch translation helper
+  const translateBatch = useCallback(async (texts, targetLang = language) => {
+    try {
+      const translations = await Promise.all(
+        texts.map(text => translateText(text, targetLang))
+      );
+      return translations;
+    } catch (err) {
+      console.error('Batch translation error:', err);
+      return texts; // Return original texts if translation fails
+    }
+  }, [translateText, language]);
 
   const value = {
     language,
     setLanguage,
     translateText,
+    translateBatch,
     isLoading,
-    error
+    error,
+    supportedLanguages: {
+      'en': 'English',
+      'sw': 'Swahili',
+      'fr': 'French',
+      'es': 'Spanish',
+      'de': 'German',
+      'it': 'Italian',
+      'pt': 'Portuguese',
+      'ar': 'Arabic',
+      'zh': 'Chinese',
+      'hi': 'Hindi'
+    }
   };
 
   return (

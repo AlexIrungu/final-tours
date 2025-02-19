@@ -20,6 +20,7 @@ import BannerSlider from "./BannerSlider";
 import TeamData from "./TeamData";
 import Service from './ServiceSection';
 import Flow from "./Flow";
+import MermaidBookingFlow from "./MermaidBookingFlow";
 
 
 function Home() {
@@ -277,7 +278,7 @@ function Home() {
           ))}
         </div>
       </section>
-      <Flow />
+      <MermaidBookingFlow />
       <Service />
       <TeamData />
     </main>

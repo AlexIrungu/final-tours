@@ -8,11 +8,12 @@ import { useTranslation } from './TranslationContext';
 const Navbar = () => {
   const history = useHistory();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { translateText, language } = useTranslation();
+  const { translateText, language, setLanguage } = useTranslation();
   const [translations, setTranslations] = useState({
     home: 'Home',
     about: 'About',
     gallery: 'Gallery',
+    places: 'Places',
     maps: 'Maps',
     contact: 'Contact'
   });
@@ -47,12 +48,20 @@ const Navbar = () => {
     { name: translations.home, path: '/' },
     { name: translations.about, path: '/about' },
     { name: translations.gallery, path: '/gallery' },
+    { name: translations.maps, path: '/places' },
     { name: translations.maps, path: '/maps' },
     { name: translations.contact, path: '/contact' }
   ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLanguageChange = async (newLang) => {
+    setLanguage(newLang);
+    // Translate your content here
+    const translated = await translateText('Hello World', newLang);
+    console.log(translated);
   };
 
   const handleNavigation = (path) => {
