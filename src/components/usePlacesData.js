@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+const API_BASE_URL = 'https://final-tours.onrender.com';
+
 const usePlacesData = (searchQuery = '') => {
   const [places, setPlaces] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,10 +11,18 @@ const usePlacesData = (searchQuery = '') => {
     const fetchPlaces = async () => {
       try {
         setLoading(true);
-        const url = `http://localhost:5000/api/places${searchQuery ? `?search=${encodeURIComponent(searchQuery)}` : ''}`;
+        const url = `${API_BASE_URL}/api/places${searchQuery ? `?search=${encodeURIComponent(searchQuery)}` : ''}`;
         console.log('Fetching places from:', url);
         
-        const response = await fetch(url);
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          // Adding CORS mode explicitly
+          mode: 'cors'
+        });
 
         if (!response.ok) {
           throw new Error(`Failed to fetch places: ${response.status}`);
@@ -35,35 +45,35 @@ const usePlacesData = (searchQuery = '') => {
         // Fallback data when API fails
         const fallbackData = [
           {
-            id: '1',
-            name: 'Masai Mara',
-            type: 'Park',
+            id: 'masai-mara',
+            name: 'Masai Mara National Reserve',
+            type: 'National Park',
             rating: 4.8,
             description: 'Famous game reserve known for the annual wildebeest migration',
-            image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800',
+            images: [`${API_BASE_URL}/api/placeholder/800/500`],
             bestTime: 'July to October',
             highlights: ['Wildlife', 'Safari', 'Nature'],
-            location: { lat: -1.5, lng: 35.1 }
+            location: { lat: -1.5021, lng: 35.1447 }
           },
           {
-            id: '2',
+            id: 'diani-beach',
             name: 'Diani Beach',
             type: 'Beach',
             rating: 4.7,
             description: 'Pristine white sandy beach with crystal clear waters',
-            image: 'https://images.unsplash.com/photo-1589519160732-57fc498494f8?q=80&w=800',
+            images: [`${API_BASE_URL}/api/placeholder/800/500`],
             bestTime: 'December to March',
             highlights: ['Beach', 'Water Sports', 'Marine Life'],
-            location: { lat: -4.3, lng: 39.6 }
+            location: { lat: -4.3477, lng: 39.5682 }
           },
           {
-            id: '3',
-            name: 'Mount Kenya',
-            type: 'Mountain',
+            id: 'mount-kenya',
+            name: 'Mount Kenya National Park',
+            type: 'National Park',
             rating: 4.6,
-            description: 'Second highest mountain in Africa with breathtaking glaciers and alpine forests',
-            image: 'https://images.unsplash.com/photo-1558424871-c0cc827bc7bb?q=80&w=800',
-            bestTime: 'January to February',
+            description: 'Second highest mountain in Africa with breathtaking glaciers',
+            images: [`${API_BASE_URL}/api/placeholder/800/500`],
+            bestTime: 'December to March',
             highlights: ['Hiking', 'Mountain', 'Adventure'],
             location: { lat: -0.1522, lng: 37.3084 }
           }

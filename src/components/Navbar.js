@@ -38,6 +38,7 @@ const Navbar = () => {
         home: 'Home',
         about: 'About',
         gallery: 'Gallery',
+        places: 'Places',
         maps: 'Maps',
         contact: 'Contact'
       });
@@ -48,7 +49,7 @@ const Navbar = () => {
     { name: translations.home, path: '/' },
     { name: translations.about, path: '/about' },
     { name: translations.gallery, path: '/gallery' },
-    { name: translations.maps, path: '/places' },
+    { name: translations.places, path: '/places' },
     { name: translations.maps, path: '/maps' },
     { name: translations.contact, path: '/contact' }
   ];
@@ -117,7 +118,7 @@ const Navbar = () => {
               ))}
             </div>
             <div className="ml-6">
-              <SimpleLanguageSwitcher />
+              {/* <SimpleLanguageSwitcher /> */}
             </div>
           </div>
         </div>
