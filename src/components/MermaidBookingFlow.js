@@ -40,7 +40,7 @@ const MermaidBookingFlow = () => {
   };
 
   return (
-    <Card className="w-full max-w-4xl mx-auto p-6 bg-gradient-to-b from-slate-50 to-slate-100">
+    <Card className="w-full max-w-4xl mx-auto p-6 bg-orange-50">
       <h2 className="text-2xl font-bold text-center mb-8 text-orange-500">How to Book with Us</h2>
       
       {/* Progress Steps */}

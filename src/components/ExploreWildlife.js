@@ -1,64 +1,109 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { PawPrint, ChevronRight, Camera } from 'lucide-react';
 
-const ExploreWildlife = () => {
-  const [selectedFeature, setSelectedFeature] = useState('');
+const wildlifeFeatures = [
+  {
+    name: 'The Big Five',
+    description: 'Encounter Africa\'s most iconic animals: the Lion, Leopard, Elephant, Rhino, and Cape Buffalo. Kenya is one of the few places where you can spot all of these magnificent creatures in their natural habitat.',
+    imageFilter: 'big5',
+    details: {
+      locations: ['Masai Mara', 'Tsavo East', 'Amboseli'],
+      bestTime: 'July to October (Migration Season)',
+      highlights: ['Lion prides in Masai Mara', 'Elephant herds in Amboseli', 'Black Rhino in Tsavo']
+    }
+  },
+  {
+    name: 'Safari Adventures',
+    description: 'Experience thrilling game drives through Kenya\'s most spectacular national parks and reserves. Witness the Great Migration, spot countless species, and immerse yourself in the wild heart of Africa.',
+    imageFilter: 'safari',
+    details: {
+      locations: ['Masai Mara', 'Samburu', 'Lake Nakuru'],
+      bestTime: 'Year-round, peak during migration',
+      highlights: ['Wildebeest Migration', 'Sunrise game drives', 'Luxury safari lodges']
+    }
+  },
+  {
+    name: 'Bird Paradise',
+    description: 'Kenya is a birdwatcher\'s paradise with over 1,100 recorded species. From the famous flamingos of Lake Nakuru to the rare species in Mount Kenya\'s forests, discover an incredible variety of avian life.',
+    imageFilter: 'birds',
+    details: {
+      locations: ['Lake Nakuru', 'Lake Naivasha', 'Kakamega Forest'],
+      bestTime: 'October to April',
+      highlights: ['Flamingo flocks', 'Fish Eagles', 'Forest birds']
+    }
+  },
+  {
+    name: 'Marine Life',
+    description: 'Explore Kenya\'s stunning coastal waters, home to diverse marine life including dolphins, sea turtles, and vibrant coral reefs. The warm waters of the Indian Ocean host an incredible underwater ecosystem.',
+    imageFilter: 'marine',
+    details: {
+      locations: ['Watamu', 'Malindi', 'Diani Beach'],
+      bestTime: 'December to March',
+      highlights: ['Whale Sharks', 'Coral Gardens', 'Sea Turtles']
+    }
+  },
+  {
+    name: 'Conservation Success',
+    description: 'Learn about Kenya\'s dedication to wildlife conservation, from anti-poaching efforts to community-based conservation initiatives. Discover how these programs are helping protect endangered species.',
+    imageFilter: 'conservation',
+    details: {
+      locations: ['Lewa Conservancy', 'Ol Pejeta', 'David Sheldrick Wildlife Trust'],
+      bestTime: 'Year-round',
+      highlights: ['Rhino conservation', 'Elephant orphanage', 'Community projects']
+    }
+  }
+];
 
-  const features = [
-    {
-      name: 'Safari Adventure',
-      description: 'Embark on a virtual safari adventure through Kenya’s national parks, home to diverse wildlife, including lions, elephants, giraffes, and more.',
-    },
-    {
-      name: 'Unique Habitats',
-      description: 'Discover Kenya’s varied habitats, from the arid landscapes of Samburu to the lush forests of Aberdare, showcasing a stunning array of flora and fauna.',
-    },
-    {
-      name: 'Bird Watching',
-      description: 'Explore the rich birdlife of Kenya, known for its abundance of species. Visit Lake Nakuru, a haven for flamingos, and witness incredible bird migrations.',
-    },
-    {
-      name: 'Conservation Efforts',
-      description: 'Learn about Kenya’s dedicated conservation efforts, protecting endangered species and preserving the natural beauty of the country for future generations.',
-    },
-  ];
-
-  const handleFeatureClick = (featureName) => {
-    setSelectedFeature(featureName);
-  };
-
+const ExploreWildlife = ({ onFeatureClick, selectedFeature }) => {
   return (
-    <div className="container mx-auto p-8">
-      <h2 className="text-4xl font-bold mb-4">Explore Kenya's Wildlife</h2>
-      <p className="text-lg mb-6">Choose a feature to dive into the wild world of Kenya:</p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {features.map((feature) => (
-          <div
-            key={feature.name}
-            className={`p-4 border rounded cursor-pointer hover:bg-gray-100 transition duration-300 ${
-              selectedFeature === feature.name ? 'border-green-500' : 'border-gray-300'
-            }`}
-            onClick={() => handleFeatureClick(feature.name)}
-          >
-            <h3 className="text-xl font-semibold mb-2">{feature.name}</h3>
-            <p className="text-gray-600">{feature.description}</p>
+    <div className="space-y-3">
+      {wildlifeFeatures.map((feature) => (
+        <motion.div
+          key={feature.name}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className={`p-5 rounded-xl cursor-pointer transition-all duration-300 ${
+            selectedFeature?.name === feature.name
+              ? 'bg-amber-800 text-white shadow-xl'
+              : 'bg-white/80 shadow-md hover:shadow-lg backdrop-blur-sm'
+          }`}
+          onClick={() => onFeatureClick(feature)}
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <PawPrint className={`w-5 h-5 ${selectedFeature?.name === feature.name ? 'text-amber-200' : 'text-amber-600'}`} />
+              <h3 className="text-lg font-semibold">{feature.name}</h3>
+            </div>
+            <ChevronRight 
+              className={`w-5 h-5 transition-transform duration-300 ${
+                selectedFeature?.name === feature.name ? 'rotate-90' : ''
+              }`}
+            />
           </div>
-        ))}
-      </div>
-
-      <div className="mt-8">
-        {selectedFeature && (
-          <div>
-            <h3 className="text-2xl font-bold mb-4">{selectedFeature}</h3>
-            <p className="text-gray-700">
-              {features.find((feature) => feature.name === selectedFeature).description}
-            </p>
-            {/* Add interactive elements like images, videos, or 3D models here */}
-          </div>
-        )}
-      </div>
+          {selectedFeature?.name === feature.name && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="mt-4 text-white/90"
+            >
+              <p className="text-sm mb-4">{feature.description}</p>
+              <div className="bg-amber-900/30 rounded-lg p-4">
+                <h4 className="font-semibold mb-2">Key Information:</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>🌍 Best locations: {feature.details.locations.join(', ')}</li>
+                  <li>⏰ Best time to visit: {feature.details.bestTime}</li>
+                  <li>✨ Highlights: {feature.details.highlights.join(', ')}</li>
+                </ul>
+              </div>
+            </motion.div>
+          )}
+        </motion.div>
+      ))}
     </div>
   );
 };
 
+export { wildlifeFeatures };
 export default ExploreWildlife;
