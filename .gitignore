@@ -33,4 +33,5 @@ yarn-error.log*
 build.zip
 src/components/video.mp4
 
-backend/.env
+**/.env
+
